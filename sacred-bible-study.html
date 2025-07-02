@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACRED Bible Study Tool - Humble Wisdom Learning Experience Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #192E5B, #742D75);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-link {
+            background: linear-gradient(45deg, #8AAC46, #3288A0);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(138, 172, 70, 0.3);
+        }
+
+        .product-hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #192E5B, #3288A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #192E5B;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(50, 136, 160, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #3288A0;
+        }
+
+        .feature-card h4 {
+            color: #192E5B;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(138, 172, 70, 0.1);
+            border-radius: 15px;
+            border: 2px solid #8AAC46;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #8AAC46, #3288A0);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 172, 70, 0.4);
+        }
+
+        .testimonial {
+            background: rgba(116, 45, 117, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #742D75;
+            font-style: italic;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .product-title {
+                font-size: 2rem;
+            }
+            
+            .product-hero {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Humble Wisdom Learning Experience Design</div>
+                <a href="index.html" class="back-link">← Back to Main Site</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="product-hero">
+            <div class="product-icon">✝️</div>
+            <h1 class="product-title">SACRED Bible Study Tool</h1>
+            <p class="product-subtitle">Transform your scripture study with interactive digital tools designed for deep spiritual growth</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">What is SACRED?</h2>
+            <p>SACRED (Scripture Analysis, Cross-Reference, and Educational Development) is a comprehensive Bible study tool that helps believers dive deeper into God's Word through interactive features, cross-references, and guided study paths.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📖 Interactive Scripture Reading</h4>
+                    <p>Click-through references, instant definitions, and contextual notes enhance your reading experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🔗 Smart Cross-References</h4>
+                    <p>Automatically discover related verses and themes throughout the Bible with our intelligent linking system.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>📝 Study Progress Tracking</h4>
+                    <p>Track your daily reading, note spiritual insights, and monitor your growth journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>💡 Guided Study Plans</h4>
+                    <p>Follow structured study plans for different topics, books, or spiritual growth goals.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Why Choose SACRED?</h2>
+            <ul style="font-size: 1.1rem; line-height: 2;">
+                <li><strong>Biblically Sound:</strong> Based on conservative, evangelical interpretation principles</li>
+                <li><strong>User-Friendly:</strong> Intuitive interface designed for all ages and tech comfort levels</li>
+                <li><strong>Comprehensive:</strong> Includes multiple Bible translations, commentaries, and study resources</li>
+                <li><strong>Offline Access:</strong> Download content for study anywhere, anytime</li>
+                <li><strong>Community Features:</strong> Connect with other believers for group studies and discussions</li>
+            </ul>
+        </section>
+
+        <div class="testimonial">
+            <p>"SACRED has revolutionized my daily Bible study. The cross-reference feature helps me see connections I never noticed before, and the progress tracking keeps me motivated in my spiritual journey." - Sarah M., Youth Pastor</p>
+        </div>
+
+        <section class="content-section">
+            <div class="download-section">
+                <h2 style="color: #192E5B; margin-bottom: 1rem;">Ready to Transform Your Bible Study?</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Download SACRED today and begin your journey toward deeper biblical understanding.</p>
+                
+                <a href="#" class="download-btn">📱 Download for Mobile</a>
+                <a href="#" class="download-btn">💻 Download for Desktop</a>
+                
+                <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                    Free download • No subscription required • Works offline
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">System Requirements</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div>
+                    <h4>📱 Mobile</h4>
+                    <p>iOS 12+ or Android 8+<br>50MB storage space</p>
+                </div>
+                <div>
+                    <h4>💻 Desktop</h4>
+                    <p>Windows 10+ or macOS 10.14+<br>100MB storage space</p>
+                </div>
+                <div>
+                    <h4>🌐 Web Version</h4>
+                    <p>Modern web browser<br>Internet connection required</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
