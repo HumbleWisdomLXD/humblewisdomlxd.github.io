@@ -1,1 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Non-Resistance Guides - Humble Wisdom Learning Experience Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #192E5B, #3288A0);
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
+        }
+
+        .logo-section {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .css-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo-humble {
+            font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8AAC46, #F68426);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transform: skew(-5deg);
+        }
+
+        .logo-wisdom {
+            font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transform: skew(-5deg);
+            margin-top: -8px;
+            margin-left: 10px;
+        }
+
+        .logo-tagline {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            margin-left: 3px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #3288A0;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 0;
+            margin: 3rem 0;
+        }
+
+        .guide-item {
+            background: transparent;
+            border-left: 4px solid #3288A0;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .guide-item:hover {
+            background: rgba(50, 136, 160, 0.05);
+            border-left-width: 8px;
+            transform: translateX(10px);
+        }
+
+        .guide-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: #8AAC46;
+            transition: width 0.3s ease;
+        }
+
+        .guide-item:hover::before {
+            width: 4px;
+        }
+
+        .guide-number {
+            font-size: 1rem;
+            color: #8AAC46;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .guide-item h3 {
+            font-size: 1.8rem;
+            color: #3288A0;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .guide-item p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #8AAC46;
+            color: black;
+            padding: 0.4rem 1rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 900;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tag.paid {
+            background: #F68426;
+            color: white;
+        }
+
+        .coming-soon {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px dashed #444;
+            padding: 3rem 2rem;
+            border-radius: 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .coming-soon h3 {
+            font-size: 2rem;
+            color: #3288A0;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .coming-soon p {
+            color: #999;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-section {
+                position: static;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .back-link {
+                position: static;
+                display: inline-block;
+                margin-bottom: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+            
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-item:hover {
+                transform: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="logo-section">
+            <a href="index.html" style="text-decoration: none;">
+                <div class="css-logo">
+                    <span class="logo-humble">Humble</span>
+                    <span class="logo-wisdom">Wisdom</span>
+                    <div class="logo-tagline">Learning Experience Design</div>
+                </div>
+            </a>
+        </div>
+        
+        <a href="index.html" class="back-link">← Back</a>
+        
+        <h1>Active Non-Resistance</h1>
+        <p>Practical frameworks for responding to conflict with wisdom, dignity, and purpose</p>
+    </div>
+    
+    <div class="content">
+        <div class="section-header">
+            <h2 class="section-title">Available Guides</h2>
+            <p class="section-description">Learn effective strategies for addressing challenging situations without resorting to aggression or passive submission. Maintain your principles while creating positive outcomes.</p>
+        </div>
+        
+        <div class="guides-grid">
+            <div class="guide-item">
+                <div class="guide-number">Guide 01</div>
+                <h3>Resisting Evil People</h3>
+                <p>Practical strategies for dealing with manipulative, harmful, or toxic individuals while maintaining your integrity and safety in personal and professional environments.</p>
+                <div class="tag">FREE</div>
+            </div>
+            
+            <div class="guide-item">
+                <div class="guide-number">Guide 02</div>
+                <h3>Resisting Toxic Religion</h3>
+                <p>Navigate religious environments that prioritize control over growth, helping you maintain spiritual authenticity while addressing institutional manipulation.</p>
+                <div class="tag">FREE</div>
+            </div>
+            
+            <div class="guide-item">
+                <div class="guide-number">Guide 03</div>
+                <h3>Resisting Systemic Injustice</h3>
+                <p>Advanced frameworks for challenging institutional oppression while building sustainable movements for long-term social change and justice.</p>
+                <div class="tag paid">$19.99</div>
+            </div>
+        </div>
+        
+        <div class="coming-soon">
+            <h3>MORE GUIDES IN DEVELOPMENT</h3>
+            <p>Seven additional guides covering workplace conflicts, family dynamics, community organizing, and other challenging situations. Each builds on the same principled framework.</p>
+        </div>
+    </div>
+</body>
+</html>
