@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SACRED Bible Study Tool - Humble Wisdom Learning Experience Design</title>
+    <title>SACRED Bible Study Method - Humble Wisdom Learning Experience Design</title>
     <style>
         * {
             margin: 0;
@@ -122,23 +122,41 @@
             color: #192E5B;
         }
 
-        .features-grid {
+        .sacred-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
             margin: 2rem 0;
         }
 
-        .feature-card {
+        .step-card {
             background: rgba(50, 136, 160, 0.1);
             padding: 1.5rem;
             border-radius: 15px;
             border-left: 4px solid #3288A0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            align-items: center;
         }
 
-        .feature-card h4 {
+        .step-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #192E5B;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-content h4 {
             color: #192E5B;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .download-section {
@@ -155,12 +173,12 @@
             padding: 1rem 2rem;
             border: none;
             border-radius: 30px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            margin: 1rem;
+            margin: 0.5rem;
         }
 
         .download-btn:hover {
@@ -168,13 +186,13 @@
             box-shadow: 0 5px 15px rgba(138, 172, 70, 0.4);
         }
 
-        .testimonial {
+        .time-commitment {
             background: rgba(116, 45, 117, 0.1);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             border-left: 4px solid #742D75;
-            font-style: italic;
             margin: 2rem 0;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -206,82 +224,114 @@
     <main class="container">
         <section class="product-hero">
             <div class="product-icon">✝️</div>
-            <h1 class="product-title">SACRED Bible Study Tool</h1>
-            <p class="product-subtitle">Transform your scripture study with interactive digital tools designed for deep spiritual growth</p>
+            <h1 class="product-title">SACRED Bible Study Method</h1>
+            <p class="product-subtitle">Explore context. Uncover meaning. Reflect. Apply.</p>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">What is SACRED?</h2>
-            <p>SACRED (Scripture Analysis, Cross-Reference, and Educational Development) is a comprehensive Bible study tool that helps believers dive deeper into God's Word through interactive features, cross-references, and guided study paths.</p>
+            <h2 class="section-title">Transform Your Bible Study</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">SACRED is a systematic Bible study method that guides you through six essential steps for deeper scripture understanding. Whether you're studying alone or with a group, this framework helps you move beyond surface reading to meaningful spiritual growth.</p>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4>📖 Interactive Scripture Reading</h4>
-                    <p>Click-through references, instant definitions, and contextual notes enhance your reading experience.</p>
+            <div class="sacred-steps">
+                <div class="step-card">
+                    <div class="step-letter">S</div>
+                    <div class="step-content">
+                        <h4>Summarize</h4>
+                        <p>Read the passage 2-3 times and write a brief summary in your own words using 2-3 sentences.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h4>🔗 Smart Cross-References</h4>
-                    <p>Automatically discover related verses and themes throughout the Bible with our intelligent linking system.</p>
+                <div class="step-card">
+                    <div class="step-letter">A</div>
+                    <div class="step-content">
+                        <h4>Analyze</h4>
+                        <p>Dig deeper into details and background. Look up unfamiliar words and research the historical context.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h4>📝 Study Progress Tracking</h4>
-                    <p>Track your daily reading, note spiritual insights, and monitor your growth journey.</p>
+                <div class="step-card">
+                    <div class="step-letter">C</div>
+                    <div class="step-content">
+                        <h4>Cross-Reference</h4>
+                        <p>Find other Bible passages that connect to your current passage. Look for similar themes and related stories.</p>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <h4>💡 Guided Study Plans</h4>
-                    <p>Follow structured study plans for different topics, books, or spiritual growth goals.</p>
+                <div class="step-card">
+                    <div class="step-letter">R</div>
+                    <div class="step-content">
+                        <h4>Relate & Reflect</h4>
+                        <p>Connect the passage to your life today. Ask how this applies to your daily life and what it reveals about God's character.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-letter">E</div>
+                    <div class="step-content">
+                        <h4>Examine Deeper Meaning</h4>
+                        <p>Look beyond the surface for symbolic or spiritual meanings, metaphors, and deeper spiritual truths.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-letter">D</div>
+                    <div class="step-content">
+                        <h4>Debrief in Prayer/Meditation</h4>
+                        <p>Take your study into personal conversation with God. Reflect on how to apply what you've learned.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="time-commitment">
+            <h3 style="color: #192E5B; margin-bottom: 1rem;">⏰ Time Investment</h3>
+            <p style="font-size: 1.1rem;">Set aside 20-30 minutes for meaningful study. Perfect for daily devotions or group discussions.</p>
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">Perfect For</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">👤</div>
+                    <h4>Individual Study</h4>
+                    <p>Enhance your personal devotions with structured, meaningful study</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">👥</div>
+                    <h4>Small Groups</h4>
+                    <p>Guide group discussions with systematic exploration of scripture</p>
+                </div>
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div>
+                    <h4>Bible Classes</h4>
+                    <p>Teach others how to study scripture with this proven framework</p>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">Why Choose SACRED?</h2>
-            <ul style="font-size: 1.1rem; line-height: 2;">
-                <li><strong>Biblically Sound:</strong> Based on conservative, evangelical interpretation principles</li>
-                <li><strong>User-Friendly:</strong> Intuitive interface designed for all ages and tech comfort levels</li>
-                <li><strong>Comprehensive:</strong> Includes multiple Bible translations, commentaries, and study resources</li>
-                <li><strong>Offline Access:</strong> Download content for study anywhere, anytime</li>
-                <li><strong>Community Features:</strong> Connect with other believers for group studies and discussions</li>
-            </ul>
-        </section>
-
-        <div class="testimonial">
-            <p>"SACRED has revolutionized my daily Bible study. The cross-reference feature helps me see connections I never noticed before, and the progress tracking keeps me motivated in my spiritual journey." - Sarah M., Youth Pastor</p>
-        </div>
-
-        <section class="content-section">
             <div class="download-section">
-                <h2 style="color: #192E5B; margin-bottom: 1rem;">Ready to Transform Your Bible Study?</h2>
-                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Download SACRED today and begin your journey toward deeper biblical understanding.</p>
+                <h2 style="color: #192E5B; margin-bottom: 1rem;">Download Your FREE Study Tools</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get both the fillable worksheet and completed example to start your SACRED Bible study journey today.</p>
                 
-                <a href="#" class="download-btn">📱 Download for Mobile</a>
-                <a href="#" class="download-btn">💻 Download for Desktop</a>
+                <a href="001sbst.pdf" class="download-btn" download>📝 Download Fillable Worksheet</a>
+                <a href="SACRED Example.docx" class="download-btn" download>📖 Download Completed Example</a>
                 
-                <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
-                    Free download • No subscription required • Works offline
+                <p style="margin-top: 1.5rem; color: #666; font-size: 0.9rem;">
+                    ✅ Always FREE • ✅ Print or fill digitally • ✅ No email required
                 </p>
             </div>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">System Requirements</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                <div>
-                    <h4>📱 Mobile</h4>
-                    <p>iOS 12+ or Android 8+<br>50MB storage space</p>
-                </div>
-                <div>
-                    <h4>💻 Desktop</h4>
-                    <p>Windows 10+ or macOS 10.14+<br>100MB storage space</p>
-                </div>
-                <div>
-                    <h4>🌐 Web Version</h4>
-                    <p>Modern web browser<br>Internet connection required</p>
-                </div>
-            </div>
+            <h2 class="section-title">Getting Started</h2>
+            <ol style="font-size: 1.1rem; line-height: 2; padding-left: 2rem;">
+                <li><strong>Choose a passage</strong> - Start with 3-10 verses</li>
+                <li><strong>Download the worksheet</strong> - Print or complete digitally</li>
+                <li><strong>Set aside time</strong> - Allow 20-30 minutes for your first study</li>
+                <li><strong>Follow the SACRED steps</strong> - Work through each section systematically</li>
+                <li><strong>Apply what you learn</strong> - Let God's Word transform your daily life</li>
+            </ol>
         </section>
     </main>
 </body>
