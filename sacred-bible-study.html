@@ -233,54 +233,97 @@
             <p style="font-size: 1.1rem; margin-bottom: 2rem;">SACRED is a systematic Bible study method that guides you through six essential steps for deeper scripture understanding. Whether you're studying alone or with a group, this framework helps you move beyond surface reading to meaningful spiritual growth.</p>
             
             <div class="sacred-steps">
-                <div class="step-card">
-                    <div class="step-letter">S</div>
-                    <div class="step-content">
-                        <h4>Summarize</h4>
-                        <p>Read the passage 2-3 times and write a brief summary in your own words using 2-3 sentences.</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-letter">A</div>
-                    <div class="step-content">
-                        <h4>Analyze</h4>
-                        <p>Dig deeper into details and background. Look up unfamiliar words and research the historical context.</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-letter">C</div>
-                    <div class="step-content">
-                        <h4>Cross-Reference</h4>
-                        <p>Find other Bible passages that connect to your current passage. Look for similar themes and related stories.</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-letter">R</div>
-                    <div class="step-content">
-                        <h4>Relate & Reflect</h4>
-                        <p>Connect the passage to your life today. Ask how this applies to your daily life and what it reveals about God's character.</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-letter">E</div>
-                    <div class="step-content">
-                        <h4>Examine Deeper Meaning</h4>
-                        <p>Look beyond the surface for symbolic or spiritual meanings, metaphors, and deeper spiritual truths.</p>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-letter">D</div>
-                    <div class="step-content">
-                        <h4>Debrief in Prayer/Meditation</h4>
-                        <p>Take your study into personal conversation with God. Reflect on how to apply what you've learned.</p>
-                    </div>
-                </div>
-            </div>
+    <div class="step-card" onclick="toggleStep('step-s')">
+        <div class="step-letter">S</div>
+        <div class="step-content">
+            <h4>Summarize <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Read the passage 2-3 times and write a brief summary in your own words using 2-3 sentences.</p>
+        </div>
+    </div>
+    <div id="step-s" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Summary:</h5>
+            <p style="font-style: italic;">"God loves every human being, so he sent his son as an example of how to live while human. If you do, you live a good life. People prefer to do their own thing and live differently than Jesus. People who do evil hates truth. They won't live in Christ because they don't want their evil deeds exposed."</p>
+        </div>
+    </div>
+    
+    <div class="step-card" onclick="toggleStep('step-a')">
+        <div class="step-letter">A</div>
+        <div class="step-content">
+            <h4>Analyze <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Dig deeper into details and background. Look up unfamiliar words and research the historical context.</p>
+        </div>
+    </div>
+    <div id="step-a" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Analysis:</h5>
+            <p style="font-style: italic;"><strong>God:</strong> Heavenly Father, the One who sent Jesus<br>
+            <strong>the world:</strong> every human being<br>
+            <strong>begotten:</strong> unique<br>
+            <strong>believed:</strong> be and live in (not just intellectually acknowledge)<br>
+            <strong>life in abundance:</strong> overflowing with the character traits and habits of mind that Jesus demonstrated; this is what is good in God's eyes; material wealth does not equate to life abundantly although it might appear so<br>
+            <strong>light:</strong> Christ consciousness<br>
+            <strong>evil:</strong> anything outside of Christ consciousness</p>
+        </div>
+    </div>
+    
+    <div class="step-card" onclick="toggleStep('step-c')">
+        <div class="step-letter">C</div>
+        <div class="step-content">
+            <h4>Cross-Reference <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Find other Bible passages that connect to your current passage. Look for similar themes and related stories.</p>
+        </div>
+    </div>
+    <div id="step-c" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Cross-References:</h5>
+            <p style="font-style: italic;"><strong>John 1:4-5:</strong> "In him was life, and that life was the life of all mankind; the light shines in darkness, and darkness doesn't overcome it"<br><br>
+            <strong>2 Timothy 3:1-5:</strong> "Lovers of pleasure instead of lovers of the Heavenly Father, having a form of godliness but denying its power"</p>
+        </div>
+    </div>
+    
+    <div class="step-card" onclick="toggleStep('step-r')">
+        <div class="step-letter">R</div>
+        <div class="step-content">
+            <h4>Relate & Reflect <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Connect the passage to your life today. Ask how this applies to your daily life and what it reveals about God's character.</p>
+        </div>
+    </div>
+    <div id="step-r" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Reflection:</h5>
+            <p style="font-style: italic;">"All humans are welcome. If 'in the name' is really like being 'on brand' or 'in alignment' or 'in representation or reflection of' then Christ really is for everybody, even those Incans and Mayans who never heard the English word 'Jesus.' It's the mindset, heartset, and alignment with the will of the Heavenly Father that is the focus, not the literal English name of 'Jesus.' Technically, his name would be Yeshua or Yahshua."</p>
+        </div>
+    </div>
+    
+    <div class="step-card" onclick="toggleStep('step-e')">
+        <div class="step-letter">E</div>
+        <div class="step-content">
+            <h4>Examine Deeper Meaning <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Look beyond the surface for symbolic or spiritual meanings, metaphors, and deeper spiritual truths.</p>
+        </div>
+    </div>
+    <div id="step-e" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Deeper Examination:</h5>
+            <p style="font-style: italic;">"The sentence construction has begotten before sons, so begotten is an adjective. It's saying that Jesus was his only 'begotten' son, not his ONLY son. Was the spirit that dwelt in the physical body of Christ revealed to other people groups in some way before this time? Is it his consciousness and purpose that we should aim to live in, or should we simply be comfortable by celebrating and talking about his murder and resurrection? Can I make this choice for myself, or must I conform to what the rest of the crowd is doing and believing?"</p>
+        </div>
+    </div>
+    
+    <div class="step-card" onclick="toggleStep('step-d')">
+        <div class="step-letter">D</div>
+        <div class="step-content">
+            <h4>Debrief in Prayer/Meditation <span style="float: right; color: #8AAC46;">▼</span></h4>
+            <p>Take your study into personal conversation with God. Reflect on how to apply what you've learned.</p>
+        </div>
+    </div>
+    <div id="step-d" class="step-example" style="display: none;">
+        <div style="background: rgba(138, 172, 70, 0.1); padding: 1.5rem; border-radius: 10px; margin: 0.5rem 0;">
+            <h5 style="color: #192E5B; margin-bottom: 1rem;">Example Prayer/Meditation:</h5>
+            <p style="font-style: italic;">"Life in abundance/life abundantly. The world says it means having money and all the things. But in the Sermon on the Mount, the blessings are in the sufferings. Jesus didn't multiply shekels or cows or property lines; he gave people knowledge and health. So who's right—my pastor, who teaches that God doesn't want us to be poor, or Jesus, who was poor but didn't seem to hurt for anything. I should probably rethink my relationship with success…like…I really don't want to gain the world but lose my soul."</p>
+        </div>
+    </div>
+</div>
         </section>
 
         <div class="time-commitment">
@@ -334,5 +377,23 @@
             </ol>
         </section>
     </main>
-</body>
+<script>
+function toggleStep(stepId) {
+    // Hide all examples first
+    const allExamples = document.querySelectorAll('.step-example');
+    allExamples.forEach(example => {
+        if (example.id !== stepId) {
+            example.style.display = 'none';
+        }
+    });
+    
+    // Toggle the clicked step
+    const clickedStep = document.getElementById(stepId);
+    if (clickedStep.style.display === 'none' || clickedStep.style.display === '') {
+        clickedStep.style.display = 'block';
+    } else {
+        clickedStep.style.display = 'none';
+    }
+}
+</script></body>
 </html>
