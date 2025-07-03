@@ -266,49 +266,76 @@
                 padding: 2rem;
             }
         }
-   /* Mobile Fixes */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
     .container {
-        padding: 0 10px !important;
-        max-width: 100% !important;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0;
     }
     
     .content-section {
-        margin: 1rem 0 !important;
-        padding: 1.5rem 1rem !important;
-        border-radius: 15px !important;
+        margin: 15px 0;
+        padding: 20px 15px;
+        border-radius: 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .product-hero {
-        padding: 2rem 1rem !important;
-        margin: 1rem 0 !important;
+        padding: 25px 15px;
+        margin: 15px 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
-    .sacred-steps .step-card {
-        padding: 1rem !important;
-        margin: 0.5rem 0 !important;
+    .product-title {
+        font-size: 2rem;
+        word-wrap: break-word;
+    }
+    
+    .product-subtitle {
+        font-size: 1rem;
+        word-wrap: break-word;
+    }
+    
+    .step-card {
+        padding: 15px;
+        margin: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .download-section {
-        padding: 1.5rem 1rem !important;
-        margin: 1rem 0 !important;
+        padding: 20px 15px;
+        margin: 15px 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .download-btn {
-        display: block !important;
-        margin: 0.5rem 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-    
-    .css-logo {
-        text-align: center !important;
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px;
+        text-align: center;
+        box-sizing: border-box;
     }
     
     .logo-humble, .logo-wisdom {
-        font-size: 1.8rem !important;
-        letter-spacing: 1px !important;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
     }
+    
+    .header-content {
+        padding: 10px;
+        text-align: center;
+    }
+}
 }
     </style>
 </head>
