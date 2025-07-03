@@ -220,7 +220,11 @@
             color: #3288A0;
             text-decoration: underline;
         }
-
+.card a h3:hover,
+.card a p:hover {
+    text-decoration: underline !important;
+    color: #3288A0 !important;
+}
         .card p {
             color: #666;
             margin-bottom: 1rem;
@@ -434,15 +438,14 @@
         <section id="books" class="content-section">
             <h2 class="section-title">Featured Books & eBooks</h2>
             <div class="grid grid-3" id="booksContainer">
-               <div class="card">
+      <div class="card">
     <div class="card-image">✝️</div>
     <div class="card-content">
-        <h3>SACRED Bible Study Tool</h3>
-        <p>An interactive, thinker-friendly guide to examining scripture.Includes user guide and fillable PDF.</p>
+        <a href="sacred-bible-study.html" style="text-decoration: none; color: inherit;">
+            <h3 style="cursor: pointer; transition: all 0.3s ease;">SACRED Bible Study Tool</h3>
+            <p style="cursor: pointer; transition: all 0.3s ease;">Interactive digital tool for deep scripture study, cross-references, and spiritual growth tracking.</p>
+        </a>
         <div class="free-tag">FREE</div>
-        <div>
-            <a href="sacred-bible-study.html" class="btn">Learn More</a>
-        </div>
     </div>
 </div>
                 
