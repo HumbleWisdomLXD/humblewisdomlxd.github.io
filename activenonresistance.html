@@ -12,43 +12,30 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: white;
             color: #333;
-            background: url('https://images.unsplash.com/photo-1578297621423-eec069f9ef2d?w=1920&h=1080&fm=jpg&q=80') center/cover no-repeat fixed;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             min-height: 100vh;
-            position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .header-content {
+        .left-panel {
+            background: linear-gradient(135deg, #192E5B, #3288A0);
+            color: white;
+            padding: 4rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .logo-section {
+            position: absolute;
+            top: 3rem;
+            left: 4rem;
         }
 
         .css-logo {
@@ -60,228 +47,214 @@
 
         .logo-humble {
             font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #3288A0, #8AAC46, #F68426);
+            background: linear-gradient(135deg, #8AAC46, #F68426);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             transform: skew(-5deg);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .logo-wisdom {
             font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #192E5B, #742D75, #F68426);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 3px;
+            color: white;
+            letter-spacing: 2px;
             text-transform: uppercase;
             transform: skew(-5deg);
-            margin-top: -10px;
-            margin-left: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-top: -8px;
+            margin-left: 10px;
         }
 
         .logo-tagline {
             font-family: 'Trebuchet MS', sans-serif;
-            font-size: 0.75rem;
-            color: #666;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.8);
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 8px;
-            margin-left: 5px;
+            margin-top: 5px;
+            margin-left: 3px;
         }
 
-        .css-logo:hover .logo-humble {
-            transform: skew(-5deg) scale(1.02);
-            transition: all 0.3s ease;
-        }
-
-        .css-logo:hover .logo-wisdom {
-            transform: skew(-5deg) scale(1.02);
-            transition: all 0.3s ease;
-        }
-
-        .hero-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 3rem;
+        .left-panel h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: -1px;
         }
 
-        .hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #192E5B, #3288A0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .left-panel p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 400px;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
+        .right-panel {
+            background: #fafafa;
+            padding: 4rem;
+            overflow-y: auto;
         }
 
-        .content-section {
-            background: rgba(255, 255, 255, 0.95);
-            margin: 0;
-            padding: 2.5rem;
-            border-radius: 0;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(200, 200, 200, 0.3);
-            box-shadow: none;
+        .back-link {
+            position: absolute;
+            top: 3rem;
+            right: 4rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .content-section:first-of-type {
-            border-radius: 20px 20px 0 0;
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
         }
 
-        .content-section:last-of-type {
-            border-radius: 0 0 20px 20px;
+        .guide-list {
+            margin-top: 2rem;
+        }
+
+        .guide-row {
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .guide-row:hover {
+            transform: translateX(20px);
+            background: white;
+            margin: 0 -2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 1px solid transparent;
+        }
+
+        .guide-row:last-child {
             border-bottom: none;
         }
 
-        .section-title {
+        .guide-number {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-weight: 900;
+            color: #3288A0;
+            width: 60px;
+            margin-right: 2rem;
+        }
+
+        .guide-info {
+            flex: 1;
+        }
+
+        .guide-info h3 {
+            font-size: 1.4rem;
             color: #192E5B;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
-        .guides-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+        .guide-info p {
+            color: #666;
+            line-height: 1.5;
         }
 
-        .guide-card {
-            background: white;
-            padding: 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(25, 46, 91, 0.1);
-            overflow: hidden;
+        .guide-status {
+            margin-left: auto;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
-        .guide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(25, 46, 91, 0.2);
-        }
-
-        .guide-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #3288A0, #8AAC46);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .free {
+            background: #8AAC46;
             color: white;
-            font-size: 3rem;
-            margin-bottom: 0;
         }
 
-        .guide-content {
-            padding: 1.5rem;
+        .paid {
+            background: #F68426;
+            color: white;
         }
 
-        .guide-card a {
-            text-decoration: none;
-            color: inherit;
+        .coming-soon-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            text-align: center;
         }
 
-        .guide-card h3 {
+        .coming-soon-section h3 {
             color: #192E5B;
             margin-bottom: 1rem;
             font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .guide-card h3:hover {
-            color: #3288A0;
-            text-decoration: underline;
+        .coming-soon-section p {
+            color: #666;
+            line-height: 1.6;
         }
 
-        .guide-card p {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .guide-card p:hover {
-            color: #3288A0;
-            text-decoration: underline;
-        }
-
-        .price-tag {
-            background: #3288A0;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 1rem 0;
-        }
-
-        .free-tag {
-            background: linear-gradient(45deg, #8AAC46, #3288A0);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
-            margin: 1rem 0;
-        }
-
-        .coming-soon {
-            background: rgba(200, 200, 200, 0.1);
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 2px dashed #ccc;
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+            body {
+                grid-template-columns: 1fr;
+                display: block;
             }
             
-            .hero-title {
-                font-size: 2rem;
+            .left-panel {
+                height: auto;
+                position: static;
+                padding: 3rem 2rem;
+                text-align: center;
             }
             
-            .hero-section {
+            .left-panel h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-section {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .back-link {
+                position: static;
+                display: inline-block;
+                margin-bottom: 2rem;
+            }
+            
+            .right-panel {
                 padding: 2rem;
             }
             
-            .guides-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-humble, .logo-wisdom {
-                font-size: 1.5rem;
-                letter-spacing: 1px;
+            .guide-row:hover {
+                transform: none;
+                margin: 0;
+                padding: 2rem 0;
+                background: transparent;
+                box-shadow: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="left-panel">
+        <div class="logo-section">
             <a href="index.html" style="text-decoration: none;">
                 <div class="css-logo">
                     <span class="logo-humble">Humble</span>
@@ -290,83 +263,48 @@
                 </div>
             </a>
         </div>
-    </header>
-
-    <main class="container">
-        <section class="hero-section">
-            <h1 class="hero-title">Active Non-Resistance Guides</h1>
-            <p class="hero-subtitle">Practical frameworks for responding to conflict with wisdom, dignity, and purpose</p>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">About These Guides</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">These comprehensive guides teach effective strategies for addressing challenging situations without resorting to aggression or passive submission. Learn how to maintain your principles, protect your well-being, and create positive outcomes even in difficult circumstances.</p>
+        
+        <a href="index.html" class="back-link">← Back to Main Site</a>
+        
+        <h1>Active Non-Resistance</h1>
+        <p>Practical frameworks for responding to conflict with wisdom, dignity, and purpose. Learn to maintain your principles while creating positive outcomes in challenging situations.</p>
+    </div>
+    
+    <div class="right-panel">
+        <div class="guide-list">
+            <div class="guide-row">
+                <div class="guide-number">01</div>
+                <div class="guide-info">
+                    <h3>Resisting Evil People</h3>
+                    <p>Practical strategies for dealing with manipulative, harmful, or toxic individuals while maintaining your integrity and safety.</p>
+                </div>
+                <div class="guide-status free">FREE</div>
+            </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-                <div style="text-align: center; padding: 1rem;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
-                    <h4>De-escalation Techniques</h4>
-                    <p>Evidence-based methods that actually work in real situations</p>
+            <div class="guide-row">
+                <div class="guide-number">02</div>
+                <div class="guide-info">
+                    <h3>Resisting Toxic Religion</h3>
+                    <p>Navigate religious environments that prioritize control over growth, helping you maintain spiritual authenticity.</p>
                 </div>
-                <div style="text-align: center; padding: 1rem;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">💪</div>
-                    <h4>Boundary Setting</h4>
-                    <p>Maintain dignity while protecting your values and well-being</p>
-                </div>
-                <div style="text-align: center; padding: 1rem;">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
-                    <h4>Strategic Action</h4>
-                    <p>Create lasting positive change through principled resistance</p>
-                </div>
+                <div class="guide-status free">FREE</div>
             </div>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">Available Guides</h2>
-            <div class="guides-grid">
-                <div class="guide-card">
-                    <div class="guide-image">⚖️</div>
-                    <div class="guide-content">
-                        <a href="#" style="text-decoration: none; color: inherit;">
-                            <h3>Resisting Evil People</h3>
-                            <p>Practical strategies for dealing with manipulative, harmful, or toxic individuals while maintaining your integrity and safety.</p>
-                        </a>
-                        <div class="free-tag">FREE</div>
-                    </div>
+            
+            <div class="guide-row">
+                <div class="guide-number">03</div>
+                <div class="guide-info">
+                    <h3>Resisting Systemic Injustice</h3>
+                    <p>Advanced frameworks for challenging institutional oppression while building sustainable movements for change.</p>
                 </div>
-                
-                <div class="guide-card">
-                    <div class="guide-image">⛪</div>
-                    <div class="guide-content">
-                        <a href="#" style="text-decoration: none; color: inherit;">
-                            <h3>Resisting Toxic Religion</h3>
-                            <p>Navigate religious environments that prioritize control over growth, helping you maintain spiritual authenticity.</p>
-                        </a>
-                        <div class="free-tag">FREE</div>
-                    </div>
-                </div>
-                
-                <div class="guide-card">
-                    <div class="guide-image">🏛️</div>
-                    <div class="guide-content">
-                        <a href="#" style="text-decoration: none; color: inherit;">
-                            <h3>Resisting Systemic Injustice</h3>
-                            <p>Advanced frameworks for challenging institutional oppression while building sustainable movements for change.</p>
-                        </a>
-                        <div class="price-tag">$19.99</div>
-                    </div>
-                </div>
+                <div class="guide-status paid">$19.99</div>
             </div>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title">More Guides Coming Soon</h2>
-            <div class="coming-soon">
-                <h3 style="color: #192E5B; margin-bottom: 1rem;">📚 Expanding Collection</h3>
+            
+            <div class="coming-soon-section">
+                <h3>📚 More Guides Coming Soon</h3>
                 <p>We're developing 7 additional guides covering workplace conflicts, family dynamics, community organizing, and more. Each guide builds on the same principled framework while addressing specific challenges.</p>
-                <p style="margin-top: 1rem; font-style: italic; color: #666;">Join our mailing list to be notified when new guides become available.</p>
+                <p style="margin-top: 1rem; font-style: italic; color: #999;">Join our mailing list to be notified when new guides become available.</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 </body>
 </html>
