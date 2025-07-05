@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>My Blog</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>My Blog</h1>
-    <div id="posts-container"></div>
+    <div id="posts"></div>
 
-    <!-- Load posts.js FIRST -->
+    <!-- Load posts -->
     <script src="js/posts.js"></script>
-    <!-- Then run this script -->
     <script>
-        const postsContainer = document.getElementById('posts-contai
+        const container = document.getElementById("posts");
+        blogPosts.forEach(post => {
+            container.innerHTML += `
+                <div class="post">
+                    <h2>${post.title}</h2>
+                    <p><em>By ${post.author} • ${post.date}</em></p>
+                    ${post.content}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
