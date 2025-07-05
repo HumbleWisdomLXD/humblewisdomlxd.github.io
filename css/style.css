@@ -1,32 +1,49 @@
-/* Modern Blog Styling */
+/* Modern Magazine Style */
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    max-width: 800px;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     color: #333;
-    background: #f9f9f9;
+    background: #f8f8f8;
 }
 
+/* Alternating Post Backgrounds */
 .post {
+    padding: 40px 50px;
+    margin: 0;
+}
+.post:nth-child(odd) {
     background: white;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.post:nth-child(even) {
+    background: #f2f2f2; /* Light grey */
 }
 
+/* Post Typography */
 .post h2 {
-    color: #2ec4b6; /* Teal */
+    color: #2a5f8a; /* Deep blue */
     margin-top: 0;
+    font-size: 1.8em;
 }
-
-.post em {
+.post-meta {
     color: #666;
-    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 20px;
 }
 
-.post div {
-    margin-top: 15px;
+/* Attachment Cards */
+.attachment-card {
+    background: white;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid #2ec4b6; /* Teal accent */
+}
+.attachment-card a {
+    color: #2a5f8a;
+    text-decoration: none;
+    font-weight: bold;
 }
