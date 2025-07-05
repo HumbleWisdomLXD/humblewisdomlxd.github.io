@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+    background: #f9f9f9;
+}
+h1 {
+    color: #2ec4b6; /* Teal */
+    border-bottom: 2px solid #7b2cbf; /* Purple */
+    padding-bottom: 10px;
+}
