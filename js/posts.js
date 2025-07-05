@@ -11,3 +11,14 @@ const blogPosts = [
         featured: true
     }
 ];
+{
+    id: 'second-post',
+    title: 'My Second Post!',
+    excerpt: 'This is another test post.',
+    content: '<p>More content here. It works!</p>',
+    category: 'Updates',
+    date: '2023-11-02',
+    author: 'You',
+    readTime: 1,
+    featured: true
+},
