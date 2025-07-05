@@ -8,7 +8,7 @@ const blogPosts = [
         author: 'You',
         readTime: 2,
         featured: true
-    },  // <-- COMMA here (not semicolon)
+    },
     {
         id: 'second-post',
         title: 'My Second Post!',
@@ -18,5 +18,5 @@ const blogPosts = [
         author: 'You',
         readTime: 1,
         featured: true
-    }   // <-- NO comma after the last post
-];      // <-- Semicolon ONLY at the very end
+    }
+];
