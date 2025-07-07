@@ -132,7 +132,7 @@ body {
 .commentary-content {
     background: rgba(255,255,255,0.1);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 0px;
     transition: all 0.6s ease;
 }
 
@@ -162,7 +162,7 @@ body {
 .spiritual-state, .practical-application {
     background: rgba(255,255,255,0.05);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 .section-title {
@@ -202,16 +202,17 @@ body {
 .cross-ref-item {
     background: rgba(255,255,255,0.05);
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 0px;
     border-left: 3px solid #45B7D1;
 }
 
 .download-section {
     margin-top: 4rem;
+    padding-top: 2rem;
     text-align: center;
     background: rgba(0,0,0,0.3);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 0px;
     border: 2px solid #3288A0;
 }
 
@@ -220,7 +221,7 @@ body {
     color: white;
     padding: 1rem 2rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 0px;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
