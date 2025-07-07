@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -5,426 +6,493 @@
 }
 
 body {
+    background: #fafafa;
+    color: #1a1a1a;
     font-family: 'Georgia', serif;
-    background: #000;
-    min-height: 100vh;
-    overflow-x: hidden;
     line-height: 1.6;
 }
 
-.theater-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    position: relative;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.ancient-scene {
-    background: linear-gradient(135deg, #192E5B 0%, #3288A0 50%, #192E5B 100%);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.modern-application {
-    background: linear-gradient(135deg, #192E5B 0%, #3288A0 50%, #192E5B 100%);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    color: white;
-}
-
-.scene-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.2);
-    pointer-events: none;
-}
-
-.header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(25, 46, 91, 0.95);
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-
-.header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
+    line-height: 1.3;
     color: #192E5B;
 }
 
-.header p {
-    opacity: 0.9;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
+/* Header */
+.minimal-header {
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.verse-selector {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(25, 46, 91, 0.95);
-    padding: 2rem 1rem 1.5rem 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.verse-btn {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: 2px solid rgba(50, 136, 160, 0.5);
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Georgia', serif;
+.header-nav {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-width: 140px;
+    gap: 1rem;
+    padding: 0.5rem 0;
 }
 
-.verse-btn:hover {
-    background: rgba(50, 136, 160, 0.3);
-    border-color: #3288A0;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.verse-btn.active {
-    background: #3288A0;
-    border-color: #3288A0;
-    color: white;
-    box-shadow: 0 5px 15px rgba(50, 136, 160, 0.4);
-}
-
-.scene-content {
-    text-align: center;
-    max-width: 500px;
-    z-index: 2;
-    position: relative;
-}
-
-.ancient-title {
-    font-size: 2.5rem;
-    color: white;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    font-weight: 300;
-}
-
-.modern-title {
-    font-size: 2.5rem;
-    color: white;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    font-weight: 300;
-}
-
-.biblical-context {
-    background: rgba(255,255,255,0.9);
-    color: #192E5B;
-    padding: 2rem;
-    border-radius: 8px;
-    border-left: 4px solid #3288A0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.modern-context {
-    background: rgba(255,255,255,0.9);
-    color: #192E5B;
-    padding: 2rem;
-    border-radius: 8px;
-    border-left: 4px solid #192E5B;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.content.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.verse-reference {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #3288A0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.modern-context .verse-reference {
-    color: #192E5B;
-}
-
-.verse-text {
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    color: #192E5B;
-}
-
-.context-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #192E5B;
-}
-
-.context-text p {
-    margin-bottom: 1.2rem;
-}
-
-.context-text strong {
-    color: #3288A0;
-    font-weight: 600;
-}
-
-.modern-context .context-text strong {
-    color: #192E5B;
-    font-weight: 600;
-}
-
-.scene-illustration {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.ancient-illustration {
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L180 100 L100 180 L20 100 Z" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="60" fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.5"/><path d="M70 100 Q100 70 130 100 Q100 130 70 100" fill="%233288A0" opacity="0.4"/></svg>') no-repeat center;
-    background-size: contain;
-}
-
-.modern-illustration {
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="50" y="50" width="100" height="100" rx="10" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="40" fill="none" stroke="%23ffffff" stroke-width="3" opacity="0.6"/><path d="M80 100 L95 115 L120 85" stroke="%23192E5B" stroke-width="4" fill="none" opacity="0.7"/></svg>') no-repeat center;
-    background-size: contain;
-}
-
-.download-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(25, 46, 91, 0.95);
-    color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    z-index: 200;
-    display: none;
-    backdrop-filter: blur(10px);
-    border: 2px solid #3288A0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-}
-
-.download-section.active {
-    display: block;
-}
-
-.download-section h3 {
-    color: #192E5B;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.download-section p {
-    margin-bottom: 1.5rem;
-    color: rgba(255,255,255,0.9);
-}
-
-.download-btn {
-    background: #3288A0;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.logo-link {
     text-decoration: none;
-    display: inline-block;
-    margin-top: 1rem;
-    font-family: 'Georgia', serif;
 }
 
-.download-btn:hover {
-    background: #192E5B;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
+.css-logo {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
 }
 
-.close-btn:hover {
+.logo-humble {
+    font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #008080, #4169E1, #8A2BE2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: skew(-5deg);
+}
+
+.logo-wisdom {
+    font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
     color: #192E5B;
-    transform: scale(1.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: skew(-5deg);
+    margin-left: 4px;
 }
 
-.download-trigger {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(25, 46, 91, 0.9);
-    color: white;
-    border: 2px solid #3288A0;
-    padding: 0.8rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
+.logo-tagline {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 0.5rem;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    z-index: 50;
+    transition: color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #3288A0;
+}
+
+/* Hero Content */
+.hero-content {
+    text-align: center;
+    padding: 0.5rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-meta {
+    font-size: 0.6rem;
+    margin-bottom: 0.2rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #192E5B;
+}
+
+.hero-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    font-style: italic;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Section Styling */
+section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    font-size: 0.8rem;
+    color: #3288A0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #192E5B;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Featured Section */
+.featured-section {
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 4rem 0;
+}
+
+.featured-article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    font-family: 'Georgia', serif;
 }
 
-.download-trigger:hover {
+.featured-article:hover {
+    transform: translateY(-5px);
+}
+
+.featured-image {
+    aspect-ratio: 16/10;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #192E5B;
+    line-height: 1.3;
+}
+
+.featured-excerpt {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.featured-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Grid Layouts */
+.articles-grid,
+.publications-grid,
+.videos-grid,
+.resources-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Card Styling */
+.article-card,
+.publication-card,
+.video-card,
+.resource-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.article-card:hover,
+.publication-card:hover,
+.video-card:hover,
+.resource-card:hover {
+    transform: translateY(-8px);
+    border-color: #d0d0d0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.card-image {
+    aspect-ratio: 16/9;
+    background: #f5f5f5;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-meta {
+    font-size: 0.75rem;
+    color: #3288A0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #192E5B;
+    line-height: 1.4;
+}
+
+.card-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #999;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.card-date {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-price {
+    color: #3288A0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.card-price.free {
+    color: #8AAC46;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: white;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.newsletter-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-input {
+    padding: 1rem;
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.newsletter-button {
+    padding: 1rem 2rem;
+    background: #192E5B;
+    color: white;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.newsletter-button:hover {
     background: #3288A0;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 1024px) {
-    .theater-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+.form-note {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Footer */
+.minimal-footer {
+    background: #192E5B;
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-top: 2rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-column-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+.footer-link {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Tablet and Desktop Adjustments */
+@media (min-width: 768px) {
+    .header-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 0;
     }
 
-    .ancient-title,
-    .modern-title {
-        font-size: 2rem;
+    .nav-links {
+        flex-direction: row;
+        gap: 3rem;
     }
 
-    .scene-content {
-        max-width: 90%;
+    .articles-grid,
+    .publications-grid,
+    .videos-grid,
+    .resources-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 
-    .biblical-context,
-    .modern-context {
-        padding: 1.5rem;
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        text-align: left;
+    }
+
+    .form-group {
+        flex-direction: row;
     }
 }
 
-@media (max-width: 768px) {
-    .verse-selector {
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        padding: 2rem 0.8rem 1.2rem 0.8rem;
+@media (min-width: 1024px) {
+    .hero-content {
+        padding: 1rem 0;
     }
 
-    .verse-btn {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.8rem;
-        flex: 1;
-        min-width: 120px;
+    .hero-title {
+        font-size: 2.5rem;
     }
 
-    .ancient-title,
-    .modern-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .header h1 {
-        font-size: 1.5rem;
-    }
-
-    .header p {
-        font-size: 0.8rem;
-    }
-
-    .scene-content {
-        padding: 1rem;
-        max-width: 95%;
-    }
-
-    .biblical-context,
-    .modern-context {
-        padding: 1.2rem;
-    }
-
-    .verse-reference {
-        font-size: 1rem;
-    }
-
-    .verse-text {
-        font-size: 1.1rem;
-    }
-
-    .context-text {
-        font-size: 0.9rem;
-    }
-
-    .download-section {
-        padding: 1.5rem;
-        max-width: 90vw;
-    }
-
-    .download-trigger {
-        top: 0.5rem;
-        right: 0.5rem;
-        padding: 0.6rem 0.8rem;
-        font-size: 0.7rem;
+    .hero-subtitle {
+        font-size: 0.85rem;
     }
 }
