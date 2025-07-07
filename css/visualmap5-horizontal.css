@@ -22,6 +22,7 @@ body {
     width: 100%;
     background: rgba(0,0,0,0.8);
     padding: 0 0 20px 0;
+    margin-top: 12px; /* New breathing room */
     z-index: 1000;
 }
 
