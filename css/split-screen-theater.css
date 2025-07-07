@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Georgia', serif;
-    background: #000;
+    background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f5 50%, #e8ecf0 100%);
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
@@ -20,7 +20,8 @@ body {
 }
 
 .ancient-scene {
-    background: linear-gradient(135deg, #192E5B 0%, #3288A0 50%, #8AAC46 100%);
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 50%, #e6ecf2 100%);
+    border-right: 1px solid #e5e5e5;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -31,14 +32,13 @@ body {
 }
 
 .modern-application {
-    background: linear-gradient(135deg, #8AAC46 0%, #3288A0 50%, #192E5B 100%);
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f5f7 50%, #ecf0f3 100%);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    color: white;
 }
 
 .scene-overlay {
@@ -47,7 +47,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.05);
     pointer-events: none;
 }
 
@@ -56,25 +56,25 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(25, 46, 91, 0.95);
-    color: white;
+    background: white;
+    color: #1a1a1a;
     padding: 1rem 2rem;
     text-align: center;
     z-index: 100;
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .header h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     font-weight: 400;
-    color: #8AAC46;
+    color: #192E5B;
 }
 
 .header p {
     opacity: 0.9;
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
+    color: #666;
 }
 
 .verse-selector {
@@ -82,19 +82,20 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(25, 46, 91, 0.95);
-    padding: 1rem;
+    background: white;
+    padding: 2rem 1rem 1.5rem 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     z-index: 100;
-    backdrop-filter: blur(10px);
+    border-top: 1px solid #e5e5e5;
 }
 
 .verse-btn {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: 2px solid rgba(50, 136, 160, 0.5);
+    background: white;
+    color: #192E5B;
+    border: 2px solid #e5e5e5;
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     cursor: pointer;
@@ -103,20 +104,26 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 140px;
 }
 
 .verse-btn:hover {
-    background: rgba(50, 136, 160, 0.3);
-    border-color: #3288A0;
+    background: #f5f5f5;
+    border-color: #192E5B;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .verse-btn.active {
-    background: #3288A0;
-    border-color: #3288A0;
+    background: #192E5B;
+    border-color: #192E5B;
     color: white;
-    box-shadow: 0 5px 15px rgba(50, 136, 160, 0.4);
+    box-shadow: 0 5px 15px rgba(25, 46, 91, 0.3);
 }
 
 .scene-content {
@@ -128,41 +135,41 @@ body {
 
 .ancient-title {
     font-size: 2.5rem;
-    color: white;
+    color: #192E5B;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: none;
     font-weight: 300;
 }
 
 .modern-title {
     font-size: 2.5rem;
-    color: white;
+    color: #192E5B;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: none;
     font-weight: 300;
 }
 
 .biblical-context {
-    background: rgba(255,255,255,0.9);
-    color: #192E5B;
+    background: white;
+    color: #1a1a1a;
     padding: 2rem;
     border-radius: 8px;
+    border: 1px solid #e5e5e5;
     border-left: 4px solid #3288A0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
 }
 
 .modern-context {
-    background: rgba(255,255,255,0.9);
-    color: #192E5B;
+    background: white;
+    color: #1a1a1a;
     padding: 2rem;
     border-radius: 8px;
-    border-left: 4px solid #8AAC46;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    border: 1px solid #e5e5e5;
+    border-left: 4px solid #192E5B;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
@@ -177,13 +184,13 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #3288A0;
+    color: #192E5B;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .modern-context .verse-reference {
-    color: #8AAC46;
+    color: #192E5B;
 }
 
 .verse-text {
@@ -191,13 +198,13 @@ body {
     font-style: italic;
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    color: #192E5B;
+    color: #1a1a1a;
 }
 
 .context-text {
     font-size: 1rem;
     line-height: 1.7;
-    color: #192E5B;
+    color: #1a1a1a;
 }
 
 .context-text p {
@@ -205,12 +212,12 @@ body {
 }
 
 .context-text strong {
-    color: #3288A0;
+    color: #192E5B;
     font-weight: 600;
 }
 
 .modern-context .context-text strong {
-    color: #8AAC46;
+    color: #192E5B;
     font-weight: 600;
 }
 
@@ -226,12 +233,12 @@ body {
 }
 
 .ancient-illustration {
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L180 100 L100 180 L20 100 Z" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="60" fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.5"/><path d="M70 100 Q100 70 130 100 Q100 130 70 100" fill="%233288A0" opacity="0.4"/></svg>') no-repeat center;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L180 100 L100 180 L20 100 Z" fill="%23192E5B" opacity="0.3"/><circle cx="100" cy="100" r="60" fill="none" stroke="%23192E5B" stroke-width="4" opacity="0.5"/><path d="M70 100 Q100 70 130 100 Q100 130 70 100" fill="%233288A0" opacity="0.4"/></svg>') no-repeat center;
     background-size: contain;
 }
 
 .modern-illustration {
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="50" y="50" width="100" height="100" rx="10" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="40" fill="none" stroke="%23ffffff" stroke-width="3" opacity="0.6"/><path d="M80 100 L95 115 L120 85" stroke="%238AAC46" stroke-width="4" fill="none" opacity="0.7"/></svg>') no-repeat center;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="50" y="50" width="100" height="100" rx="10" fill="%23192E5B" opacity="0.1"/><circle cx="100" cy="100" r="40" fill="none" stroke="%23192E5B" stroke-width="3" opacity="0.3"/><path d="M80 100 L95 115 L120 85" stroke="%23192E5B" stroke-width="4" fill="none" opacity="0.4"/></svg>') no-repeat center;
     background-size: contain;
 }
 
@@ -240,16 +247,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(25, 46, 91, 0.95);
-    color: white;
+    background: white;
+    color: #1a1a1a;
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
     z-index: 200;
     display: none;
-    backdrop-filter: blur(10px);
-    border: 2px solid #3288A0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border: 2px solid #192E5B;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .download-section.active {
@@ -257,18 +263,18 @@ body {
 }
 
 .download-section h3 {
-    color: #8AAC46;
+    color: #192E5B;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 .download-section p {
     margin-bottom: 1.5rem;
-    color: rgba(255,255,255,0.9);
+    color: #666;
 }
 
 .download-btn {
-    background: #3288A0;
+    background: #192E5B;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -286,7 +292,7 @@ body {
 }
 
 .download-btn:hover {
-    background: #8AAC46;
+    background: #3288A0;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
@@ -297,7 +303,7 @@ body {
     right: 1rem;
     background: none;
     border: none;
-    color: white;
+    color: #666;
     font-size: 1.5rem;
     cursor: pointer;
     width: 30px;
@@ -309,7 +315,7 @@ body {
 }
 
 .close-btn:hover {
-    color: #8AAC46;
+    color: #192E5B;
     transform: scale(1.1);
 }
 
@@ -317,9 +323,9 @@ body {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(25, 46, 91, 0.9);
-    color: white;
-    border: 2px solid #3288A0;
+    background: white;
+    color: #192E5B;
+    border: 2px solid #e5e5e5;
     padding: 0.8rem 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -328,14 +334,15 @@ body {
     letter-spacing: 1px;
     z-index: 50;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
     font-family: 'Georgia', serif;
 }
 
 .download-trigger:hover {
-    background: #3288A0;
+    background: #192E5B;
+    color: white;
+    border-color: #192E5B;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 1024px) {
@@ -362,8 +369,8 @@ body {
 @media (max-width: 768px) {
     .verse-selector {
         flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 0.8rem;
+        gap: 0.8rem;
+        padding: 2rem 0.8rem 1.2rem 0.8rem;
     }
 
     .verse-btn {
