@@ -7,13 +7,21 @@ body {
     padding: 0;
 }
 
+.page-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 12px;
+}
+
 /* Fixed Timeline Bar */
 .timeline-wrapper {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(0,0,0,0.8);
-    padding: 1rem 0;
+    padding: 0 0 20px 0;
     z-index: 1000;
 }
 
@@ -78,14 +86,15 @@ body {
 
 /* Scrollable Content Frame */
 .content-frame {
-    padding: 7rem 2rem 2rem; /* Space for fixed timeline */
+    padding: 7rem 2rem 2rem;
     max-width: 1000px;
     margin: 0 auto;
     overflow-y: auto;
 }
 
 .progress-indicator {
-    margin-bottom: 2rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .progress-title {
