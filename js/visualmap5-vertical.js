@@ -145,6 +145,4 @@ document.querySelectorAll('.timeline-point').forEach(point => {
     });
 });
 
-setTimeout(() => {
-    showVerse(1);
-}, 1000);
+
