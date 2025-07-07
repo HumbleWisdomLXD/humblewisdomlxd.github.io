@@ -3,102 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Vertical Timeline - Jeremiah 3:21-25</title>
-    <link rel="stylesheet" href="css/visualmap5-vertical.css">
+    <title>Repentance Timeline</title>
+    <link rel="stylesheet" href="css/visualmap5-horizontal.css">
 </head>
 <body>
 
-    <div class="timeline-container">
-
-        <!-- Header -->
-        <div class="header">
-            <h1>The Journey of Repentance</h1>
-            <p>Jeremiah 3:21-25 - Interactive Emotional & Spiritual Timeline</p>
-        </div>
-
-        <div class="main-grid">
-
-            <!-- Timeline Column -->
-            <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-                <div class="timeline-track">
-                    <div class="timeline-point point-1" data-verse="1">
-                        <div class="point-circle">
-                            <div class="point-icon">❤️</div>
-                        </div>
-                        <div class="point-label">God's Invitation</div>
-                        <div class="emotional-state">Love & Hope</div>
-                    </div>
-
-                    <div class="timeline-point point-2" data-verse="2">
-                        <div class="point-circle">
-                            <div class="point-icon">🙏</div>
-                        </div>
-                        <div class="point-label">Submission</div>
-                        <div class="emotional-state">Surrender</div>
-                    </div>
-
-                    <div class="timeline-point point-3" data-verse="3">
-                        <div class="point-circle">
-                            <div class="point-icon">💭</div>
-                        </div>
-                        <div class="point-label">Recognition</div>
-                        <div class="emotional-state">Awareness</div>
-                    </div>
-
-                    <div class="timeline-point point-4" data-verse="4">
-                        <div class="point-circle">
-                            <div class="point-icon">⚡</div>
-                        </div>
-                        <div class="point-label">Realization</div>
-                        <div class="emotional-state">Understanding</div>
-                    </div>
-
-                    <div class="timeline-point point-5" data-verse="5">
-                        <div class="point-circle">
-                            <div class="point-icon">😢</div>
-                        </div>
-                        <div class="point-label">Complete Confession</div>
-                        <div class="emotional-state">Godly Sorrow</div>
-                    </div>
+    <!-- Fixed Timeline Menu -->
+    <div class="timeline-wrapper">
+        <div class="timeline-track">
+            <div class="timeline-point point-1" data-verse="1">
+                <div class="point-circle">
+                    <div class="point-icon">❤️</div>
                 </div>
+                <div class="point-label">God's Invitation</div>
             </div>
 
-            <!-- Commentary Column -->
-            <div class="commentary-section">
-                <div class="progress-indicator">
-                    <div class="progress-title">Journey Progress</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+            <div class="timeline-point point-2" data-verse="2">
+                <div class="point-circle">
+                    <div class="point-icon">🙏</div>
+                </div>
+                <div class="point-label">Submission</div>
+            </div>
+
+            <div class="timeline-point point-3" data-verse="3">
+                <div class="point-circle">
+                    <div class="point-icon">💭</div>
+                </div>
+                <div class="point-label">Recognition</div>
+            </div>
+
+            <div class="timeline-point point-4" data-verse="4">
+                <div class="point-circle">
+                    <div class="point-icon">⚡</div>
+                </div>
+                <div class="point-label">Realization</div>
+            </div>
+
+            <div class="timeline-point point-5" data-verse="5">
+                <div class="point-circle">
+                    <div class="point-icon">😢</div>
+                </div>
+                <div class="point-label">Confession</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable Content Frame -->
+    <div class="content-frame">
+        <div class="progress-indicator">
+            <div class="progress-title">Journey Progress</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="commentary-content active" id="commentary-content">
+            <div class="verse-header">
+                <div class="verse-title">Click a point on the timeline to begin</div>
+                <div class="verse-text">Follow the emotional and spiritual journey of repentance through Jeremiah 3:21-25</div>
+            </div>
+
+            <div class="commentary-grid">
+                <div class="spiritual-state">
+                    <div class="section-title">Spiritual State</div>
+                    <div class="section-content">
+                        <p>This timeline reveals the progression of the heart in genuine repentance. Each step represents both an emotional and spiritual milestone in the journey back to God.</p>
                     </div>
                 </div>
 
-                <div class="commentary-content active" id="commentary-content">
-                    <div class="verse-header">
-                        <div class="verse-title">Click a point on the timeline to begin</div>
-                        <div class="verse-text">Follow the emotional and spiritual journey of repentance through Jeremiah 3:21-25</div>
-                    </div>
-
-                    <div class="commentary-grid">
-                        <div class="spiritual-state">
-                            <div class="section-title">Spiritual State</div>
-                            <div class="section-content">
-                                <p>This timeline reveals the progression of the heart in genuine repentance. Each step represents both an emotional and spiritual milestone in the journey back to God.</p>
-                            </div>
-                        </div>
-
-                        <div class="practical-application">
-                            <div class="section-title">Your Journey</div>
-                            <div class="section-content">
-                                <p>As you explore each point, consider where you are in your own journey of returning to God. Repentance is not a single moment but a process of drawing closer to Him.</p>
-                            </div>
-                        </div>
+                <div class="practical-application">
+                    <div class="section-title">Your Journey</div>
+                    <div class="section-content">
+                        <p>As you explore each point, consider where you are in your own journey of returning to God. Repentance is not a single moment but a process of drawing closer to Him.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Download Section -->
         <div class="download-section">
             <h3>Complete Your Study</h3>
             <p>Download the full commentary including cross-references, word studies, and extended applications for personal growth.</p>
@@ -106,7 +87,8 @@
         </div>
     </div>
 
-    <!-- External JavaScript -->
+    <!-- Link to JavaScript -->
     <script src="js/visualmap5-vertical.js"></script>
+
 </body>
 </html>
