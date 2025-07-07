@@ -94,8 +94,7 @@ body {
     padding: 10rem 2rem 2rem;
     margin-top: 60px;  /* Add this to push the content down */
     max-width: 1000px;
-    margin: 0 auto;
-    overflow-y: auto;
+      overflow-y: auto;
 }
 
 .progress-indicator {
