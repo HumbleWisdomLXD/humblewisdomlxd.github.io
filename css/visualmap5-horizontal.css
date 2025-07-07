@@ -32,8 +32,7 @@ body {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem 2rem;
-}
+    }
 
 .timeline-point {
     cursor: pointer;
@@ -100,7 +99,7 @@ body {
 }
 
 .progress-indicator {
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
