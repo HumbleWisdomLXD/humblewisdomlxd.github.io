@@ -91,8 +91,8 @@ body {
 
 /* Scrollable Content Frame */
 .content-frame {
-    padding: 10rem 2rem 2rem;
-    margin-top: 60px;  /* Add this to push the content down */
+    padding: 7rem 2rem 2rem;
+    margin-top: 15px;  /* Add this to push the content down */
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -100,8 +100,8 @@ body {
 }
 
 .progress-indicator {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .progress-title {
