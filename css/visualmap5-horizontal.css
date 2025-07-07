@@ -32,11 +32,16 @@ body {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 1rem 2rem;
 }
 
 .timeline-point {
     cursor: pointer;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .point-circle {
@@ -105,6 +110,7 @@ body {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .progress-bar {
@@ -113,6 +119,7 @@ body {
     background: rgba(255,255,255,0.2);
     border-radius: 4px;
     overflow: hidden;
+    margin: 1rem 0 2rem 0;
 }
 
 .progress-fill {
