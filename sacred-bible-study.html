@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACRED Bible Study Method - Humble Wisdom Learning Experience Design</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: white;
+            color: #1a1a1a;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+            line-height: 1.3;
+            color: #192E5B;
+        }
+
+        /* Header */
+        .minimal-header {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo-link {
+            text-decoration: none;
+        }
+
+        .css-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo-humble {
+            font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3288A0, #8AAC46, #F68426);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transform: skew(-5deg);
+        }
+
+        .logo-wisdom {
+            font-family: 'Trebuchet MS', 'Futura', 'Arial Black', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #192E5B;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transform: skew(-5deg);
+            margin-left: 4px;
+        }
+
+        .logo-tagline {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-size: 0.5rem;
+            color: #666;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #3288A0;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: white;
+            margin: 0;
+            padding: 2.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #192E5B;
+        }
+
+        .sacred-steps {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: rgba(50, 136, 160, 0.1);
+            padding: 1.5rem;
+            border-left: 4px solid #3288A0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background: rgba(50, 136, 160, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .step-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #192E5B;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-content h4 {
+            color: #192E5B;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .step-example {
+            margin: 0.5rem 0;
+            padding: 0 1rem;
+        }
+
+        .step-example > div {
+            background: rgba(138, 172, 70, 0.1);
+            padding: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .step-example h5 {
+            color: #192E5B;
+            margin-bottom: 1rem;
+        }
+
+        .step-example p {
+            font-style: italic;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(50, 136, 160, 0.15);
+            border: 2px solid #3288A0;
+        }
+
+        .download-btn {
+            padding: 1rem 2rem;
+            background: #192E5B;
+            color: white;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .download-btn:hover {
+            background: #3288A0;
+        }
+
+        .perfect-for-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .perfect-for-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .perfect-for-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: hue-rotate(180deg) saturate(2);
+        }
+
+        .perfect-for-item h4 {
+            color: #192E5B;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .content-section {
+                padding: 20px 15px;
+            }
+            
+            .step-card {
+                padding: 15px;
+            }
+            
+            .download-section {
+                padding: 20px 15px;
+            }
+            
+            .download-btn {
+                display: block;
+                width: 90%;
+                margin: 10px auto;
+                padding: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="minimal-header">
+        <div class="header-container">
+            <nav class="header-nav">
+                <a href="index.html" class="logo-link">
+                    <div class="css-logo">
+                        <span class="logo-humble">Humble</span>
+                        <span class="logo-wisdom">Wisdom</span>
+                        <div class="logo-tagline">Learning Experience Design</div>
+                    </div>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html#articles" class="nav-link">Tools</a>
+                    <a href="index.html#publications" class="nav-link">Studies</a>
+                    <a href="index.html#perspectives" class="nav-link">Perspectives</a>
+                    <a href="index.html#resources" class="nav-link">Resources</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SACRED Logo - standalone -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="newsbst.png" alt="SACRED Bible Study Logo" style="max-width: 800px; height: auto;">
+        </div>
+
+        <!-- Text in white container -->
+        <section class="content-section">
+            <h2 class="section-title">Transform Your Bible Study</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">SACRED is a systematic Bible study method that guides you through six essential steps for deeper scripture understanding. Whether you're studying alone or with a group, this framework helps you move beyond surface reading to meaningful spiritual growth. Click each tab for insights shared by Faith G.</p>
+            
+            <div class="sacred-steps">
+                <div class="step-card" onclick="toggleStep('step-s')">
+                    <div class="step-letter">S</div>
+                    <div class="step-content">
+                        <h4>Summarize <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Read the passage 2-3 times and write a brief summary in your own words using 2-3 sentences.</p>
+                    </div>
+                </div>
+                <div id="step-s" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Summary:</h5>
+                        <p>"God loves every human being, so he sent his son as an example of how to live while human. If you do, you live a good life. People prefer to do their own thing and live differently than Jesus. People who do evil hates truth. They won't live in Christ because they don't want their evil deeds exposed."</p>
+                    </div>
+                </div>
+                
+                <div class="step-card" onclick="toggleStep('step-a')">
+                    <div class="step-letter">A</div>
+                    <div class="step-content">
+                        <h4>Analyze <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Dig deeper into details and background. Look up unfamiliar words and research the historical context.</p>
+                    </div>
+                </div>
+                <div id="step-a" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Analysis:</h5>
+                        <p><strong>God:</strong> Heavenly Father, the One who sent Jesus<br>
+                        <strong>the world:</strong> every human being<br>
+                        <strong>begotten:</strong> unique<br>
+                        <strong>believed:</strong> be and live in (not just intellectually acknowledge)<br>
+                        <strong>life in abundance:</strong> overflowing with the character traits and habits of mind that Jesus demonstrated; this is what is good in God's eyes; material wealth does not equate to life abundantly although it might appear so<br>
+                        <strong>light:</strong> Christ consciousness<br>
+                        <strong>evil:</strong> anything outside of Christ consciousness</p>
+                    </div>
+                </div>
+                
+                <div class="step-card" onclick="toggleStep('step-c')">
+                    <div class="step-letter">C</div>
+                    <div class="step-content">
+                        <h4>Cross-Reference <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Find other Bible passages that connect to your current passage. Look for similar themes and related stories.</p>
+                    </div>
+                </div>
+                <div id="step-c" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Cross-References:</h5>
+                        <p><strong>John 1:4-5:</strong> "In him was life, and that life was the life of all mankind; the light shines in darkness, and darkness doesn't overcome it"<br><br>
+                        <strong>2 Timothy 3:1-5:</strong> "Lovers of pleasure instead of lovers of the Heavenly Father, having a form of godliness but denying its power"</p>
+                    </div>
+                </div>
+                
+                <div class="step-card" onclick="toggleStep('step-r')">
+                    <div class="step-letter">R</div>
+                    <div class="step-content">
+                        <h4>Relate & Reflect <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Connect the passage to your life today. Ask how this applies to your daily life and what it reveals about God's character.</p>
+                    </div>
+                </div>
+                <div id="step-r" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Reflection:</h5>
+                        <p>"All humans are welcome. If 'in the name' is really like being 'on brand' or 'in alignment' or 'in representation or reflection of' then Christ really is for everybody, even those Incans and Mayans who never heard the English word 'Jesus.' It's the mindset, heartset, and alignment with the will of the Heavenly Father that is the focus, not the literal English name of 'Jesus.' Technically, his name would be Yeshua or Yahshua."</p>
+                    </div>
+                </div>
+                
+                <div class="step-card" onclick="toggleStep('step-e')">
+                    <div class="step-letter">E</div>
+                    <div class="step-content">
+                        <h4>Examine Deeper Meaning <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Look beyond the surface for symbolic or spiritual meanings, metaphors, and deeper spiritual truths.</p>
+                    </div>
+                </div>
+                <div id="step-e" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Deeper Examination:</h5>
+                        <p>"The sentence construction has begotten before sons, so begotten is an adjective. It's saying that Jesus was his only 'begotten' son, not his ONLY son. Was the spirit that dwelt in the physical body of Christ revealed to other people groups in some way before this time? Is it his consciousness and purpose that we should aim to live in, or should we simply be comfortable by celebrating and talking about his murder and resurrection? Can I make this choice for myself, or must I conform to what the rest of the crowd is doing and believing?"</p>
+                    </div>
+                </div>
+                
+                <div class="step-card" onclick="toggleStep('step-d')">
+                    <div class="step-letter">D</div>
+                    <div class="step-content">
+                        <h4>Debrief in Prayer/Meditation <span style="float: right; color: #333; font-size: 1.2rem; font-weight: bold;">⌄</span></h4>
+                        <p>Take your study into personal conversation with God. Reflect on how to apply what you've learned.</p>
+                    </div>
+                </div>
+                <div id="step-d" class="step-example" style="display: none;">
+                    <div>
+                        <h5>Example Prayer/Meditation:</h5>
+                        <p>"Life in abundance/life abundantly. The world says it means having money and all the things. But in the Sermon on the Mount, the blessings are in the sufferings. Jesus didn't multiply shekels or cows or property lines; he gave people knowledge and health. So who's right—my pastor, who teaches that God doesn't want us to be poor, or Jesus, who was poor but didn't seem to hurt for anything. I should probably rethink my relationship with success…like…I really don't want to gain the world but lose my soul."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Perfect For</h2>
+            <div class="perfect-for-grid">
+                <div class="perfect-for-item">
+                    <div class="perfect-for-icon">👤</div>
+                    <h4>Individual Study</h4>
+                    <p>Enhance your personal devotions with structured, meaningful study</p>
+                </div>
+                <div class="perfect-for-item">
+                    <div class="perfect-for-icon">👥</div>
+                    <h4>Small Groups</h4>
+                    <p>Guide group discussions with systematic exploration of scripture</p>
+                </div>
+                <div class="perfect-for-item">
+                    <div class="perfect-for-icon">🎓</div>
+                    <h4>Bible Classes</h4>
+                    <p>Teach others how to study scripture with this proven framework</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="download-section">
+                <h2 style="color: #192E5B; margin-bottom: 1rem;">Download Your FREE SACRED BIBLE STUDY METHOD Tool</h2>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">Get both the fillable worksheet and completed example to start your SACRED Bible study journey today.</p>
+                
+                <ol style="text-align: left; max-width: 500px; margin: 0 auto 2rem auto; font-size: 1rem; line-height: 1.8;">
+                    <li><strong>Choose a passage</strong> - Start with 3-10 verses</li>
+                    <li><strong>Download the worksheet</strong> - Print or complete digitally</li>
+                    <li><strong>Set aside time</strong> - Allow 20-30 minutes for your first study</li>
+                    <li><strong>Follow the SACRED steps</strong> - Work through each section systematically</li>
+                    <li><strong>Apply what you learn</strong> - Let God's Word transform your daily life</li>
+                </ol>
+                
+                <a href="001sbst.pdf" class="download-btn" download>Download Fillable Worksheet</a>
+                <a href="SACRED Example.docx" class="download-btn" download>Download Completed Example</a>
+                
+                <p style="margin-top: 1.5rem; color: #192E5B; font-size: 0.9rem;">
+                    Always FREE • Print or fill digitally • No email required
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleStep(stepId) {
+            // Hide all examples first
+            const allExamples = document.querySelectorAll('.step-example');
+            allExamples.forEach(example => {
+                if (example.id !== stepId) {
+                    example.style.display = 'none';
+                }
+            });
+            
+            // Toggle the clicked step
+            const clickedStep = document.getElementById(stepId);
+            if (clickedStep.style.display === 'none' || clickedStep.style.display === '') {
+                clickedStep.style.display = 'block';
+            } else {
+                clickedStep.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

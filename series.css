@@ -1,0 +1,131 @@
+/* Bible Project Two-Column Layout */
+.series-main {
+    padding: 6rem 0;
+    background: white;
+}
+
+.series-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+}
+
+/* Left Column - Hero Image and Intro */
+.series-hero {
+    position: sticky;
+    top: 150px;
+}
+
+.series-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #192E5B;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #192E5B, #3288A0);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    background-image: url('https://picsum.photos/600/450?random=1');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.series-meta {
+    font-size: 0.8rem;
+    color: #3288A0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+}
+
+/* Right Column - Guide Cards */
+.guides-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.guide-card {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.guide-card:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.guide-card h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #192E5B;
+    line-height: 1.3;
+}
+
+.guide-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.coming-soon-card {
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    padding: 2.5rem;
+}
+
+.coming-soon-card h3 {
+    color: #999;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.coming-soon-card p {
+    color: #999;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .series-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .series-hero {
+        position: static;
+    }
+    
+    .series-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .guide-card {
+        padding: 2rem;
+    }
+}

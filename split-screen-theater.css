@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: #000;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.theater-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    position: relative;
+}
+
+.ancient-scene {
+    background: linear-gradient(135deg, #192E5B 0%, #3288A0 50%, #8AAC46 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.modern-application {
+    background: linear-gradient(135deg, #8AAC46 0%, #3288A0 50%, #192E5B 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+}
+
+.scene-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    pointer-events: none;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(25, 46, 91, 0.95);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: #8AAC46;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.verse-selector {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(25, 46, 91, 0.95);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.verse-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 2px solid rgba(50, 136, 160, 0.5);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
+}
+
+.verse-btn:hover {
+    background: rgba(50, 136, 160, 0.3);
+    border-color: #3288A0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.verse-btn.active {
+    background: #3288A0;
+    border-color: #3288A0;
+    color: white;
+    box-shadow: 0 5px 15px rgba(50, 136, 160, 0.4);
+}
+
+.scene-content {
+    text-align: center;
+    max-width: 500px;
+    z-index: 2;
+    position: relative;
+}
+
+.ancient-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 300;
+}
+
+.modern-title {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 300;
+}
+
+.biblical-context {
+    background: rgba(255,255,255,0.9);
+    color: #192E5B;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #3288A0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.modern-context {
+    background: rgba(255,255,255,0.9);
+    color: #192E5B;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #8AAC46;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.content.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.verse-reference {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #3288A0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modern-context .verse-reference {
+    color: #8AAC46;
+}
+
+.verse-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #192E5B;
+}
+
+.context-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #192E5B;
+}
+
+.context-text p {
+    margin-bottom: 1.2rem;
+}
+
+.context-text strong {
+    color: #3288A0;
+    font-weight: 600;
+}
+
+.modern-context .context-text strong {
+    color: #8AAC46;
+    font-weight: 600;
+}
+
+.scene-illustration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.ancient-illustration {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100 20 L180 100 L100 180 L20 100 Z" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="60" fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.5"/><path d="M70 100 Q100 70 130 100 Q100 130 70 100" fill="%233288A0" opacity="0.4"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.modern-illustration {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="50" y="50" width="100" height="100" rx="10" fill="%23ffffff" opacity="0.3"/><circle cx="100" cy="100" r="40" fill="none" stroke="%23ffffff" stroke-width="3" opacity="0.6"/><path d="M80 100 L95 115 L120 85" stroke="%238AAC46" stroke-width="4" fill="none" opacity="0.7"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.download-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(25, 46, 91, 0.95);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 200;
+    display: none;
+    backdrop-filter: blur(10px);
+    border: 2px solid #3288A0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.download-section.active {
+    display: block;
+}
+
+.download-section h3 {
+    color: #8AAC46;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.download-section p {
+    margin-bottom: 1.5rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.download-btn {
+    background: #3288A0;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+.download-btn:hover {
+    background: #8AAC46;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #8AAC46;
+    transform: scale(1.1);
+}
+
+.download-trigger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(25, 46, 91, 0.9);
+    color: white;
+    border: 2px solid #3288A0;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 50;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-family: 'Georgia', serif;
+}
+
+.download-trigger:hover {
+    background: #3288A0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 1024px) {
+    .theater-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .ancient-title,
+    .modern-title {
+        font-size: 2rem;
+    }
+
+    .scene-content {
+        max-width: 90%;
+    }
+
+    .biblical-context,
+    .modern-context {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .verse-selector {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+
+    .verse-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .ancient-title,
+    .modern-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.8rem;
+    }
+
+    .scene-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .biblical-context,
+    .modern-context {
+        padding: 1.2rem;
+    }
+
+    .verse-reference {
+        font-size: 1rem;
+    }
+
+    .verse-text {
+        font-size: 1.1rem;
+    }
+
+    .context-text {
+        font-size: 0.9rem;
+    }
+
+    .download-section {
+        padding: 1.5rem;
+        max-width: 90vw;
+    }
+
+    .download-trigger {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.7rem;
+    }
+}

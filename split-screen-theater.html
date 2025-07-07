@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremiah 3:21-25 - Split-Screen Theater</title>
+    <link rel="stylesheet" href="css/split-screen-theater.css">
+</head>
+<body>
+    <div class="theater-container">
+        <div class="header">
+            <h1>Split-Screen Theater</h1>
+            <p>Jeremiah 3:21-25 - Ancient Context & Modern Application</p>
+        </div>
+
+        <button class="download-trigger" onclick="showDownload()">Study Guide</button>
+
+        <!-- Ancient Scene Side -->
+        <div class="ancient-scene">
+            <div class="scene-overlay"></div>
+            <div class="scene-illustration ancient-illustration"></div>
+            
+            <div class="scene-content">
+                <h2 class="ancient-title">Ancient Judah</h2>
+                <div class="biblical-context content" id="ancient-content">
+                    <div class="verse-reference">Select a verse below to begin</div>
+                    <div class="verse-text">Click any verse to see its historical context and meaning for the people of Judah in Jeremiah's time.</div>
+                    <div class="context-text">
+                        <p>This passage reveals God's heart for His wayward people and the steps of genuine repentance He desired from them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Application Side -->
+        <div class="modern-application">
+            <div class="scene-overlay"></div>
+            <div class="scene-illustration modern-illustration"></div>
+            
+            <div class="scene-content">
+                <h2 class="modern-title">Your Life Today</h2>
+                <div class="modern-context content" id="modern-content">
+                    <div class="verse-reference">Personal Application</div>
+                    <div class="verse-text">Discover how these ancient truths apply to your spiritual journey and relationship with God today.</div>
+                    <div class="context-text">
+                        <p>The same principles of repentance and restoration that God offered to Judah are available to you right now.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verse Selector -->
+        <div class="verse-selector">
+            <button class="verse-btn active" data-verse="1">Verse 22a - God's Call</button>
+            <button class="verse-btn" data-verse="2">Verse 22b - Submission</button>
+            <button class="verse-btn" data-verse="3">Verse 23 - Confession</button>
+            <button class="verse-btn" data-verse="4">Verse 24 - Recognition</button>
+            <button class="verse-btn" data-verse="5">Verse 25 - Complete Repentance</button>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section" id="download-section">
+            <button class="close-btn" onclick="hideDownload()">×</button>
+            <h3>Complete Study Guide</h3>
+            <p>Download the full commentary including Jeremiah 4:1 and extended teaching materials for deeper study.</p>
+            <a href="#" class="download-btn">Download PDF Study Guide</a>
+        </div>
+    </div>
+
+    <script src="js/split-screen-theater.js"></script>
+</body>
+</html>
