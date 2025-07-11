@@ -381,6 +381,43 @@ body {
     font-weight: 300;
     margin-bottom: 15px;
 }
+/* ==========================================================================
+   DYNAMIC STAR RATING SYSTEM
+   ========================================================================== */
+.star-rating {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.star {
+    color: #444;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.star.filled {
+    color: #ffd700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.star.filled.excellent {
+    color: #00ff7f;
+}
+
+.star.filled.good {
+    color: #00d4ff;
+}
+
+.star.filled.needs-improvement {
+    color: #ffc107;
+}
+
+.star.filled.poor {
+    color: #ff4757;
+}
 
 /* ==========================================================================
    MOBILE RESPONSIVE
