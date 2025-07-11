@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About This Training - Core Values Discovery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Header */
+        .training-header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .training-title {
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #ffffff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .training-logo {
+            width: 120px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Main content */
+        .main-wrapper {
+            margin-top: 100px;
+            padding: 40px;
+            min-height: calc(100vh - 100px);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 100;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 50px;
+            text-align: center;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        .section h2 {
+            color: #00d4ff;
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .section h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 35px 0 20px 0;
+        }
+
+        /* Data insights */
+        .data-insight {
+            background: rgba(255, 212, 0, 0.1);
+            border: 1px solid rgba(255, 212, 0, 0.3);
+            border-left: 4px solid #ffd400;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .data-insight h4 {
+            color: #ffd400;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Quote boxes */
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quote-box:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-left-color: rgba(0, 212, 255, 0.5);
+            transform: translateX(5px);
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            left: -5px;
+            top: -10px;
+            font-size: 3rem;
+            color: rgba(0, 212, 255, 0.3);
+            font-family: serif;
+        }
+
+        /* Design principles */
+        .design-principle {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .design-principle h4 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-box:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ff4757;
+            display: block;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* Methodology box */
+        .methodology-box {
+            background: rgba(89, 40, 255, 0.1);
+            border: 1px solid rgba(89, 40, 255, 0.3);
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .methodology-box h4 {
+            color: #5928ff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* Timeline */
+        .timeline {
+            border-left: 2px solid #00d4ff;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            margin: 30px 0;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 25px;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(10px);
+        }
+
+        .timeline-date {
+            font-weight: 500;
+            color: #00d4ff;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        /* Lists */
+        .outcome-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .outcome-list li {
+            padding: 15px 0;
+            border-left: 3px solid #28a745;
+            padding-left: 20px;
+            margin: 15px 0;
+            background: rgba(40, 167, 69, 0.1);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .outcome-list li:hover {
+            border-left-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Close button */
+        .close-btn {
+            background: linear-gradient(135deg, #00d4ff, #5928ff);
+            border: none;
+            padding: 16px 32px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 40px auto 20px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .close-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .close-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .training-header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-wrapper {
+                padding: 20px;
+                margin-top: 120px;
+            }
+
+            .about-container {
+                padding: 30px 25px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item {
+                padding: 15px;
+            }
+        }
+
+        /* Animation delays for staggered loading */
+        .section {
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 25%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 45%; animation-delay: 10s;"></div>
+        <div class="particle" style="left: 65%; animation-delay: 15s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 20s;"></div>
+        <div class="particle" style="left: 95%; animation-delay: 25s;"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="training-header">
+        <h1 class="training-title">Core Values Discovery Training</h1>
+        <div class="training-logo">YOUR LOGO</div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-wrapper">
+        <div class="about-container">
+            <h1 class="page-title">About This Training</h1>
+            <p class="page-subtitle">A data-driven approach to rebuilding organizational culture</p>
+            
+            <div class="section">
+                <h2>Why This Training Exists</h2>
+                <p>This training was developed in direct response to concerning patterns identified in our employee exit interviews and organizational feedback. Rather than creating generic values training, we analyzed real employee experiences to understand the specific challenges facing our organization.</p>
+                
+                <div class="data-insight">
+                    <h4>📊 The Data That Drove This Decision</h4>
+                    <p>Analysis of exit interviews from March-May 2025 revealed consistent themes around leadership disconnect, toxic culture, and values-practice gaps that were driving talent away from our mission-critical work.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>What The Data Revealed</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">23</span>
+                        <div class="stat-label">Exit interviews analyzed</div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">85%</span>
+                        <div class="stat-label">Cited culture issues</div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">78%</span>
+                        <div class="stat-label">Mentioned leadership problems</div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">92%</span>
+                        <div class="stat-label">Would recommend org mission</div>
+                    </div>
+                </div>
+
+                <h3>Key Themes from Employee Feedback:</h3>
+
+                <div class="quote-box">
+                    <strong>Leadership Disconnect:</strong> "Management—particularly at the upper levels—is disorganized and unresponsive... CEO and executive team seem disconnected from both the frontline staff and client needs."
+                </div>
+
+                <div class="quote-box">
+                    <strong>Values-Practice Gap:</strong> "There's a disconnect between the values they advertise and what actually happens. There's a lot of talk about integrity, growth, and client care, but not much follow-through from the top."
+                </div>
+
+                <div class="quote-box">
+                    <strong>Trust Breakdown:</strong> "I have learned to trust no one at this job... passive-aggressive behaviors... favoritism over proven contributions."
+                </div>
+
+                <div class="quote-box">
+                    <strong>Frontline Pressure:</strong> "12-18 high-needs clients weekly, it's insane... overworked and underpaid to deal with members with high needs."
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Adult Learning Theory Foundation</h2>
+                
+                <p>This training was intentionally designed using evidence-based adult learning principles to maximize engagement, retention, and practical application. Our approach integrates multiple established theories that research shows are most effective for adult learners.</p>
+
+                <div class="methodology-box">
+                    <h4>🧠 Learning Theory Integration</h4>
+                    <p>Rather than using a single approach, we've combined the most effective elements from three major adult learning theories to create a comprehensive, research-backed learning experience.</p>
+                </div>
+
+                <h3>1. Andragogy (Malcolm Knowles) - Self-Directed Learning</h3>
+                
+                <div class="design-principle">
+                    <h4>Theory Application: Six Principles of Adult Learning</h4>
+                    <p><strong>Need to Know:</strong> Training opens by explaining why values matter for daily work collaboration</p>
+                    <p><strong>Experience Foundation:</strong> Scenarios use real workplace situations from actual exit interviews</p>
+                    <p><strong>Self-Concept:</strong> Learners choose their role and have autonomy in discovery process</p>
+                    <p><strong>Readiness:</strong> Addresses immediate workplace challenges employees actually face</p>
+                    <p><strong>Problem-Centered:</strong> Focuses on solving real issues rather than abstract concepts</p>
+                    <p><strong>Internal Motivation:</strong> Connects to personal job satisfaction and career success</p>
+                </div>
+
+                <h3>2. Experiential Learning Theory (David Kolb) - Learning Through Experience</h3>
+                
+                <div class="design-principle">
+                    <h4>Theory Application: Four-Stage Learning Cycle</h4>
+                    <p><strong>Concrete Experience:</strong> Interactive scenarios with real workplace decisions</p>
+                    <p><strong>Reflective Observation:</strong> Coaching feedback helps learners analyze their choices</p>
+                    <p><strong>Abstract Conceptualization:</strong> Values revelation shows underlying principles</p>
+                    <p><strong>Active Experimentation:</strong> Inter-role scenarios let learners apply concepts in new situations</p>
+                </div>
+
+                <h3>3. Transformative Learning Theory (Jack Mezirow) - Perspective Change</h3>
+                
+                <div class="design-principle">
+                    <h4>Theory Application: Critical Reflection and Transformation</h4>
+                    <p><strong>Disorienting Dilemma:</strong> Exit interview data reveals gap between values and practice</p>
+                    <p><strong>Critical Reflection:</strong> Learners examine their own assumptions about workplace behavior</p>
+                    <p><strong>Perspective Transformation:</strong> Inductive discovery creates new understanding of values</p>
+                    <p><strong>Integration:</strong> New perspective guides future workplace decisions</p>
+                </div>
+
+                <h3>Research-Based Design Choices:</h3>
+
+                <div class="quote-box">
+                    <strong>Inductive vs. Deductive Learning:</strong> Research shows adults prefer discovering principles themselves rather than being told what to think. Our pattern-recognition approach leverages this preference.
+                </div>
+
+                <div class="quote-box">
+                    <strong>Problem-Based Learning:</strong> Adults learn best when content addresses real needs for real-world situations, which is why we used actual workplace scenarios from exit data.
+                </div>
+
+                <div class="quote-box">
+                    <strong>Experience-Centered Design:</strong> Kolb's research demonstrates that learning occurs through the transformation of experience, not passive information intake, supporting our interactive scenario approach.
+                </div>
+
+                <div class="quote-box">
+                    <strong>Critical Reflection:</strong> Mezirow found that adults can transform their understanding through critical reflection on assumptions, which occurs in our values discovery process.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Instructional Design Methodology</h2>
+
+                <div class="design-principle">
+                    <h4>1. Inductive Learning Methodology</h4>
+                    <p><strong>Why:</strong> Exit data showed employees felt "talked at" rather than engaged. Inductive discovery creates personal investment in the values.</p>
+                    <p><strong>How:</strong> Employees group workplace examples and derive values themselves, then see official definitions.</p>
+                </div>
+
+                <div class="design-principle">
+                    <h4>2. Role-Specific Scenarios</h4>
+                    <p><strong>Why:</strong> Different roles face different challenges. Generic training doesn't address specific workplace realities.</p>
+                    <p><strong>How:</strong> Three distinct scenario paths based on actual role-specific issues from exit data.</p>
+                </div>
+
+                <div class="design-principle">
+                    <h4>3. Real Workplace Situations</h4>
+                    <p><strong>Why:</strong> Exit interviews revealed specific pain points. Training needed to address actual problems, not hypothetical ones.</p>
+                    <p><strong>How:</strong> Scenarios directly incorporate themes from exit data: leadership disconnect, toxic culture, workload pressure.</p>
+                </div>
+
+                <div class="design-principle">
+                    <h4>4. Values-Pairs Structure</h4>
+                    <p><strong>Why:</strong> Single values can be abstract. Paired values provide context and practical application guidance.</p>
+                    <p><strong>How:</strong> Six value pairs that work together: Empowerment/Collaboration, Integrity/Transparency, Innovation/Growth, Humility/Respect, Partnership/Security, Excellence/Commitment.</p>
+                </div>
+
+                <div class="design-principle">
+                    <h4>5. Inter-Role Collaboration Focus</h4>
+                    <p><strong>Why:</strong> Exit data showed breakdown in cross-department relationships and communication.</p>
+                    <p><strong>How:</strong> Second scenario set focuses specifically on how roles work together, addressing actual collaboration failures.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Evidence-Based Features</h2>
+
+                <h3>Addressing Specific Exit Interview Concerns:</h3>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Problem: "Leadership benefits from staff efforts without offering growth in return"</div>
+                        <div>Solution: Directors scenario on empowering staff to design their own solutions</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Problem: "12-18 high-needs clients weekly, it's insane over time"</div>
+                        <div>Solution: Mental health staff scenario on collaborative caseload management</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Problem: "Bad seeds make good people leave while they remain"</div>
+                        <div>Solution: General staff scenario on maintaining integrity in toxic environments</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Problem: "Trust no one at this job"</div>
+                        <div>Solution: Partnership/Security value focus on building genuine workplace relationships</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Expected Outcomes</h2>
+                
+                <p>This training is designed to address the root causes identified in our exit data:</p>
+                
+                <ul class="outcome-list">
+                    <li>
+                        <strong>Reduced Leadership Disconnect:</strong> Values-based decision making creates consistency between stated and practiced values
+                    </li>
+                    <li>
+                        <strong>Improved Cross-Role Collaboration:</strong> Shared values language and problem-solving approaches
+                    </li>
+                    <li>
+                        <strong>Stronger Culture Foundation:</strong> Values become actionable guides rather than wall decorations
+                    </li>
+                    <li>
+                        <strong>Enhanced Client Care:</strong> Internal culture strength directly impacts external service quality
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Measurement & Follow-Up</h2>
+                
+                <p>Success will be measured through:</p>
+                <ul style="color: rgba(255, 255, 255, 0.9); margin: 20px 0; padding-left: 20px;">
+                    <li style="margin: 10px 0;">Follow-up pulse surveys using similar questions to exit interviews</li>
+                    <li style="margin: 10px 0;">Retention rates by role and department</li>
+                    <li style="margin: 10px 0;">Cross-department collaboration indicators</li>
+                    <li style="margin: 10px 0;">Client satisfaction scores correlation with staff engagement</li>
+                </ul>
+
+                <div class="data-insight">
+                    <h4>🔄 Continuous Improvement</h4>
+                    <p>This training will be updated based on ongoing feedback and organizational data. We're committed to evidence-based iteration rather than static content.</p>
+                </div>
+            </div>
+
+            <button class="close-btn" onclick="closeAndReturn()">Close and Return to Training</button>
+        </div>
+    </div>
+
+    <script>
+        function closeAndReturn() {
+            // Add smooth transition effect
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Try to close window if opened as popup
+                if (window.opener) {
+                    window.close();
+                } else {
+                    // Otherwise navigate back or show message
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        alert('You can now close this tab to return to the training.');
+                    }
+                }
+            }, 500);
+        }
+
+        // Initialize animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to stats
+            const statBoxes = document.querySelectorAll('.stat-box');
+            statBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    const number = this.querySelector('.stat-number');
+                    number.style.transform = 'scale(1.1)';
+                    number.style.transition = 'transform 0.3s ease';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    const number = this.querySelector('.stat-number');
+                    number.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all major sections for scroll animations
+            document.querySelectorAll('.data-insight, .methodology-box, .design-principle').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add smooth scrolling for any internal links
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAndReturn();
+            }
+            
+            if (e.key === 'Enter' && e.target.classList.contains('close-btn')) {
+                closeAndReturn();
+            }
+        });
+    </script>
+</body>
+</html>
