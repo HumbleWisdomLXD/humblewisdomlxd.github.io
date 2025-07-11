@@ -2,285 +2,202 @@
    COMPLETE FINAL TRAINING SYSTEM JAVASCRIPT
    ========================================================================== */
 
-// Global Variables
-let selectedChoices = {};
-let currentSlide = 1;
-let score = 0;
+// ==========================================================================
+// GLOBAL VARIABLES
+// ==========================================================================
+let selectedChoices = {};      // Tracks user's choice selections
+let currentSlide = 1;          // Current slide number (1-5)
+let score = 0;                 // Running score counter
+let unlockedSlides = [1, 2];   // Slides 1 & 2 unlocked by default, 3, 4, 5 locked
 
-// Page titles for each slide
+// Page titles for each slide (change these for different scenarios)
 const pageTitles = {
     1: "Crisis Leadership Scenario",
     2: "Decision Point 1", 
     3: "Decision Point 2",
     4: "Decision Point 3",
-    5: "Your Leadership Impact"
+    5: "Results & Reflection"
 };
 
-// Initialize the application
+// ==========================================================================
+// INITIALIZATION
+// ==========================================================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Training system initialized');
     setupEventListeners();
     showSlide(1);
-    updateProgress();
     updateNavigationState();
 });
 
-// Set up all event listeners
+// ==========================================================================
+// EVENT LISTENERS SETUP
+// ==========================================================================
 function setupEventListeners() {
-    // Navigation dots
+    // Navigation dots - allow clicking only on unlocked slides
     document.querySelectorAll('.nav-dot').forEach((dot, index) => {
         dot.addEventListener('click', function() {
-            const slideNumber = index + 1;
-            if (!this.classList.contains('disabled')) {
-                showSlide(slideNumber);
+            const slideNum = index + 1;
+            if (unlockedSlides.includes(slideNum)) {
+                showSlide(slideNum);
             }
         });
     });
 
-    // Choice selection
+    // Choice selection - handle clicking on answer choices
     document.querySelectorAll('.choice').forEach(choice => {
         choice.addEventListener('click', function() {
-            const decision = this.dataset.decision;
-            const choiceValue = this.dataset.choice;
-            
-            if (decision && choiceValue) {
-                selectChoice(decision, choiceValue, this);
-            }
+            const decision = this.getAttribute('data-decision');
+            const choiceValue = this.getAttribute('data-choice');
+            selectChoice(parseInt(decision), choiceValue, this);
         });
     });
 
-    // Continue buttons
-    document.querySelectorAll('.continue-btn').forEach(btn => {
+    // Continue buttons - navigate to next slide
+    document.querySelectorAll('[data-next]').forEach(btn => {
         btn.addEventListener('click', function() {
-            const targetSlide = parseInt(this.dataset.target);
-            if (targetSlide && !this.disabled) {
-                showSlide(targetSlide);
+            const nextSlide = parseInt(this.getAttribute('data-next'));
+            if (unlockedSlides.includes(nextSlide)) {
+                showSlide(nextSlide);
             }
         });
     });
 
-    // Navigation buttons
-    const prevBtn = document.querySelector('.previous-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    if (prevBtn) {
-        prevBtn.addEventListener('click', goToPrevious);
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', goToNext);
-    }
+    // Previous/Next navigation buttons
+    document.getElementById('prevBtn').addEventListener('click', goToPrevious);
+    document.getElementById('nextBtn').addEventListener('click', goToNext);
 }
 
-// Show specific slide
+// ==========================================================================
+// SLIDE NAVIGATION
+// ==========================================================================
 function showSlide(slideNumber) {
-    console.log(`Showing slide ${slideNumber}`);
-    
     // Hide all slides
     document.querySelectorAll('.slide').forEach(slide => {
         slide.classList.remove('active');
     });
     
-    // Show target slide
-    const targetSlide = document.getElementById(`slide${slideNumber}`);
+    // Show selected slide
+    const targetSlide = document.getElementById('slide' + slideNumber);
     if (targetSlide) {
         targetSlide.classList.add('active');
         currentSlide = slideNumber;
         
         // Update page title
-        const pageTitleElement = document.querySelector('.page-title-main');
-        if (pageTitleElement && pageTitles[slideNumber]) {
-            pageTitleElement.textContent = pageTitles[slideNumber];
-        }
+        document.getElementById('pageTitle').textContent = pageTitles[slideNumber];
         
-        // Update navigation
-        updateNavigationDots();
-        updateProgress();
-        updateNavigationState();
-        
-        // If showing results slide, update outcome content
+        // Update navigation dots
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.classList.remove('active');
+            if (index + 1 === slideNumber) {
+                dot.classList.add('active');
+            }
+        });
+
+        // Update progress bar
+        const progressPercent = slideNumber === 1 ? 20 : slideNumber * 25;
+        document.getElementById('progressBar').style.width = progressPercent + '%';
+
+        // If showing results slide, update outcome based on score
         if (slideNumber === 5) {
             updateOutcomeContent();
         }
-        
-        // Scroll to top smoothly
+
+        updateNavigationState();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
-// Update navigation dots
-function updateNavigationDots() {
+// ==========================================================================
+// NAVIGATION STATE MANAGEMENT
+// ==========================================================================
+function updateNavigationState() {
+    // Update navigation dots - disable locked slides
     document.querySelectorAll('.nav-dot').forEach((dot, index) => {
-        const slideNumber = index + 1;
-        
-        // Remove all classes
-        dot.classList.remove('active', 'disabled');
-        
-        // Add appropriate class
-        if (slideNumber === currentSlide) {
-            dot.classList.add('active');
-        } else if (isSlideUnlocked(slideNumber)) {
-            // Available but not current
+        const slideNum = index + 1;
+        if (unlockedSlides.includes(slideNum)) {
+            dot.classList.remove('disabled');
         } else {
             dot.classList.add('disabled');
         }
     });
+
+    // Update next button state
+    const nextBtn = document.getElementById('nextBtn');
+    if (currentSlide < 5) {
+        const nextSlideUnlocked = unlockedSlides.includes(currentSlide + 1);
+        nextBtn.disabled = !nextSlideUnlocked;
+    } else {
+        nextBtn.disabled = true; // Last slide
+    }
+
+    // Update previous button state
+    const prevBtn = document.getElementById('prevBtn');
+    prevBtn.disabled = currentSlide <= 1;
 }
 
-// Check if slide is unlocked
-function isSlideUnlocked(slideNumber) {
-    if (slideNumber <= 2) return true; // Slides 1 and 2 always unlocked
-    if (slideNumber === 3) return selectedChoices['1'] !== undefined;
-    if (slideNumber === 4) return selectedChoices['2'] !== undefined;
-    if (slideNumber === 5) return selectedChoices['3'] !== undefined;
-    return false;
-}
-
-// Update navigation state
-function updateNavigationState() {
-    // Update continue buttons
-    document.querySelectorAll('.continue-btn').forEach(btn => {
-        const targetSlide = parseInt(btn.dataset.target);
-        const currentDecision = currentSlide === 2 ? '1' : currentSlide === 3 ? '2' : currentSlide === 4 ? '3' : null;
-        
-        if (currentDecision && selectedChoices[currentDecision] !== undefined) {
-            btn.disabled = false;
-            btn.style.opacity = '1';
-        } else if (currentSlide === 1) {
-            btn.disabled = false;
-            btn.style.opacity = '1';
-        } else {
-            btn.disabled = true;
-            btn.style.opacity = '0.5';
-        }
+// ==========================================================================
+// CHOICE SELECTION AND FEEDBACK
+// ==========================================================================
+function selectChoice(decisionPoint, choice, element) {
+    // Hide all feedback for this decision point
+    const currentSlideEl = document.getElementById('slide' + (decisionPoint + 1));
+    currentSlideEl.querySelectorAll('.choice-feedback').forEach(f => {
+        f.style.display = 'none';
     });
-
-    // Update next button
-    const nextBtn = document.querySelector('.next-btn');
-    if (nextBtn) {
-        const nextSlide = currentSlide + 1;
-        if (nextSlide <= 5 && isSlideUnlocked(nextSlide)) {
-            nextBtn.disabled = false;
-            nextBtn.style.opacity = '1';
-        } else {
-            nextBtn.disabled = true;
-            nextBtn.style.opacity = '0.5';
-        }
-    }
-
-    // Update previous button
-    const prevBtn = document.querySelector('.previous-btn');
-    if (prevBtn) {
-        if (currentSlide > 1) {
-            prevBtn.disabled = false;
-            prevBtn.style.opacity = '1';
-        } else {
-            prevBtn.disabled = true;
-            prevBtn.style.opacity = '0.5';
-        }
-    }
-}
-
-// Handle choice selection
-function selectChoice(decision, choice, element) {
-    console.log(`Selected choice ${choice} for decision ${decision}`);
     
-    // Clear previous selections for this decision
-    const decisionContainer = element.closest('.slide');
-    if (decisionContainer) {
-        decisionContainer.querySelectorAll('.choice').forEach(c => {
-            c.classList.remove('selected', 'incorrect');
-            const feedback = c.querySelector('.choice-feedback');
-            if (feedback) {
-                feedback.classList.remove('show');
-            }
-        });
-    }
+    // Remove previous selections
+    currentSlideEl.querySelectorAll('.choice').forEach(c => {
+        c.classList.remove('selected', 'incorrect');
+    });
     
-    // Mark this choice as selected
+    // Mark selected choice
     element.classList.add('selected');
+    selectedChoices[decisionPoint] = choice;
     
-    // Store the choice
-    selectedChoices[decision] = choice;
-    
-    // Show feedback for this choice
-    showFeedback(element, decision, choice);
-    
-    // Update score and navigation
-    updateScore();
-    updateNavigationState();
-}
-
-// Show feedback for selected choice
-function showFeedback(element, decision, choice) {
-    const feedback = element.querySelector('.choice-feedback');
-    if (feedback) {
-        // Determine if correct and add appropriate styling
-        const isCorrect = feedback.classList.contains('correct');
+    // Show feedback for selected choice
+    const feedbackElement = element.querySelector('.choice-feedback');
+    if (feedbackElement) {
+        feedbackElement.style.display = 'block';
         
-        if (!isCorrect) {
+        // Update score if correct
+        if (feedbackElement.classList.contains('correct')) {
+            // Only add to score if this question wasn't answered correctly before
+            if (!selectedChoices[decisionPoint + '_correct']) {
+                score++;
+                selectedChoices[decisionPoint + '_correct'] = true;
+            }
+        } else {
             element.classList.add('incorrect');
+            // Mark as answered incorrectly (remove correct flag if it existed)
+            selectedChoices[decisionPoint + '_correct'] = false;
         }
         
-        // Show the feedback
-        feedback.classList.add('show');
+        // Update score display
+        document.getElementById('scoreDisplay').textContent = `Score: ${score}/3`;
     }
-}
-
-// Update score based on correct answers
-function updateScore() {
-    score = 0;
     
-    // Check each decision for correct answers
-    document.querySelectorAll('.choice.selected').forEach(choice => {
-        const feedback = choice.querySelector('.choice-feedback.correct');
-        if (feedback) {
-            score++;
+    // Enable continue button and unlock next slide
+    const continueBtn = document.getElementById('continue' + decisionPoint);
+    if (continueBtn) {
+        continueBtn.disabled = false;
+        
+        // Unlock next slide
+        const nextSlide = decisionPoint + 2; // +2 because slide numbers are offset
+        if (nextSlide <= 5 && !unlockedSlides.includes(nextSlide)) {
+            unlockedSlides.push(nextSlide);
         }
-    });
-    
-    // Update score display
-    const scoreDisplay = document.querySelector('.score-display');
-    if (scoreDisplay) {
-        scoreDisplay.textContent = `Score: ${score}/3`;
-    }
-    
-    console.log(`Current score: ${score}/3`);
-}
-
-// Update progress bar
-function updateProgress() {
-    const progressBar = document.querySelector('.progress-fill');
-    if (progressBar) {
-        const progress = (currentSlide / 5) * 100;
-        progressBar.style.width = `${progress}%`;
+        
+        updateNavigationState();
     }
 }
 
-// Navigation functions
-function goToNext() {
-    const nextSlide = currentSlide + 1;
-    if (nextSlide <= 5 && isSlideUnlocked(nextSlide)) {
-        showSlide(nextSlide);
-    }
-}
-
-function goToPrevious() {
-    if (currentSlide > 1) {
-        showSlide(currentSlide - 1);
-    }
-}
-
-// Update outcome content based on performance
+// ==========================================================================
+// OUTCOME CONTENT BASED ON SCORE
+// ==========================================================================
 function updateOutcomeContent() {
-    const valueHighlight = document.querySelector('.value-highlight');
+    const outcomeDiv = document.getElementById('outcome-content');
     const valuesSummary = document.getElementById('values-summary');
     const stars = document.querySelectorAll('.star');
-    
-    if (!valueHighlight || !valuesSummary || !stars.length) {
-        console.log('Missing outcome elements');
-        return;
-    }
+    const valueHighlight = document.querySelector('.value-highlight');
     
     // Clear all stars first
     stars.forEach(star => {
@@ -291,51 +208,101 @@ function updateOutcomeContent() {
     valueHighlight.className = 'value-highlight';
     
     if (score === 3) {
-        // Perfect score - 5 stars, excellent styling
-        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action. You showed strong ethical judgment, effective communication, and decisive leadership under pressure.";
+        // Perfect score
+        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
         
-        // Add excellent class and fill 5 stars
+        // Add excellent class for background and border
         valueHighlight.classList.add('excellent');
+        
+        // Fill 5 stars
         for (let i = 0; i < 5; i++) {
-            if (stars[i]) {
-                stars[i].classList.add('filled', 'excellent');
-            }
+            stars[i].classList.add('filled', 'excellent');
         }
         
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Outstanding performance!</strong> You demonstrated masterful leadership by consistently choosing value-driven responses. Your approach showed deep understanding of Empowerment, Transparency, and Excellence in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Leaders like you don't just solve problems - you build stronger teams and better systems. Your value-driven approach turned a potential disaster into a growth opportunity for everyone involved.
+            </p>
+        `;
     } else if (score === 2) {
-        // Good score - 4 stars, good styling
-        valuesSummary.textContent = "Strong Leadership! Your decisions showed good alignment with our core values. You demonstrated solid judgment with room for growth in crisis communication and stakeholder management.";
+        // Good score
+        valuesSummary.textContent = "Strong Leadership! Most of your decisions aligned well with our core values.";
         
-        // Add good class and fill 4 stars
+        // Add good class for background and border
         valueHighlight.classList.add('good');
+        
+        // Fill 4 stars
         for (let i = 0; i < 4; i++) {
-            if (stars[i]) {
-                stars[i].classList.add('filled', 'good');
-            }
+            stars[i].classList.add('filled', 'good');
         }
         
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Well done!</strong> You showed solid leadership instincts and made mostly value-driven decisions. With some refinement in applying our core values consistently, you'll be even more effective in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Continue developing your skills in Empowerment, Transparency, and Excellence. Your foundation is strong - now focus on consistent application across all decisions.
+            </p>
+        `;
     } else if (score === 1) {
-        // Needs improvement - 2 stars, needs-improvement styling
-        valuesSummary.textContent = "Learning Opportunity: Your decisions show potential but need stronger alignment with our core values. Focus on balancing stakeholder needs while maintaining clear communication during crisis situations.";
+        // Needs improvement
+        valuesSummary.textContent = "Learning Opportunity: Some decisions aligned with our values, but there's room for growth.";
         
-        // Add needs-improvement class and fill 2 stars
+        // Add needs-improvement class for background and border
         valueHighlight.classList.add('needs-improvement');
+        
+        // Fill 2 stars
         for (let i = 0; i < 2; i++) {
-            if (stars[i]) {
-                stars[i].classList.add('filled', 'needs-improvement');
-            }
+            stars[i].classList.add('filled', 'needs-improvement');
         }
         
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Development opportunity identified.</strong> While you showed some understanding of our values, there are significant opportunities to strengthen your value-driven decision making in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Focus on deepening your understanding of Empowerment, Transparency, and Excellence. Consider additional training and mentoring to build confidence in applying these values under pressure.
+            </p>
+        `;
     } else {
-        // Poor score - 1 star, poor styling
-        valuesSummary.textContent = "Important Learning Moment: This scenario highlights areas for significant development. Consider additional training in crisis leadership, ethical decision-making, and stakeholder communication to strengthen your leadership capabilities.";
+        // Poor score
+        valuesSummary.textContent = "Important Learning Moment: Your decisions suggest a need to strengthen value-based leadership skills.";
         
-        // Add poor class and fill 1 star
+        // Add poor class for background and border
         valueHighlight.classList.add('poor');
-        if (stars[0]) {
-            stars[0].classList.add('filled', 'poor');
-        }
+        
+        // Fill 1 star
+        stars[0].classList.add('filled', 'poor');
+        
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Critical development needed.</strong> Your responses indicate a significant gap between your current approach and our organizational values. This presents an important opportunity for growth and learning.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                We recommend immediate focus on understanding and practicing Empowerment, Transparency, and Excellence. Consider working with a mentor and taking additional leadership development courses.
+            </p>
+        `;
     }
-    
-    console.log(`Updated outcome for score: ${score}/3`);
+}
+
+// ==========================================================================
+// NAVIGATION FUNCTIONS
+// ==========================================================================
+function goToNext() {
+    if (currentSlide < 5 && unlockedSlides.includes(currentSlide + 1)) {
+        showSlide(currentSlide + 1);
+    } else if (currentSlide >= 5) {
+        alert('This is the last slide. Going to next page...');
+    }
+}
+
+function goToPrevious() {
+    if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+    } else {
+        alert('This is the first slide. Going to previous page...');
+    }
 }
