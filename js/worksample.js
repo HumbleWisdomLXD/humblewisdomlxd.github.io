@@ -195,7 +195,48 @@ function selectChoice(decisionPoint, choice, element) {
 function updateOutcomeContent() {
     const outcomeDiv = document.getElementById('outcome-content');
     const valuesSummary = document.getElementById('values-summary');
+function updateOutcomeContent() {
+    const outcomeDiv = document.getElementById('outcome-content');
+    const valuesSummary = document.getElementById('values-summary');
     
+    // ADD THIS NEW CODE HERE:
+    const stars = document.querySelectorAll('.star');
+    
+    // Clear all stars first
+    stars.forEach(star => {
+        star.className = 'star';
+    });
+
+    // THEN KEEP ALL YOUR EXISTING CODE for the if/else statements...
+    if (score === 3) {
+        // Perfect score
+        valuesSummary.textContent = "Exceptional Leadership!...";
+        
+        // ADD THIS INSIDE EACH IF/ELSE BLOCK:
+        for (let i = 0; i < 5; i++) {
+            stars[i].classList.add('filled', 'excellent');
+        }
+        
+        // ...rest of existing code
+    } else if (score === 2) {
+        // ADD THIS:
+        for (let i = 0; i < 4; i++) {
+            stars[i].classList.add('filled', 'good');
+        }
+        // ...existing code
+    } else if (score === 1) {
+        // ADD THIS:
+        for (let i = 0; i < 2; i++) {
+            stars[i].classList.add('filled', 'needs-improvement');
+        }
+        // ...existing code
+    } else {
+        // ADD THIS:
+        stars[0].classList.add('filled', 'poor');
+        // ...existing code
+    }
+}
+   
     if (score === 3) {
         // Perfect score
         valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
