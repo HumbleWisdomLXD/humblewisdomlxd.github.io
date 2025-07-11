@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Training - Crisis Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER: Course title left, menu right -->
+    <header class="page-header">
+        <h1 class="page-title">Leadership Training - Crisis Management</h1>
+        <nav class="main-menu">
+            <a href="#">Module 1</a>
+            <a href="#">Module 2</a>
+            <a href="#">Module 3</a>
+            <a href="#">Resources</a>
+        </nav>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Page title section - CHANGE THESE FOR EACH SCENARIO -->
+    <div class="page-title-section">
+        <h1 class="page-title-main" id="pageTitle">Crisis Leadership Scenario</h1>
+    </div>
+
+    <!-- Score display -->
+    <div class="score-display" id="scoreDisplay">Score: 0/3</div>
+
+    <!-- Slide navigation dots - 4 squares -->
+    <div class="slide-nav">
+        <span class="nav-dot active" data-slide="1"></span>
+        <span class="nav-dot" data-slide="2"></span>
+        <span class="nav-dot disabled" data-slide="3"></span>
+        <span class="nav-dot disabled" data-slide="4"></span>
+    </div>
+
+    <!-- Main content container -->
+    <div class="scenario-container">
+        
+        <!-- SLIDE 1: SCENARIO SETUP -->
+        <div class="slide active" id="slide1">
+            <div class="glass-container">
+                <h3>The Situation</h3>
+                <!-- REPLACE THIS CONTENT FOR EACH SCENARIO -->
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                    You're the Clinical Director overseeing three mental health teams. It's Monday morning, and you've just discovered that your highest-performing team is falling apart. Over the weekend, two key psychologists submitted resignation letters, citing "toxic team dynamics" and "lack of support."
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                    This team handles your most complex cases, including several high-risk clients. The team lead, Dr. Sarah Chen, has been with the organization for 5 years and was recently promoted. She's scheduled to meet with you in 30 minutes, visibly upset and demanding immediate answers.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Your challenge:</strong> You need to make three critical decisions that will determine whether this situation becomes a learning opportunity that strengthens your organization, or a crisis that damages your reputation and client care.
+                </p>
+            </div>
+
+            <div class="value-highlight">
+                <h4>Remember: Your decisions should reflect our core values</h4>
+                <!-- REPLACE WITH YOUR COMPANY VALUES -->
+                <p>Empowerment • Transparency • Excellence</p>
+            </div>
+
+            <div class="continue-section">
+                <button class="modern-btn" data-next="2">Begin Decision Making</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: DECISION POINT 1 -->
+        <div class="slide" id="slide2">
+            <div class="decision-point">
+                <h3>The Moment:</h3>
+                <!-- REPLACE WITH DECISION POINT 1 CONTEXT -->
+                <p>Dr. Chen arrives at your office early, clearly distressed. She immediately starts: "I don't understand what went wrong. I've been doing everything by the book, but now everyone's saying I'm a terrible leader. I feel like I'm failing everyone - the team, the clients, the organization."</p>
+            </div>
+
+            <div class="glass-container">
+                <!-- REPLACE WITH DECISION POINT 1 QUESTION -->
+                <h3>How do you respond in this moment?</h3>
+                
+                <div class="choices-container">
+                    <!-- CHOICE A -->
+                    <div class="choice" data-choice="A" data-decision="1">
+                        <div class="choice-label">A</div>
+                        <div class="choice-text">
+                            <!-- REPLACE WITH CHOICE A TEXT -->
+                            "Let's focus on fixing this quickly. I need you to call each team member and convince them to stay. We can't afford to lose more people."
+                        </div>
+                        <div class="choice-feedback">
+                            <!-- REPLACE WITH CHOICE A FEEDBACK -->
+                            <span style="color: #ff4757; font-size: 1.2rem; margin-right: 8px;">❌</span><strong>Leadership Insight:</strong> This reactive approach pressures Dr. Chen without addressing root causes and misses the opportunity to build her leadership capacity.<br><br><strong>Value Analysis:</strong> Lacks Empowerment - you're directing rather than developing her problem-solving skills.
+                        </div>
+                    </div>
+
+                    <!-- CHOICE B - MARK CORRECT CHOICE WITH class="choice-feedback correct" -->
+                    <div class="choice" data-choice="B" data-decision="1">
+                        <div class="choice-label">B</div>
+                        <div class="choice-text">
+                            <!-- REPLACE WITH CHOICE B TEXT -->
+                            "I can see you're really struggling with this. Before we dive into solutions, help me understand what you think led to this situation. What's your perspective on what happened?"
+                        </div>
+                        <div class="choice-feedback correct">
+                            <!-- REPLACE WITH CHOICE B FEEDBACK -->
+                            <span style="color: #00d4ff; font-size: 1.2rem; margin-right: 8px;">✅</span><strong>Exceptional Leadership Choice!</strong> This response demonstrates authentic Empowerment by creating psychological safety and seeking understanding first.<br><br><strong>Value in Action:</strong> You're building Dr. Chen's analytical capacity and treating her as a capable leader who can contribute to solutions.
+                        </div>
+                    </div>
+
+                    <!-- CHOICE C -->
+                    <div class="choice" data-choice="C" data-decision="1">
+                        <div class="choice-label">C</div>
+                        <div class="choice-text">
+                            <!-- REPLACE WITH CHOICE C TEXT -->
+                            "This is a serious situation. I'm going to need to interview each team member individually to get the full story before we proceed."
+                        </div>
+                        <div class="choice-feedback">
+                            <!-- REPLACE WITH CHOICE C FEEDBACK -->
+                            <span style="color: #ff4757; font-size: 1.2rem; margin-right: 8px;">❌</span><strong>Leadership Insight:</strong> While investigation is important, bypassing Dr. Chen undermines her role and misses a critical development opportunity.<br><br><strong>Value Analysis:</strong> Lacks Empowerment - you're taking control rather than building her investigative and leadership skills.
+                        </div>
+                    </div>
+
+                    <!-- ADD MORE CHOICES AS NEEDED (A, B, C, D, etc.) -->
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button class="modern-btn" id="continue1" data-next="3" disabled>Continue to Decision 2</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: DECISION POINT 2 -->
+        <div class="slide" id="slide3">
+            <div class="decision-point">
+                <h3>The Development:</h3>
+                <!-- REPLACE WITH DECISION POINT 2 CONTEXT -->
+                <p>After your initial conversation with Dr. Chen, you learn that the team conflicts started when she implemented new documentation requirements without team input...</p>
+            </div>
+
+            <div class="glass-container">
+                <!-- REPLACE WITH DECISION POINT 2 QUESTION -->
+                <h3>How do you handle communication about this situation?</h3>
+                
+                <div class="choices-container">
+                    <!-- REPEAT CHOICE STRUCTURE FROM SLIDE 2, BUT CHANGE data-decision="2" -->
+                    <div class="choice" data-choice="A" data-decision="2">
+                        <div class="choice-label">A</div>
+                        <div class="choice-text">Choice A text here...</div>
+                        <div class="choice-feedback">Feedback A here...</div>
+                    </div>
+                    <!-- Continue with more choices... -->
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button class="modern-btn" id="continue2" data-next="4" disabled>Continue to Decision 3</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: DECISION POINT 3 -->
+        <div class="slide" id="slide4">
+            <div class="decision-point">
+                <h3>The Path Forward:</h3>
+                <!-- REPLACE WITH DECISION POINT 3 CONTEXT -->
+                <p>You've identified the root cause: well-intentioned but poorly communicated changes led to team breakdown...</p>
+            </div>
+
+            <div class="glass-container">
+                <!-- REPLACE WITH DECISION POINT 3 QUESTION -->
+                <h3>What's your long-term solution?</h3>
+                
+                <div class="choices-container">
+                    <!-- REPEAT CHOICE STRUCTURE, BUT CHANGE data-decision="3" -->
+                    <div class="choice" data-choice="A" data-decision="3">
+                        <div class="choice-label">A</div>
+                        <div class="choice-text">Choice A text here...</div>
+                        <div class="choice-feedback">Feedback A here...</div>
+                    </div>
+
+                    <div class="choice" data-choice="B" data-decision="3">
+                        <div class="choice-label">B</div>
+                        <div class="choice-text">Choice B text here...</div>
+                        <div class="choice-feedback correct">Feedback B here...</div>
+                    </div>
+
+                    <div class="choice" data-choice="C" data-decision="3">
+                        <div class="choice-label">C</div>
+                        <div class="choice-text">Choice C text here...</div>
+                        <div class="choice-feedback">Feedback C here...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button class="modern-btn" id="continue3" data-next="1" disabled>Complete Scenario</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER: Previous/Next buttons bottom right -->
+    <footer class="page-footer">
+        <div class="navigation-buttons">
+            <button class="nav-btn" id="prevBtn">← Previous</button>
+            <button class="nav-btn" id="nextBtn">Next →</button>
+        </div>
+    </footer>
+
+    <!-- JavaScript - ADD THIS LINE -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

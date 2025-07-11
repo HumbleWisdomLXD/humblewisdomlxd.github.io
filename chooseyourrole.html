@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role-Based Value Discovery</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .slide {
+            background: white;
+            width: 900px;
+            height: 650px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow-y: auto;
+        }
+        .slide h2 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .discovery-content {
+            background: #f8f9fa;
+            border-left: 4px solid #2c5aa0;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 4px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .values-highlight {
+            background: #e3f2fd;
+            border: 2px solid #1976d2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: #1976d2;
+        }
+        .transition-section {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+        .btn {
+            background: #2c5aa0;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px auto;
+            display: block;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background: #1e3d6f;
+        }
+        .role-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .role-btn {
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        .role-btn.active {
+            background: #2c5aa0;
+        }
+        .role-content {
+            display: none;
+        }
+        .role-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Role Selector -->
+    <div class="role-selector">
+        <button class="role-btn active" onclick="showRole('mental-health')">Mental Health Staff</button>
+        <button class="role-btn" onclick="showRole('directors')">Directors/Leaders</button>
+        <button class="role-btn" onclick="showRole('general')">General Staff</button>
+    </div>
+
+    <!-- Slide 1: Mental Health Staff -->
+    <div class="slide role-content active" id="mental-health">
+        <h2>Values-Driven Clinical Excellence</h2>
+        
+        <div class="discovery-content">
+            What you just discovered explains that 4:47 PM crisis decision. The psychologist who succeeded didn't just follow protocol - they applied our core values of <strong>Client-First Care, Integrity, Collaboration</strong> in that critical moment. When values guide clinical decisions, clients thrive. Now you'll practice applying these same values to real situations you face every day, so when your next critical moment comes, you'll know exactly what drives the right choice.
+        </div>
+
+        <div class="values-highlight">
+            Core Values: Client-First Care • Integrity • Collaboration
+        </div>
+
+        <div class="transition-section">
+            Ready to put these values into action? You'll now face real scenarios where these values will guide your decision-making...
+        </div>
+
+        <button class="btn" onclick="alert('Proceeding to clinical scenarios...')">Begin Clinical Practice</button>
+    </div>
+
+    <!-- Slide 2: Directors/Leaders -->
+    <div class="slide role-content" id="directors">
+        <h2>Values-Based Leadership Excellence</h2>
+        
+        <div class="discovery-content">
+            This discovery reveals why that director's team rallied during budget cuts. They didn't just manage resources - they led through our values of <strong>Empowerment, Transparency, Excellence</strong>. When leaders align decisions with company values, teams don't just survive challenges - they excel through them. Now you'll practice making value-driven leadership decisions, so your next high-pressure situation becomes your team's greatest success story.
+        </div>
+
+        <div class="values-highlight">
+            Leadership Values: Empowerment • Transparency • Excellence
+        </div>
+
+        <div class="transition-section">
+            Ready to put these values into action? You'll now face real scenarios where these values will guide your decision-making...
+        </div>
+
+        <button class="btn" onclick="alert('Proceeding to leadership scenarios...')">Begin Leadership Practice</button>
+    </div>
+
+    <!-- Slide 3: General Staff -->
+    <div class="slide role-content" id="general">
+        <h2>Values in Daily Practice</h2>
+        
+        <div class="discovery-content">
+            You've uncovered what created that breakthrough with the challenging client. The successful technician didn't just implement interventions - they embodied our values of <strong>Respect, Persistence, Innovation</strong> in every interaction. When front-line staff align their actions with company values, they don't just do their job - they transform lives. Now you'll practice applying these values to situations you encounter daily, so your next challenging case becomes your most rewarding success.
+        </div>
+
+        <div class="values-highlight">
+            Core Values: Respect • Persistence • Innovation
+        </div>
+
+        <div class="transition-section">
+            Ready to put these values into action? You'll now face real scenarios where these values will guide your decision-making...
+        </div>
+
+        <button class="btn" onclick="alert('Proceeding to practice scenarios...')">Begin Practice Scenarios</button>
+    </div>
+
+    <script>
+        function showRole(roleId) {
+            // Hide all role content
+            const allContent = document.querySelectorAll('.role-content');
+            allContent.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.role-btn');
+            allButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected role content
+            document.getElementById(roleId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
