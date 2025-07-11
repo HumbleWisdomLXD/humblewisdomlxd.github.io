@@ -1,68 +1,14 @@
 /* ==========================================================================
-   FINAL TRAINING SYSTEM JAVASCRIPT
+   COMPLETE FINAL TRAINING SYSTEM JAVASCRIPT
    ========================================================================== */
-
-// ==========================================================================
-// OUTCOME CONTENT BASED ON SCORE
-// ==========================================================================
-function updateOutcomeContent() {
-    const outcomeDiv = document.getElementById('outcome-content');
-    const valuesSummary = document.getElementById('values-summary');
-    
-    if (score === 3) {
-        // Perfect score
-        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
-        outcomeDiv.innerHTML = `
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                <strong>Outstanding performance!</strong> You demonstrated masterful leadership by consistently choosing value-driven responses. Your approach showed deep understanding of Empowerment, Transparency, and Excellence in crisis situations.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                Leaders like you don't just solve problems - you build stronger teams and better systems. Your value-driven approach turned a potential disaster into a growth opportunity for everyone involved.
-            </p>
-        `;
-    } else if (score === 2) {
-        // Good score
-        valuesSummary.textContent = "Strong Leadership! Most of your decisions aligned well with our core values.";
-        outcomeDiv.innerHTML = `
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                <strong>Well done!</strong> You showed solid leadership instincts and made mostly value-driven decisions. With some refinement in applying our core values consistently, you'll be even more effective in crisis situations.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                Continue developing your skills in Empowerment, Transparency, and Excellence. Your foundation is strong - now focus on consistent application across all decisions.
-            </p>
-        `;
-    } else if (score === 1) {
-        // Needs improvement
-        valuesSummary.textContent = "Learning Opportunity: Some decisions aligned with our values, but there's room for growth.";
-        outcomeDiv.innerHTML = `
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                <strong>Development opportunity identified.</strong> While you showed some understanding of our values, there are significant opportunities to strengthen your value-driven decision making in crisis situations.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                Focus on deepening your understanding of Empowerment, Transparency, and Excellence. Consider additional training and mentoring to build confidence in applying these values under pressure.
-            </p>
-        `;
-    } else {
-        // Poor score
-        valuesSummary.textContent = "Important Learning Moment: Your decisions suggest a need to strengthen value-based leadership skills.";
-        outcomeDiv.innerHTML = `
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                <strong>Critical development needed.</strong> Your responses indicate a significant gap between your current approach and our organizational values. This presents an important opportunity for growth and learning.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                We recommend immediate focus on understanding and practicing Empowerment, Transparency, and Excellence. Consider working with a mentor and taking additional leadership development courses.
-            </p>
-        `;
-    }
-}
 
 // ==========================================================================
 // GLOBAL VARIABLES
 // ==========================================================================
 let selectedChoices = {};      // Tracks user's choice selections
-let currentSlide = 1;          // Current slide number (1-4)
+let currentSlide = 1;          // Current slide number (1-5)
 let score = 0;                 // Running score counter
-let unlockedSlides = [1, 2];   // Slides 1 & 2 unlocked by default, 3 & 4 locked
+let unlockedSlides = [1, 2];   // Slides 1 & 2 unlocked by default, 3, 4, 5 locked
 
 // Page titles for each slide (change these for different scenarios)
 const pageTitles = {
@@ -240,6 +186,60 @@ function selectChoice(decisionPoint, choice, element) {
         }
         
         updateNavigationState();
+    }
+}
+
+// ==========================================================================
+// OUTCOME CONTENT BASED ON SCORE
+// ==========================================================================
+function updateOutcomeContent() {
+    const outcomeDiv = document.getElementById('outcome-content');
+    const valuesSummary = document.getElementById('values-summary');
+    
+    if (score === 3) {
+        // Perfect score
+        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Outstanding performance!</strong> You demonstrated masterful leadership by consistently choosing value-driven responses. Your approach showed deep understanding of Empowerment, Transparency, and Excellence in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Leaders like you don't just solve problems - you build stronger teams and better systems. Your value-driven approach turned a potential disaster into a growth opportunity for everyone involved.
+            </p>
+        `;
+    } else if (score === 2) {
+        // Good score
+        valuesSummary.textContent = "Strong Leadership! Most of your decisions aligned well with our core values.";
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Well done!</strong> You showed solid leadership instincts and made mostly value-driven decisions. With some refinement in applying our core values consistently, you'll be even more effective in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Continue developing your skills in Empowerment, Transparency, and Excellence. Your foundation is strong - now focus on consistent application across all decisions.
+            </p>
+        `;
+    } else if (score === 1) {
+        // Needs improvement
+        valuesSummary.textContent = "Learning Opportunity: Some decisions aligned with our values, but there's room for growth.";
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Development opportunity identified.</strong> While you showed some understanding of our values, there are significant opportunities to strengthen your value-driven decision making in crisis situations.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Focus on deepening your understanding of Empowerment, Transparency, and Excellence. Consider additional training and mentoring to build confidence in applying these values under pressure.
+            </p>
+        `;
+    } else {
+        // Poor score
+        valuesSummary.textContent = "Important Learning Moment: Your decisions suggest a need to strengthen value-based leadership skills.";
+        outcomeDiv.innerHTML = `
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                <strong>Critical development needed.</strong> Your responses indicate a significant gap between your current approach and our organizational values. This presents an important opportunity for growth and learning.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                We recommend immediate focus on understanding and practicing Empowerment, Transparency, and Excellence. Consider working with a mentor and taking additional leadership development courses.
+            </p>
+        `;
     }
 }
 
