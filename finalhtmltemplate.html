@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leadership Training - Crisis Management</title>
-    <link rel="stylesheet" href="css/worksample.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- HEADER: Course title left, menu right -->
@@ -31,12 +31,13 @@
     <!-- Score display -->
     <div class="score-display" id="scoreDisplay">Score: 0/3</div>
 
-    <!-- Slide navigation dots - 4 squares -->
+    <!-- Slide navigation dots - 5 squares now -->
     <div class="slide-nav">
         <span class="nav-dot active" data-slide="1"></span>
         <span class="nav-dot" data-slide="2"></span>
         <span class="nav-dot disabled" data-slide="3"></span>
         <span class="nav-dot disabled" data-slide="4"></span>
+        <span class="nav-dot disabled" data-slide="5"></span>
     </div>
 
     <!-- Main content container -->
@@ -121,7 +122,18 @@
                         </div>
                     </div>
 
-                    <!-- ADD MORE CHOICES AS NEEDED (A, B, C, D, etc.) -->
+                    <!-- CHOICE D -->
+                    <div class="choice" data-choice="D" data-decision="1">
+                        <div class="choice-label">D</div>
+                        <div class="choice-text">
+                            <!-- REPLACE WITH CHOICE D TEXT -->
+                            "Leadership is tough, and sometimes these things happen. Let's just reassign the clients to other teams and start fresh with new staff."
+                        </div>
+                        <div class="choice-feedback">
+                            <!-- REPLACE WITH CHOICE D FEEDBACK -->
+                            <span style="color: #ff4757; font-size: 1.2rem; margin-right: 8px;">❌</span><strong>Leadership Insight:</strong> This dismissive approach ignores valuable learning opportunities and fails to address systemic issues.<br><br><strong>Value Analysis:</strong> Misses both Empowerment and Excellence - not developing people or improving organizational systems.
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -143,13 +155,33 @@
                 <h3>How do you handle communication about this situation?</h3>
                 
                 <div class="choices-container">
-                    <!-- REPEAT CHOICE STRUCTURE FROM SLIDE 2, BUT CHANGE data-decision="2" -->
+                    <!-- CHOICE A -->
                     <div class="choice" data-choice="A" data-decision="2">
                         <div class="choice-label">A</div>
-                        <div class="choice-text">Choice A text here...</div>
-                        <div class="choice-feedback">Feedback A here...</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE A TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE A FEEDBACK --></div>
                     </div>
-                    <!-- Continue with more choices... -->
+
+                    <!-- CHOICE B -->
+                    <div class="choice" data-choice="B" data-decision="2">
+                        <div class="choice-label">B</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE B TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE B FEEDBACK --></div>
+                    </div>
+
+                    <!-- CHOICE C - MARK CORRECT CHOICE WITH class="choice-feedback correct" -->
+                    <div class="choice" data-choice="C" data-decision="2">
+                        <div class="choice-label">C</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE C TEXT --></div>
+                        <div class="choice-feedback correct"><!-- REPLACE WITH CHOICE C FEEDBACK --></div>
+                    </div>
+
+                    <!-- CHOICE D -->
+                    <div class="choice" data-choice="D" data-decision="2">
+                        <div class="choice-label">D</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE D TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE D FEEDBACK --></div>
+                    </div>
                 </div>
             </div>
 
@@ -171,29 +203,69 @@
                 <h3>What's your long-term solution?</h3>
                 
                 <div class="choices-container">
-                    <!-- REPEAT CHOICE STRUCTURE, BUT CHANGE data-decision="3" -->
+                    <!-- CHOICE A -->
                     <div class="choice" data-choice="A" data-decision="3">
                         <div class="choice-label">A</div>
-                        <div class="choice-text">Choice A text here...</div>
-                        <div class="choice-feedback">Feedback A here...</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE A TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE A FEEDBACK --></div>
                     </div>
 
+                    <!-- CHOICE B - MARK CORRECT CHOICE WITH class="choice-feedback correct" -->
                     <div class="choice" data-choice="B" data-decision="3">
                         <div class="choice-label">B</div>
-                        <div class="choice-text">Choice B text here...</div>
-                        <div class="choice-feedback correct">Feedback B here...</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE B TEXT --></div>
+                        <div class="choice-feedback correct"><!-- REPLACE WITH CHOICE B FEEDBACK --></div>
                     </div>
 
+                    <!-- CHOICE C -->
                     <div class="choice" data-choice="C" data-decision="3">
                         <div class="choice-label">C</div>
-                        <div class="choice-text">Choice C text here...</div>
-                        <div class="choice-feedback">Feedback C here...</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE C TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE C FEEDBACK --></div>
+                    </div>
+
+                    <!-- CHOICE D -->
+                    <div class="choice" data-choice="D" data-decision="3">
+                        <div class="choice-label">D</div>
+                        <div class="choice-text"><!-- REPLACE WITH CHOICE D TEXT --></div>
+                        <div class="choice-feedback"><!-- REPLACE WITH CHOICE D FEEDBACK --></div>
                     </div>
                 </div>
             </div>
 
             <div class="continue-section">
-                <button class="modern-btn" id="continue3" data-next="1" disabled>Complete Scenario</button>
+                <button class="modern-btn" id="continue3" data-next="5" disabled>See Results</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: RESULTS AND OUTCOME -->
+        <div class="slide" id="slide5">
+            <div class="value-highlight">
+                <h4>Your Leadership Impact</h4>
+                <p>Values in Action: Your decisions demonstrated how our core values guide effective leadership</p>
+            </div>
+
+            <div class="glass-container">
+                <h3>The Outcome:</h3>
+                <!-- REPLACE WITH OUTCOME TEXT BASED ON PERFORMANCE -->
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                    Leaders who align their crisis decisions with company values don't just solve problems - they build stronger teams and better systems. Just like the director from our opening story, your value-driven approach turned a potential disaster into a growth opportunity.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    When your next leadership challenge comes, you'll know exactly what values should guide your decisions.
+                </p>
+            </div>
+
+            <div class="glass-container">
+                <h3>Reflection Question:</h3>
+                <!-- REPLACE WITH REFLECTION QUESTION -->
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    Think about a recent challenging situation you've faced as a leader. How might applying our values of Empowerment, Transparency, and Excellence have changed your approach or outcome?
+                </p>
+            </div>
+
+            <div class="continue-section">
+                <button class="modern-btn" onclick="alert('Scenario complete! Ready for next challenge.')">Complete Scenario</button>
             </div>
         </div>
 
@@ -208,6 +280,6 @@
     </footer>
 
     <!-- JavaScript - ADD THIS LINE -->
-    <script src="js/worksample.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
