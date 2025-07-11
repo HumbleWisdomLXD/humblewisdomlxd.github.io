@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyline 360 Inductive Reasoning Mockup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .slide {
+            background: white;
+            width: 900px;
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .slide h2 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        .slide h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            background: #e0e0e0;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+        .progress-fill {
+            background: #2c5aa0;
+            height: 100%;
+            border-radius: 3px;
+        }
+        .instruction-box {
+            background: #e8f4f8;
+            border-left: 4px solid #2c5aa0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin: 8px;
+            border-radius: 4px;
+            cursor: grab;
+            transition: all 0.2s;
+            display: inline-block;
+            width: 200px;
+            font-size: 14px;
+        }
+        .example-box:hover {
+            background: #fff;
+            border-color: #2c5aa0;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .drop-zone {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            min-height: 120px;
+            background: #fafafa;
+            text-align: center;
+            display: inline-block;
+            width: 250px;
+            vertical-align: top;
+        }
+        .drop-zone h4 {
+            color: #666;
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .examples-container {
+            margin: 20px 0;
+            min-height: 200px;
+        }
+        .drop-zones-container {
+            margin: 20px 0;
+        }
+        .btn {
+            background: #2c5aa0;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .btn:hover {
+            background: #1e3d6f;
+        }
+        .text-input {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .value-reveal {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .value-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+        .slide-nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .nav-dot.active {
+            background: #2c5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-nav">
+        <span class="nav-dot active" onclick="showSlide(1)"></span>
+        <span class="nav-dot" onclick="showSlide(2)"></span>
+        <span class="nav-dot" onclick="showSlide(3)"></span>
+        <span class="nav-dot" onclick="showSlide(4)"></span>
+        <span class="nav-dot" onclick="showSlide(5)"></span>
+    </div>
+
+    <!-- Slide 1: Instructions -->
+    <div class="slide" id="slide1">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 20%"></div>
+        </div>
+        <h2>Discover Our Company Values</h2>
+        
+        <div class="instruction-box">
+            <h3>Your Task:</h3>
+            <p>You'll see real workplace examples from your role as a <strong>Manager</strong>. Look for patterns and group similar examples together based on what you observe.</p>
+            <ul>
+                <li>Read each example carefully</li>
+                <li>Look for underlying principles or themes</li>
+                <li>Group examples that seem to share the same values</li>
+                <li>Don't worry about getting it "right" - focus on what you notice</li>
+            </ul>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 16px;">Ready to start discovering what drives decisions at our company?</p>
+        
+        <button class="btn" onclick="showSlide(2)">Begin Discovery</button>
+    </div>
+
+    <!-- Slide 2: Grouping Part 1 -->
+    <div class="slide" id="slide2" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 40%"></div>
+        </div>
+        <h2>Group Similar Examples - Part 1</h2>
+        
+        <div class="instruction-box">
+            <p>Drag examples with similar themes into the same group. What patterns do you see?</p>
+        </div>
+        
+        <div class="examples-container">
+            <div class="example-box">Manager stays late to help team meet deadline despite personal plans</div>
+            <div class="example-box">Leader admits mistake to client and takes responsibility</div>
+            <div class="example-box">Team chooses thorough research over quick launch</div>
+            <div class="example-box">Manager gives credit to team member for successful project</div>
+            <div class="example-box">Department shares resources with struggling sister team</div>
+            <div class="example-box">Leader provides honest feedback even when difficult</div>
+            <div class="example-box">Team spends extra time perfecting customer presentation</div>
+            <div class="example-box">Manager advocates for employee promotion to senior leadership</div>
+        </div>
+        
+        <div class="drop-zones-container">
+            <div class="drop-zone">
+                <h4>Group 1</h4>
+                <p>Drag similar examples here</p>
+            </div>
+            <div class="drop-zone">
+                <h4>Group 2</h4>
+                <p>Drag similar examples here</p>
+            </div>
+            <div class="drop-zone">
+                <h4>Group 3</h4>
+                <p>Drag similar examples here</p>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="showSlide(3)">Continue to Part 2</button>
+    </div>
+
+    <!-- Slide 3: Grouping Part 2 -->
+    <div class="slide" id="slide3" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+        </div>
+        <h2>Group Similar Examples - Part 2</h2>
+        
+        <div class="instruction-box">
+            <p>Continue grouping the remaining examples. Look for patterns that connect to what you discovered in Part 1.</p>
+        </div>
+        
+        <div class="examples-container">
+            <div class="example-box">Team innovates new process to improve efficiency</div>
+            <div class="example-box">Manager listens to all perspectives before making decision</div>
+            <div class="example-box">Department celebrates diverse approaches to problem-solving</div>
+            <div class="example-box">Leader encourages team to challenge status quo</div>
+            <div class="example-box">Team seeks input from multiple stakeholders</div>
+            <div class="example-box">Manager supports employee's bold new idea</div>
+            <div class="example-box">Department adapts quickly to changing market conditions</div>
+        </div>
+        
+        <div class="drop-zones-container">
+            <div class="drop-zone">
+                <h4>Group 4</h4>
+                <p>Drag similar examples here</p>
+            </div>
+            <div class="drop-zone">
+                <h4>Group 5</h4>
+                <p>Drag similar examples here</p>
+            </div>
+            <div class="drop-zone">
+                <h4>Group 6</h4>
+                <p>Drag similar examples here</p>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="showSlide(4)">Name the Values</button>
+    </div>
+
+    <!-- Slide 4: Value Naming -->
+    <div class="slide" id="slide4" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 80%"></div>
+        </div>
+        <h2>What Values Do You See?</h2>
+        
+        <div class="instruction-box">
+            <p>Based on your groupings, what core value or principle connects each group? Write a name for each value you discovered.</p>
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 1</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 2</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 3</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 4</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 5</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+            <div style="display: inline-block; margin: 10px; text-align: center;">
+                <h4>Group 6</h4>
+                <input type="text" class="text-input" placeholder="Value name..." />
+            </div>
+        </div>
+        
+        <button class="btn" onclick="showSlide(5)">See Our Values</button>
+    </div>
+
+    <!-- Slide 5: Reveal & Gap Analysis -->
+    <div class="slide" id="slide5" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+        </div>
+        <h2>Our Core Values Revealed</h2>
+        
+        <div class="instruction-box">
+            <p>Here are our official core values with their definitions and examples. How did your discoveries compare?</p>
+        </div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">INTEGRITY</div>
+                <p><strong>Definition:</strong> We act with honesty and take responsibility for our actions.</p>
+                <p><strong>Examples:</strong> Admitting mistakes, giving honest feedback, taking responsibility</p>
+            </div>
+            
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">TEAMWORK</div>
+                <p><strong>Definition:</strong> We support each other and work together toward common goals.</p>
+                <p><strong>Examples:</strong> Helping colleagues, sharing resources, giving credit to others</p>
+            </div>
+            
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">EXCELLENCE</div>
+                <p><strong>Definition:</strong> We strive for the highest quality in everything we do.</p>
+                <p><strong>Examples:</strong> Thorough research, perfecting presentations, going above and beyond</p>
+            </div>
+            
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">INNOVATION</div>
+                <p><strong>Definition:</strong> We embrace new ideas and creative solutions.</p>
+                <p><strong>Examples:</strong> Trying new processes, supporting bold ideas, challenging status quo</p>
+            </div>
+            
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">INCLUSION</div>
+                <p><strong>Definition:</strong> We value diverse perspectives and ensure everyone has a voice.</p>
+                <p><strong>Examples:</strong> Seeking multiple viewpoints, celebrating different approaches</p>
+            </div>
+            
+            <div class="value-reveal" style="flex: 1; min-width: 280px;">
+                <div class="value-title">AGILITY</div>
+                <p><strong>Definition:</strong> We adapt quickly and respond effectively to change.</p>
+                <p><strong>Examples:</strong> Pivoting strategies, embracing new market conditions</p>
+            </div>
+        </div>
+        
+        <button class="btn" onclick="alert('Ready for decision-making scenarios!')">Continue to Scenarios</button>
+    </div>
+
+    <script>
+        function showSlide(slideNumber) {
+            // Hide all slides
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('slide' + i).style.display = 'none';
+            }
+            
+            // Show selected slide
+            document.getElementById('slide' + slideNumber).style.display = 'block';
+            
+            // Update navigation dots
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, index) => {
+                if (index + 1 === slideNumber) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
