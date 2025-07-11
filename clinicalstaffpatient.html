@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Staff Scenario - Value-Based Clinical Decisions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .slide {
+            background: white;
+            width: 900px;
+            height: 650px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow-y: auto;
+        }
+        .slide h2 {
+            color: #2c5aa0;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        .slide h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .progress-bar {
+            background: #e0e0e0;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+        .progress-fill {
+            background: #2c5aa0;
+            height: 100%;
+            border-radius: 3px;
+        }
+        .scenario-box {
+            background: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .client-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .decision-point {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .question-box {
+            background: #e8f4f8;
+            border: 1px solid #bee5eb;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .choice {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .choice:hover {
+            background: #e9ecef;
+            border-color: #2c5aa0;
+        }
+        .choice.selected {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .choice.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .feedback {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .feedback.correct {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            color: #155724;
+        }
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            color: #721c24;
+        }
+        .value-highlight {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .clinical-note {
+            background: #f0f8ff;
+            border: 1px solid #b3d9ff;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 14px;
+        }
+        .btn {
+            background: #2c5aa0;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #1e3d6f;
+        }
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        .slide-nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .nav-dot.active {
+            background: #2c5aa0;
+        }
+        .coaching-icon {
+            color: #17a2b8;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+        .crisis-alert {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-nav">
+        <span class="nav-dot active" onclick="showSlide(1)"></span>
+        <span class="nav-dot" onclick="showSlide(2)"></span>
+        <span class="nav-dot" onclick="showSlide(3)"></span>
+        <span class="nav-dot" onclick="showSlide(4)"></span>
+        <span class="nav-dot" onclick="showSlide(5)"></span>
+    </div>
+
+    <!-- Slide 1: Scenario Setup -->
+    <div class="slide" id="slide1">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 20%"></div>
+        </div>
+        <h2>Crisis Intervention: The Weekend Call</h2>
+        
+        <div class="scenario-box">
+            <h3>Friday, 4:47 PM - The Call:</h3>
+            <p>You're wrapping up your week when Marcus, a 17-year-old client you've been working with for 3 months, calls in crisis. His voice is shaking, and he's clearly agitated. "I can't do this anymore. Everything's falling apart, and I'm thinking about... you know... ending it all."</p>
+        </div>
+
+        <div class="client-info">
+            <h4>Client Background - Marcus, Age 17:</h4>
+            <ul>
+                <li><strong>Diagnosis:</strong> Major Depressive Disorder, Generalized Anxiety</li>
+                <li><strong>History:</strong> Two previous suicide attempts (ages 14 and 16)</li>
+                <li><strong>Current stressors:</strong> Parents' divorce finalization, college rejection letters, girlfriend broke up with him this week</li>
+                <li><strong>Support system:</strong> Lives with mother (works nights), limited peer support</li>
+                <li><strong>Recent progress:</strong> Had been showing improvement, using coping strategies, more engaged in school</li>
+                <li><strong>Treatment:</strong> Weekly therapy, psychiatrist managing medications</li>
+            </ul>
+        </div>
+
+        <div class="crisis-alert">
+            ⚠️ CRISIS INDICATORS: Mentions of ending life, emotional dysregulation, multiple recent stressors, history of attempts
+        </div>
+        
+        <div class="value-highlight">
+            Remember: Your decisions should reflect our core values of Client-First Care, Integrity, and Collaboration.
+        </div>
+        
+        <button class="btn" onclick="showSlide(2)">Take the Call</button>
+    </div>
+
+    <!-- Slide 2: Decision Point 1 -->
+    <div class="slide" id="slide2" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 40%"></div>
+        </div>
+        <h2>Decision Point 1: Immediate Response</h2>
+        
+        <div class="decision-point">
+            <h3>Marcus continues:</h3>
+            <p>"I got another rejection letter today. That's four colleges now. My mom's been crying every night since the divorce papers came. My friends think I'm weird because I don't party anymore. And Sarah... she said I'm 'too intense' and she needs space. I just... I feel like everyone would be better off without me."</p>
+            <p><em>You hear him breathing heavily. It's 4:50 PM on Friday. The crisis hotline is available, but you know Marcus struggles with talking to strangers.</em></p>
+        </div>
+        
+        <div class="question-box">
+            <h3>Question 1: What's your immediate therapeutic response?</h3>
+            <div class="choice" onclick="selectChoice(1, 'A')">
+                <strong>A)</strong> "Marcus, I'm going to connect you with the crisis hotline right now. They're trained for these situations and can help you through the weekend. I'll see you Monday."
+            </div>
+            <div class="choice" onclick="selectChoice(1, 'B')">
+                <strong>B)</strong> "I hear how much pain you're in right now. Let's slow this down together. Can you tell me what's happening in your body right now? Are you safe where you are?"
+            </div>
+            <div class="choice" onclick="selectChoice(1, 'C')">
+                <strong>C)</strong> "This sounds really serious. I think we need to get you to the emergency room right away. Can you call your mom to take you, or should I call emergency services?"
+            </div>
+            <div class="choice" onclick="selectChoice(1, 'D')">
+                <strong>D)</strong> "I understand you're upset, but remember the coping strategies we've worked on. Try the breathing exercises and call me back if you're still feeling this way."
+            </div>
+        </div>
+        
+        <div id="feedback1" class="feedback" style="display: none;">
+        </div>
+        
+        <button class="btn" id="next1" onclick="showSlide(3)" disabled>Continue</button>
+    </div>
+
+    <!-- Slide 3: Decision Point 2 -->
+    <div class="slide" id="slide3" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+        </div>
+        <h2>Decision Point 2: Assessment and Planning</h2>
+        
+        <div class="decision-point">
+            <h3>Marcus responds positively to your initial intervention:</h3>
+            <p>"Yeah, I'm at home. Mom's at work until midnight. I'm in my room... I keep looking at that bottle of pills from when I was really bad before. I haven't touched them, but they're right there on my desk. I know I was doing better, but this week just... everything hit at once."</p>
+            
+            <div class="clinical-note">
+                Clinical Assessment: Client has means present, expressing suicidal ideation, but shows some protective factors (calling you, acknowledging previous progress). Ambivalence present.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <h3>Question 2: How do you approach the risk assessment and safety planning?</h3>
+            <div class="choice" onclick="selectChoice(2, 'A')">
+                <strong>A)</strong> Complete a formal suicide risk assessment over the phone, document everything thoroughly, and follow standard protocol for high-risk clients.
+            </div>
+            <div class="choice" onclick="selectChoice(2, 'B')">
+                <strong>B)</strong> Ask Marcus to remove the pills from his room while you stay on the phone, then work together to identify people he can contact and activities that might help him through the weekend.
+            </div>
+            <div class="choice" onclick="selectChoice(2, 'C')">
+                <strong>C)</strong> Focus on validating his feelings and exploring the specific triggers from this week, helping him process the emotions before addressing safety.
+            </div>
+            <div class="choice" onclick="selectChoice(2, 'D')">
+                <strong>D)</strong> Immediately contact his mother at work and his psychiatrist to coordinate a comprehensive safety response with his full treatment team.
+            </div>
+        </div>
+        
+        <div id="feedback2" class="feedback" style="display: none;">
+        </div>
+        
+        <button class="btn" id="next2" onclick="showSlide(4)" disabled>Continue</button>
+    </div>
+
+    <!-- Slide 4: Decision Point 3 -->
+    <div class="slide" id="slide4" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 80%"></div>
+        </div>
+        <h2>Decision Point 3: Follow-up and Continuity</h2>
+        
+        <div class="decision-point">
+            <h3>The situation stabilizes:</h3>
+            <p>Marcus has removed the pills and put them in the kitchen. He's called his older brother who's coming over. His breathing has slowed, and he's able to identify some things that give him hope. He says, "I think I'm okay for tonight. But I'm scared about feeling this bad again. What if you're not available next time?"</p>
+            
+            <div class="clinical-note">
+                Current status: Immediate risk reduced, support person coming, client expressing concern about future episodes - shows good insight and motivation for safety planning.
+            </div>
+        </div>
+        
+        <div class="question-box">
+            <h3>Question 3: How do you ensure continuity of care and long-term safety?</h3>
+            <div class="choice" onclick="selectChoice(3, 'A')">
+                <strong>A)</strong> Schedule an emergency session for tomorrow (Saturday) and arrange for daily check-ins over the weekend to ensure close monitoring.
+            </div>
+            <div class="choice" onclick="selectChoice(3, 'B')">
+                <strong>B)</strong> Create a detailed safety plan together, schedule a session for early next week, and coordinate with his psychiatrist and mother about the crisis and ongoing support.
+            </div>
+            <div class="choice" onclick="selectChoice(3, 'C')">
+                <strong>C)</strong> Document the crisis thoroughly, provide him with crisis resources, and plan to discuss this extensively in your regular session next week.
+            </div>
+            <div class="choice" onclick="selectChoice(3, 'D')">
+                <strong>D)</strong> Recommend intensive outpatient programming or higher level of care to ensure he has more support available during vulnerable times.
+            </div>
+        </div>
+        
+        <div id="feedback3" class="feedback" style="display: none;">
+        </div>
+        
+        <button class="btn" id="next3" onclick="showSlide(5)" disabled>See Outcome</button>
+    </div>
+
+    <!-- Slide 5: Results and Reflection -->
+    <div class="slide" id="slide5" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+        </div>
+        <h2>Clinical Excellence in Action</h2>
+        
+        <div class="value-highlight">
+            <h3>Values in Clinical Practice:</h3>
+            <p>Your decisions demonstrated how our core values guide effective clinical care:</p>
+            <ul>
+                <li><strong>Client-First Care:</strong> Staying present with Marcus in his crisis moment, prioritizing his immediate needs</li>
+                <li><strong>Integrity:</strong> Honest assessment of risk while building on his strengths and autonomy</li>
+                <li><strong>Collaboration:</strong> Working with Marcus, his family, and treatment team for comprehensive support</li>
+            </ul>
+        </div>
+        
+        <div class="scenario-box">
+            <h3>Three Months Later:</h3>
+            <p>Marcus successfully navigated that crisis weekend and several smaller challenges since then. He was accepted to his safety school, developed stronger coping strategies, and rebuilt his relationship with his girlfriend. Most importantly, he now has a robust safety plan and knows how to access help.</p>
+            
+            <p>Just like the psychologist from our opening story, your value-driven approach in that critical 4:47 PM moment made the difference between a client thriving and a potentially tragic outcome.</p>
+        </div>
+        
+        <div class="question-box">
+            <h3>Clinical Reflection:</h3>
+            <p>Think about a recent challenging clinical moment you've experienced. How might explicitly applying our values of Client-First Care, Integrity, and Collaboration have influenced your decision-making process?</p>
+            
+            <div class="clinical-note">
+                Remember: In crisis moments, values-based decisions often feel instinctive, but they're actually the result of deep clinical training guided by clear organizational principles.
+            </div>
+        </div>
+        
+        <button class="btn" onclick="alert('Scenario complete! Excellent clinical decision-making.')">Complete Scenario</button>
+    </div>
+
+    <script>
+        let selectedChoices = {};
+        
+        function showSlide(slideNumber) {
+            // Hide all slides
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('slide' + i).style.display = 'none';
+            }
+            
+            // Show selected slide
+            document.getElementById('slide' + slideNumber).style.display = 'block';
+            
+            // Update navigation dots
+            const dots = document.querySelectorAll('.nav-dot');
+            dots.forEach((dot, index) => {
+                if (index + 1 === slideNumber) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function selectChoice(questionNum, choice) {
+            // Remove previous selections
+            const choices = document.querySelectorAll(`#slide${questionNum + 1} .choice`);
+            choices.forEach(c => {
+                c.classList.remove('selected', 'incorrect');
+            });
+            
+            // Mark selected choice
+            event.target.classList.add('selected');
+            selectedChoices[questionNum] = choice;
+            
+            // Show feedback
+            showFeedback(questionNum, choice);
+            
+            // Enable next button
+            document.getElementById(`next${questionNum}`).disabled = false;
+        }
+        
+        function showFeedback(questionNum, choice) {
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const feedbacks = {
+                1: {
+                    'A': {
+                        text: "❌ <strong>Clinical Coaching:</strong> While crisis resources are important, immediately transferring Marcus ignores his specific needs and relationship with you. <strong>Value missed:</strong> Client-First Care - you're prioritizing protocol over his individual therapeutic relationship.<br><br>🎯 <strong>Clinical insight:</strong> Crisis calls often require immediate therapeutic presence before transitioning to resources.",
+                        type: 'incorrect'
+                    },
+                    'B': {
+                        text: "✅ <strong>Excellent Clinical Choice!</strong> This response demonstrates <strong>Client-First Care</strong> by staying present with Marcus, grounding him, and ensuring immediate safety before next steps. You're using your therapeutic relationship effectively.<br><br>🎯 <strong>Value in action:</strong> Client-first means being fully present in their crisis moment and using your clinical skills to stabilize before mobilizing resources.",
+                        type: 'correct'
+                    },
+                    'C': {
+                        text: "❌ <strong>Clinical Coaching:</strong> Jumping to emergency services without thorough assessment can re-traumatize and may not be the least restrictive option. <strong>Value missed:</strong> Integrity - not fully exploring all clinical options first.<br><br>🎯 <strong>Clinical insight:</strong> Crisis response should be proportional to assessed risk, not reactive to initial presentation.",
+                        type: 'incorrect'
+                    },
+                    'D': {
+                        text: "❌ <strong>Clinical Coaching:</strong> Minimizing his crisis and offering only standard coping strategies misses the severity of his current state. <strong>Value missed:</strong> Client-First Care - you're not meeting him where he is emotionally.<br><br>🎯 <strong>Clinical insight:</strong> Crisis moments require enhanced therapeutic presence, not reduced clinical contact.",
+                        type: 'incorrect'
+                    }
+                },
+                2: {
+                    'A': {
+                        text: "❌ <strong>Clinical Coaching:</strong> While documentation is important, leading with formal assessment can feel clinical and disconnected during crisis. <strong>Value missed:</strong> Client-First Care - prioritizing process over therapeutic connection.<br><br>🎯 <strong>Clinical insight:</strong> Build safety and connection first, then complete formal assessments to support your clinical decisions.",
+                        type: 'incorrect'
+                    },
+                    'B': {
+                        text: "✅ <strong>Excellent Clinical Choice!</strong> This demonstrates <strong>Integrity</strong> by addressing immediate safety while empowering Marcus to take protective action. You're balancing risk management with client autonomy.<br><br>🎯 <strong>Value in action:</strong> Integrity means being honest about risk while building client capacity to manage their own safety when possible.",
+                        type: 'correct'
+                    },
+                    'C': {
+                        text: "❌ <strong>Clinical Coaching:</strong> While validation is crucial, focusing only on emotions without addressing immediate safety risks misses critical clinical priorities. <strong>Value missed:</strong> Integrity - not being direct about safety concerns.<br><br>🎯 <strong>Clinical insight:</strong> Balance empathy with clear risk assessment - both are needed in crisis work.",
+                        type: 'incorrect'
+                    },
+                    'D': {
+                        text: "❌ <strong>Clinical Coaching:</strong> While team coordination is valuable, immediately involving others without Marcus's input reduces his autonomy and may increase his anxiety. <strong>Value missed:</strong> Collaboration should include the client in decision-making.<br><br>🎯 <strong>Clinical insight:</strong> Involve clients in safety planning decisions when clinically appropriate.",
+                        type: 'incorrect'
+                    }
+                },
+                3: {
+                    'A': {
+                        text: "❌ <strong>Clinical Coaching:</strong> While responsive, daily monitoring may create dependency and doesn't build his long-term coping capacity. <strong>Value missed:</strong> Client-First Care should include building independence, not just providing support.<br><br>🎯 <strong>Clinical insight:</strong> Balance appropriate support with fostering client resilience and self-efficacy.",
+                        type: 'incorrect'
+                    },
+                    'B': {
+                        text: "✅ <strong>Excellent Clinical Choice!</strong> This demonstrates <strong>Collaboration</strong> by involving Marcus in safety planning and coordinating with his full support system. You're building sustainable, team-based care.<br><br>🎯 <strong>Value in action:</strong> True collaboration means working with the client and their support system to create comprehensive, sustainable safety plans.",
+                        type: 'correct'
+                    },
+                    'C': {
+                        text: "❌ <strong>Clinical Coaching:</strong> Waiting a full week after a crisis without additional support or follow-up may leave Marcus vulnerable. <strong>Value missed:</strong> Client-First Care requires more immediate follow-up after crisis episodes.<br><br>🎯 <strong>Clinical insight:</strong> Post-crisis care should include timely follow-up to reinforce safety and process the experience.",
+                        type: 'incorrect'
+                    },
+                    'D': {
+                        text: "❌ <strong>Clinical Coaching:</strong> Recommending higher level of care without trying enhanced outpatient support first may be premature. <strong>Values missed:</strong> Both Client-First Care (least restrictive appropriate care) and Collaboration (working with current team first).<br><br>🎯 <strong>Clinical insight:</strong> Consider step-up approaches before major treatment changes when current level shows potential.",
+                        type: 'incorrect'
+                    }
+                }
+            };
+            
+            const feedback = feedbacks[questionNum][choice];
+            feedbackDiv.innerHTML = `<span class="coaching-icon">💡</span>${feedback.text}`;
+            feedbackDiv.className = `feedback ${feedback.type}`;
+            feedbackDiv.style.display = 'block';
+            
+            // Mark incorrect choices
+            if (feedback.type === 'incorrect') {
+                event.target.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
