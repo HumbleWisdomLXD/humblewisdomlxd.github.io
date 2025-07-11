@@ -102,6 +102,7 @@ function showSlide(slideNumber) {
         }
 
         updateNavigationState();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
@@ -196,15 +197,22 @@ function updateOutcomeContent() {
     const outcomeDiv = document.getElementById('outcome-content');
     const valuesSummary = document.getElementById('values-summary');
     const stars = document.querySelectorAll('.star');
+    const valueHighlight = document.querySelector('.value-highlight');
     
     // Clear all stars first
     stars.forEach(star => {
         star.className = 'star';
     });
     
+    // Reset value highlight classes
+    valueHighlight.className = 'value-highlight';
+    
     if (score === 3) {
         // Perfect score
         valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
+        
+        // Add excellent class for background and border
+        valueHighlight.classList.add('excellent');
         
         // Fill 5 stars
         for (let i = 0; i < 5; i++) {
@@ -223,6 +231,9 @@ function updateOutcomeContent() {
         // Good score
         valuesSummary.textContent = "Strong Leadership! Most of your decisions aligned well with our core values.";
         
+        // Add good class for background and border
+        valueHighlight.classList.add('good');
+        
         // Fill 4 stars
         for (let i = 0; i < 4; i++) {
             stars[i].classList.add('filled', 'good');
@@ -240,6 +251,9 @@ function updateOutcomeContent() {
         // Needs improvement
         valuesSummary.textContent = "Learning Opportunity: Some decisions aligned with our values, but there's room for growth.";
         
+        // Add needs-improvement class for background and border
+        valueHighlight.classList.add('needs-improvement');
+        
         // Fill 2 stars
         for (let i = 0; i < 2; i++) {
             stars[i].classList.add('filled', 'needs-improvement');
@@ -256,6 +270,9 @@ function updateOutcomeContent() {
     } else {
         // Poor score
         valuesSummary.textContent = "Important Learning Moment: Your decisions suggest a need to strengthen value-based leadership skills.";
+        
+        // Add poor class for background and border
+        valueHighlight.classList.add('poor');
         
         // Fill 1 star
         stars[0].classList.add('filled', 'poor');
