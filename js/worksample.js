@@ -195,51 +195,22 @@ function selectChoice(decisionPoint, choice, element) {
 function updateOutcomeContent() {
     const outcomeDiv = document.getElementById('outcome-content');
     const valuesSummary = document.getElementById('values-summary');
-function updateOutcomeContent() {
-    const outcomeDiv = document.getElementById('outcome-content');
-    const valuesSummary = document.getElementById('values-summary');
-    
-    // ADD THIS NEW CODE HERE:
     const stars = document.querySelectorAll('.star');
     
     // Clear all stars first
     stars.forEach(star => {
         star.className = 'star';
     });
-
-    // THEN KEEP ALL YOUR EXISTING CODE for the if/else statements...
+    
     if (score === 3) {
         // Perfect score
-        valuesSummary.textContent = "Exceptional Leadership!...";
+        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
         
-        // ADD THIS INSIDE EACH IF/ELSE BLOCK:
+        // Fill 5 stars
         for (let i = 0; i < 5; i++) {
             stars[i].classList.add('filled', 'excellent');
         }
         
-        // ...rest of existing code
-    } else if (score === 2) {
-        // ADD THIS:
-        for (let i = 0; i < 4; i++) {
-            stars[i].classList.add('filled', 'good');
-        }
-        // ...existing code
-    } else if (score === 1) {
-        // ADD THIS:
-        for (let i = 0; i < 2; i++) {
-            stars[i].classList.add('filled', 'needs-improvement');
-        }
-        // ...existing code
-    } else {
-        // ADD THIS:
-        stars[0].classList.add('filled', 'poor');
-        // ...existing code
-    }
-}
-   
-    if (score === 3) {
-        // Perfect score
-        valuesSummary.textContent = "Exceptional Leadership! Your decisions perfectly demonstrated our core values in action.";
         outcomeDiv.innerHTML = `
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
                 <strong>Outstanding performance!</strong> You demonstrated masterful leadership by consistently choosing value-driven responses. Your approach showed deep understanding of Empowerment, Transparency, and Excellence in crisis situations.
@@ -251,6 +222,12 @@ function updateOutcomeContent() {
     } else if (score === 2) {
         // Good score
         valuesSummary.textContent = "Strong Leadership! Most of your decisions aligned well with our core values.";
+        
+        // Fill 4 stars
+        for (let i = 0; i < 4; i++) {
+            stars[i].classList.add('filled', 'good');
+        }
+        
         outcomeDiv.innerHTML = `
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
                 <strong>Well done!</strong> You showed solid leadership instincts and made mostly value-driven decisions. With some refinement in applying our core values consistently, you'll be even more effective in crisis situations.
@@ -262,6 +239,12 @@ function updateOutcomeContent() {
     } else if (score === 1) {
         // Needs improvement
         valuesSummary.textContent = "Learning Opportunity: Some decisions aligned with our values, but there's room for growth.";
+        
+        // Fill 2 stars
+        for (let i = 0; i < 2; i++) {
+            stars[i].classList.add('filled', 'needs-improvement');
+        }
+        
         outcomeDiv.innerHTML = `
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
                 <strong>Development opportunity identified.</strong> While you showed some understanding of our values, there are significant opportunities to strengthen your value-driven decision making in crisis situations.
@@ -273,6 +256,10 @@ function updateOutcomeContent() {
     } else {
         // Poor score
         valuesSummary.textContent = "Important Learning Moment: Your decisions suggest a need to strengthen value-based leadership skills.";
+        
+        // Fill 1 star
+        stars[0].classList.add('filled', 'poor');
+        
         outcomeDiv.innerHTML = `
             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
                 <strong>Critical development needed.</strong> Your responses indicate a significant gap between your current approach and our organizational values. This presents an important opportunity for growth and learning.
