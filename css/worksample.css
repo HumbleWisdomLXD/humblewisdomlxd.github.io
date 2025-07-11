@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FINAL TRAINING SYSTEM CSS
+   COMPLETE FINAL TRAINING SYSTEM CSS - FULLY VALIDATED
    ========================================================================== */
 
 * {
@@ -112,7 +112,7 @@ body {
 }
 
 /* ==========================================================================
-   SLIDE NAVIGATION DOTS - 4 squares
+   SLIDE NAVIGATION DOTS - 5 squares
    ========================================================================== */
 .slide-nav {
     text-align: center;
@@ -364,7 +364,7 @@ body {
 }
 
 /* ==========================================================================
-   VALUE HIGHLIGHT BOX
+   VALUE HIGHLIGHT BOX - Base styling for results section
    ========================================================================== */
 .value-highlight {
     background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(89, 40, 255, 0.1));
@@ -373,6 +373,29 @@ body {
     padding: 30px;
     margin: 40px 0;
     text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 300px;
+    transition: all 0.5s ease;
+}
+
+.value-highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.value-highlight > * {
+    position: relative;
+    z-index: 2;
 }
 
 .value-highlight h4 {
@@ -380,7 +403,14 @@ body {
     font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
 }
+
+.value-highlight p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+}
+
 /* ==========================================================================
    DYNAMIC STAR RATING SYSTEM
    ========================================================================== */
@@ -390,6 +420,7 @@ body {
     justify-content: center;
     font-size: 2rem;
     transition: all 0.3s ease;
+    margin: 20px 0;
 }
 
 .star {
@@ -417,6 +448,58 @@ body {
 
 .star.filled.poor {
     color: #ff4757;
+}
+
+.star:hover {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   PERFORMANCE-BASED DYNAMIC STYLING FOR RESULTS SECTION
+   ========================================================================== */
+
+/* Excellent Performance (5 stars) */
+.value-highlight.excellent {
+    background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop');
+    border: 2px solid rgba(0, 255, 127, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+}
+
+.value-highlight.excellent::after {
+    background: rgba(15, 15, 80, 0.9);
+}
+
+/* Good Performance (4 stars) */
+.value-highlight.good {
+    background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop');
+    border: 2px solid rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.value-highlight.good::after {
+    background: rgba(15, 15, 80, 0.9);
+}
+
+/* Needs Improvement (2 stars) */
+.value-highlight.needs-improvement {
+    background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop');
+    border: 2px solid rgba(255, 193, 7, 0.6);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+.value-highlight.needs-improvement::after {
+    background: rgba(15, 15, 80, 0.9);
+}
+
+/* Poor Performance (1 star) */
+.value-highlight.poor {
+    background-image: url('https://images.unsplash.com/photo-1584467735871-8a74c8296669?w=800&h=600&fit=crop');
+    border: 2px solid rgba(255, 71, 87, 0.6);
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+}
+
+.value-highlight.poor::after {
+    background: rgba(15, 15, 80, 0.9);
 }
 
 /* ==========================================================================
@@ -450,6 +533,10 @@ body {
     .choice-text {
         margin-left: 45px;
         font-size: 0.95rem;
+    }
+
+    .star-rating {
+        font-size: 1.5rem;
     }
 
     body {
