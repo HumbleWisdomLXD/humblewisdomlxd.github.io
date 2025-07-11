@@ -15,7 +15,8 @@ const pageTitles = {
     1: "Crisis Leadership Scenario",
     2: "Decision Point 1", 
     3: "Decision Point 2",
-    4: "Decision Point 3"
+    4: "Decision Point 3",
+    5: "Results & Reflection"
 };
 
 // ==========================================================================
@@ -115,7 +116,7 @@ function updateNavigationState() {
 
     // Update next button state
     const nextBtn = document.getElementById('nextBtn');
-    if (currentSlide < 4) {
+    if (currentSlide < 5) {
         const nextSlideUnlocked = unlockedSlides.includes(currentSlide + 1);
         nextBtn.disabled = !nextSlideUnlocked;
     } else {
@@ -175,7 +176,7 @@ function selectChoice(decisionPoint, choice, element) {
         
         // Unlock next slide
         const nextSlide = decisionPoint + 2; // +2 because slide numbers are offset
-        if (nextSlide <= 4 && !unlockedSlides.includes(nextSlide)) {
+        if (nextSlide <= 5 && !unlockedSlides.includes(nextSlide)) {
             unlockedSlides.push(nextSlide);
         }
         
@@ -187,9 +188,9 @@ function selectChoice(decisionPoint, choice, element) {
 // NAVIGATION FUNCTIONS
 // ==========================================================================
 function goToNext() {
-    if (currentSlide < 4 && unlockedSlides.includes(currentSlide + 1)) {
+    if (currentSlide < 5 && unlockedSlides.includes(currentSlide + 1)) {
         showSlide(currentSlide + 1);
-    } else if (currentSlide >= 4) {
+    } else if (currentSlide >= 5) {
         alert('This is the last slide. Going to next page...');
     }
 }
