@@ -397,6 +397,9 @@ const valueData = [
       
       // Update hero title
       document.getElementById('hero-title').textContent = value.name;
+        
+        // Update value results header
+  document.getElementById('value-results-header').textContent = `${value.name} Results`;
       
       // Update top cards
       document.getElementById('your-matches-content').textContent = value.yourMatches;
