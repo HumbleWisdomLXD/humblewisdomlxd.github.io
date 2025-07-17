@@ -567,7 +567,7 @@ const valueData = [
       // Progress to next question or enable next button
       setTimeout(() => {
         if (questionIndex === 0 && isCorrect) {
-          document.getElementById('q1').classList.remove('active');
+         //  document.getElementById('q1').classList.remove('active');
           document.getElementById('q2').classList.add('active');
           currentQuestionIndex = 1;
         } else if (questionIndex === 1) {
