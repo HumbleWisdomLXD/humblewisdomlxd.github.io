@@ -738,6 +738,28 @@
                 select.addEventListener('change', updateGroupings);
             });
             updateCompletionStatus();
+
+ // Add click listener for Continue button
+            document.getElementById('continueBtn').addEventListener('click', function() {
+                const selects = document.querySelectorAll('select[name^="example"]');
+                let completedCount = 0;
+                
+                selects.forEach(select => {
+                    if (select.value && select.value !== 'skip') {
+                        completedCount++;
+                    }
+                });
+                
+                if (completedCount >= 4) {
+                    // Add smooth transition effect
+                    document.body.style.transition = 'opacity 0.5s ease';
+                    document.body.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'https://humblewisdomlxd.github.io/wscorevaluesdiscovery2.html';
+                    }, 500);
+                }
+            });
             
             // Initialize progress bar
             setTimeout(() => {
