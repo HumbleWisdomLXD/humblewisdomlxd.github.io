@@ -392,8 +392,6 @@ const valueData = [
       document.querySelector('.scenario-container').classList.add('fade-in');
       
       // Update images
-      document.getElementById('header-image').src = value.headerImage;
-      document.getElementById('header-image').alt = `${value.name} context`;
       document.getElementById('hero-image').src = value.heroImage;
       document.getElementById('hero-image').alt = `${value.name} illustration`;
       
