@@ -1106,27 +1106,38 @@ pointer-events: none;
 /* ==========================================================================
    MOBILE RESPONSIVE
    ========================================================================== */
-@media (max-width: 768px) {
+
+   @media (max-width: 768px) {
     .page-header {
         padding: 40px 20px;
         flex-direction: column;
         gap: 15px;
     }
 
-   .top-cards-container {
+    .top-cards-container {
         flex-direction: column;
     }
 
-.question h3 {
+    .question h3 {
         font-size: 1rem;
     }
 
     .option {
         font-size: 0.9rem;
     }
-   
-   .scenario-container {
-        padding: 20px;
+
+    .scenario-container {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .top-cards-container,
+    .value-results-header,
+    .hero-section,
+    .question,
+    .nav-buttons {
+        padding: 0 20px;
     }
 
     .glass-container {
@@ -1152,6 +1163,11 @@ pointer-events: none;
     .star-rating {
         font-size: 1.5rem;
     }
+
+    body {
+        padding-top: 120px;
+    }
+}
 
     body {
         padding-top: 120px;
