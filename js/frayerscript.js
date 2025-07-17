@@ -579,7 +579,7 @@ const valueData = [
           updateNavigationButtons();
         }
         updateProgress();
-      }, 1500);
+      }, 500);
     }
 
     function navigateToValue(valueIndex) {
