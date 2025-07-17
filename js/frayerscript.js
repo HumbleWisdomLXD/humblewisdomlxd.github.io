@@ -594,6 +594,7 @@ document.querySelector('.characteristics h3').textContent = `Characteristics of 
         updateValueMenuStates();
         updateNavigationButtons();
         updateProgress();
+        window.scrollTo(0, 0);
       }
     }
 
@@ -602,7 +603,9 @@ document.querySelector('.characteristics h3').textContent = `Characteristics of 
       const nextBtn = document.getElementById('next-btn');
       
       prevBtn.disabled = currentValueIndex === 0;
-      
+      // Disable next button until current value is completed
+  nextBtn.disabled = !completedValues.includes(currentValueIndex);
+        
       if (currentValueIndex === valueData.length - 1) {
         nextBtn.textContent = completedValues.includes(currentValueIndex) ? 'Course Complete' : 'Complete Final Module';
       } else {
