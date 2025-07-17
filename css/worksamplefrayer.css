@@ -154,7 +154,7 @@ body {
 
         /* Hero section */
         .hero-section {
-            height: 300px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -178,7 +178,7 @@ body {
 
 .hero-overlay {
     position: absolute;
-    top: 12.5%; /* Center of the 25% height image */
+    top: 25%; /* Center of the 25% height image */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4; /* Higher than hero-image */
