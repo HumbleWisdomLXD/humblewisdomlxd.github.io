@@ -1,74 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Healthcare Core Values Training</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="frayerstyle.css">
- <link rel="stylesheet" href="worksample.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Training - Crisis Management</title>
+    <link rel="stylesheet" href="css/worksample.css">
 </head>
 
 <body>
-<!-- ======================================== -->
-<!-- TOP NAVIGATION BAR FOR MODULE TITLE -->
-<!-- ======================================== -->
-<div style="position: fixed; top: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 10px 20px; z-index: 2000; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; border-bottom: 1px solid #444;">
-  <div style="font-size: 1rem; font-weight: 600;">Leadership Training – Crisis Management</div>
-  <div style="font-size: 0.85rem; font-weight: 400; color: #ccc;">Crisis Leadership Scenario</div>
-</div>
+<!-- HEADER: Course title left, menu right -->
+    <header class="page-header">
+        <h1 class="page-title">Leadership Training - Crisis Management</h1>
+        <nav class="main-menu">
+            <a href="#">Module 1</a>
+            <a href="#">Module 2</a>
+            <a href="#">Module 3</a>
+            <a href="#">Resources</a>
+        </nav>
+    </header>
 
-<!-- ======================================== -->
-<!-- MAIN MODULE NAVIGATION BAR (TOP OF PAGE) -->
-<!-- ======================================== -->
-
-
-  <!-- Animated Background -->
-  <div class="background-gradient"></div>
-
-
-<header class="page-header">
-  <h1 class="page-title">Leadership Training - Crisis Management</h1>
-  <nav class="main-menu">
-    <a href="#">Module 1</a>
-    <a href="#">Module 2</a>
-    <a href="#">Module 3</a>
-    <a href="#">Resources</a>
-  </nav>
-</header>
-
- <!-- Page title section - CHANGE THESE FOR EACH SCENARIO -->
-    <div class="page-title-section">
-        <h1 class="page-title-main" id="pageTitle">Crisis Leadership Scenario</h1>
+  <!-- Progress bar -->
+    <div class="progress-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
- 
+   <!-- Page title section - CHANGE THESE FOR EACH SCENARIO -->
+    <div class="page-title-section">
+        <h1 class="page-title-main" id="pageTitle">Tele-Hope's Core Values Explained</h1>
+    </div>
 
-
-  <!-- Progress Bar -->
-  <div class="progress-wrapper">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div>
-
-  <!-- Score Display -->
-  <div class="score-display" id="score-display">
-    Score: 0/12
-  </div>
-
-  <!-- Main Container -->
-  <div class="scenario-container">
-    
-       <!-- Header Image -->
-    <div class="header-image-wrapper">
-  <img id="header-image" class="header-image" alt="Healthcare context">
- <!--  <div class="header-text-overlay">Tele-Hope's Core Values</div> -->
-</div>
-
-<!-- ============================================================================ -->
-<!-- This is a comment. It will not show on the page -->
-<!-- CORE VALUES NAVIGATION MENU -->
-<!-- ============================================================================ -->
-
-<div class="value-menu">
+    <!-- Score display -->
+    <div class="score-display" id="scoreDisplay">Score: 0/12</div>
+  
+  <div class="value-menu">
   <a class="value-link active" data-value="0">Empowerment/Collaboration</a>
   <a class="value-link" data-value="1">Integrity/Transparency</a>
   <a class="value-link" data-value="2">Innovation/Growth</a>
@@ -76,8 +40,13 @@
   <a class="value-link" data-value="4">Partnership/Security</a>
   <a class="value-link" data-value="5">Excellence/Commitment</a>
 </div>
-
-
+ 
+  <!-- Main Container -->
+  <div class="scenario-container">
+    
+       <!-- Header Image -->
+    <div class="header-image-wrapper">
+  <img id="header-image" class="header-image" alt="Healthcare context">
 
     <!-- Top Cards -->
     <div class="top-card your-matches">
