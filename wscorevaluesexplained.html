@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Core Values Training</title>
+ <link rel="stylesheet" href="frayerstyles.css">
+</head>
+
+<body>
+<!-- ======================================== -->
+<!-- TOP NAVIGATION BAR FOR MODULE TITLE -->
+<!-- ======================================== -->
+<div style="position: fixed; top: 0; left: 0; width: 100%; background: #111; color: #fff; padding: 10px 20px; z-index: 2000; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; border-bottom: 1px solid #444;">
+  <div style="font-size: 1rem; font-weight: 600;">Leadership Training – Crisis Management</div>
+  <div style="font-size: 0.85rem; font-weight: 400; color: #ccc;">Crisis Leadership Scenario</div>
+</div>
+
+<!-- ======================================== -->
+<!-- MAIN MODULE NAVIGATION BAR (TOP OF PAGE) -->
+<!-- ======================================== -->
+
+
+  <!-- Animated Background -->
+  <div class="background-gradient"></div>
+
+
+<header class="page-header">
+  <h1 class="page-title">Leadership Training - Crisis Management</h1>
+  <nav class="main-menu">
+    <a href="#">Module 1</a>
+    <a href="#">Module 2</a>
+    <a href="#">Module 3</a>
+    <a href="#">Resources</a>
+  </nav>
+</header>
+
+ <!-- Page title section - CHANGE THESE FOR EACH SCENARIO -->
+    <div class="page-title-section">
+        <h1 class="page-title-main" id="pageTitle">Crisis Leadership Scenario</h1>
+    </div>
+
+ 
+
+
+  <!-- Progress Bar -->
+  <div class="progress-wrapper">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Score Display -->
+  <div class="score-display" id="score-display">
+    Score: 0/12
+  </div>
+
+  <!-- Main Container -->
+  <div class="scenario-container">
+    
+       <!-- Header Image -->
+    <div class="header-image-wrapper">
+  <img id="header-image" class="header-image" alt="Healthcare context">
+ <!--  <div class="header-text-overlay">Tele-Hope's Core Values</div> -->
+</div>
+
+<!-- ============================================================================ -->
+<!-- This is a comment. It will not show on the page -->
+<!-- CORE VALUES NAVIGATION MENU -->
+<!-- ============================================================================ -->
+
+<div class="value-menu">
+  <a class="value-link active" data-value="0">Empowerment/Collaboration</a>
+  <a class="value-link" data-value="1">Integrity/Transparency</a>
+  <a class="value-link" data-value="2">Innovation/Growth</a>
+  <a class="value-link" data-value="3">Humility/Respect</a>
+  <a class="value-link" data-value="4">Partnership/Security</a>
+  <a class="value-link" data-value="5">Excellence/Commitment</a>
+</div>
+
+
+
+    <!-- Top Cards -->
+    <div class="top-card your-matches">
+      <h3>Your Matches</h3>
+      <p id="your-matches-content"></p>
+    </div>
+
+    <div class="top-card correct-matches">
+      <h3>Correct Matches</h3>
+      <ul id="correct-matches-content"></ul>
+    </div>
+
+    <!-- Hero Section with Overlay -->
+    <div class="hero-section">
+      <img id="hero-image" class="hero-image" alt="Value illustration">
+      <div class="hero-overlay">
+        <div class="hero-title" id="hero-title"></div>
+      </div>
+    </div>
+
+    <!-- Frayer Model -->
+    <div class="frayer-model">
+      
+      <div class="frayer-square correct-answer">
+        <h3>Correct Answer</h3>
+        <div id="correct-answer-content"></div>
+      </div>
+
+      <div class="frayer-square characteristics">
+        <h3>Characteristics</h3>
+        <div id="characteristics-content"></div>
+      </div>
+
+      <div class="frayer-square examples">
+        <h3>Examples</h3>
+        <div class="toggle-buttons">
+          <button class="toggle-btn active" data-type="staff">Staff-to-Staff</button>
+          <button class="toggle-btn" data-type="patient">Staff-to-Patient</button>
+        </div>
+        <div class="example-content staff-example" id="staff-examples"></div>
+        <div class="example-content patient-example" id="patient-examples" style="display:none;"></div>
+      </div>
+
+      <div class="frayer-square non-examples">
+        <h3>Non-Examples</h3>
+        <div class="toggle-buttons">
+          <button class="toggle-btn active" data-type="staff">Staff-to-Staff</button>
+          <button class="toggle-btn" data-type="patient">Staff-to-Patient</button>
+        </div>
+        <div class="non-example-content staff-non-example" id="staff-non-examples"></div>
+        <div class="non-example-content patient-non-example" id="patient-non-examples" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- Questions -->
+    <div class="question active" id="q1">
+      <h3 id="question1-text">Loading question...</h3>
+      <div class="options" id="question1-options">
+        <div class="option">Loading options...</div>
+      </div>
+    </div>
+
+    <div class="question" id="q2">
+      <h3 id="question2-text">Loading question...</h3>
+      <div class="options" id="question2-options">
+        <div class="option">Loading options...</div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+      <button class="modern-btn" id="prev-btn" disabled>Previous Value Pair</button>
+      <button class="modern-btn" id="next-btn">Next Value Pair</button>
+    </div>
+
+  </div>
+  <!-- End Main Container -->
+  <script src="frayerscript.js"></script>
+</body>
+</html>
