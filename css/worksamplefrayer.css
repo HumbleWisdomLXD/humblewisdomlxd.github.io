@@ -154,7 +154,7 @@ body {
 
         /* Hero section */
         .hero-section {
-            height: 100vh;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
