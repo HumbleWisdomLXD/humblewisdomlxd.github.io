@@ -3,9 +3,9 @@
     // ==========================================================================
     // CORRECTED valueData array - all 6 value pairs in correct order
 const valueData = [
-  // Index 0: Empowerment/Collaboration (you have this one - it's correct)
+  // Index 0: Empowerment &amp; Collaboration (you have this one - it's correct)
   {
-    name: "Empowerment/Collaboration",
+    name: "Empowerment &amp; Collaboration",
     headerImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Therapist asked patient which coping strategies they preferred" → Empowerment/Collaboration',
@@ -60,7 +60,7 @@ const valueData = [
     ]
   },
 
-  // Index 1: Integrity/Transparency (MISSING - needs to be added)
+  // Index 1: Integrity &amp; Transparency (MISSING - needs to be added)
   {
     name: "Integrity/Transparency",
     headerImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
@@ -117,7 +117,7 @@ const valueData = [
     ]
   },
 
-  // Index 2: Innovation/Growth (MISSING - needs to be added)
+  // Index 2: Innovation &amp; Growth (MISSING - needs to be added)
   {
     name: "Innovation/Growth",
     headerImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
@@ -174,7 +174,7 @@ const valueData = [
     ]
   },
 
-  // Index 3: Humility/Respect (you have this but it's currently at wrong index)
+  // Index 3: Humility &amp; Respect (you have this but it's currently at wrong index)
   {
     name: "Humility/Respect",
     headerImage: "https://images.unsplash.com/photo-1559757175-3155d9eadf7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
@@ -231,7 +231,7 @@ const valueData = [
     ]
   },
 
-  // Index 4: Partnership/Security (you have this but it's currently at wrong index)
+  // Index 4: Partnership &amp; Security (you have this but it's currently at wrong index)
   {
     name: "Partnership/Security",
     headerImage: "https://images.unsplash.com/photo-1559757148-8c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
@@ -288,7 +288,7 @@ const valueData = [
     ]
   },
 
-  // Index 5: Excellence/Commitment (you have this but it's currently at wrong index)
+  // Index 5: Excellence &amp; Commitment (you have this but it's currently at wrong index)
   {
     name: "Excellence/Commitment",
     headerImage: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
