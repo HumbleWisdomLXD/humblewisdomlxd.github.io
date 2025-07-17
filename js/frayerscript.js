@@ -364,7 +364,7 @@ const valueData = [
     }
 
     function updateScore() {
-      document.getElementById('score-display').textContent = `Score: ${score}/12`;
+      document.getElementById('scoreDisplay').textContent = `Score: ${score}/12`;
     }
 
     function updateValueMenuStates() {
