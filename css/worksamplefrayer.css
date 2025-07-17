@@ -178,7 +178,7 @@ body {
 
 .hero-overlay {
     position: absolute;
-    top: 30%; /* Changed from 25% to 30% to center on 60% height image  */
+    top: 50%; /* Changed from 30% to 50% to center on 60% height image  */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4; /* Higher than hero-image */
