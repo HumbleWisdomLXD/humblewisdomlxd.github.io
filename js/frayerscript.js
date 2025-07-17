@@ -1,228 +1,350 @@
     // ==========================================================================
     // CONTENT DATA FOR ALL 6 VALUE PAIRS
     // ==========================================================================
-    const valueData = [
+    // CORRECTED valueData array - all 6 value pairs in correct order
+const valueData = [
+  // Index 0: Empowerment/Collaboration (you have this one - it's correct)
+  {
+    name: "Empowerment/Collaboration",
+    headerImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Therapist asked patient which coping strategies they preferred" → Empowerment/Collaboration',
+    correctMatches: [
+      "Therapist invites social worker to co-design a care plan",
+      "Clinician asks patient to prioritize session goals",
+      "Team meeting where all disciplines contribute equally"
+    ],
+    correctAnswer: {
+      text: "Empowerment fuels collaboration when we trust others to lead; collaboration multiplies empowerment when we share ownership.",
+      emphasis: "This means that we trust colleagues' expertise and invite patient input."
+    },
+    characteristics: {
+      looksLike: "Shared decision-making, team input, patient choice, delegating authority",
+      soundsLike: '"What do you think?", "Let\'s work together on this", "You have the expertise here"'
+    },
+    staffExamples: "Therapist invites social worker to co-design a care plan, recognizing their expertise",
+    patientExamples: 'Clinician asks, "What coping strategies have worked best for you in the past?"',
+    staffNonExamples: "Department head makes all decisions without consulting team members",
+    patientNonExamples: "Therapist creates treatment plan without patient input or preferences",
+    questions: [
       {
-        name: "Empowerment/Collaboration",
-        headerImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        yourMatches: '"Therapist asked patient which coping strategies they preferred" → Empowerment/Collaboration',
-        correctMatches: [
-          "Therapist invites social worker to co-design a care plan",
-          "Clinician asks patient to prioritize session goals",
-          "Team meeting where all disciplines contribute equally"
-        ],
-        correctAnswer: {
-          text: "Empowerment fuels collaboration when we trust others to lead; collaboration multiplies empowerment when we share ownership.",
-          emphasis: "This means that we trust colleagues' expertise and invite patient input."
-        },
-        characteristics: {
-          looksLike: "Trying new approaches, seeking feedback, continuous learning, process improvements",
-          soundsLike: '"What if we tried...", "How can we improve this?", "I learned something new today"'
-        },
-        staffExamples: "Social worker proposes new group therapy format after researching best practices",
-        patientExamples: 'Therapist says, "Let\'s try a different approach based on what you\'ve told me"',
-        staffNonExamples: "Team member says 'We\'ve always done it this way' when presented with new ideas",
-        patientNonExamples: "Clinician refuses to modify treatment plan despite patient feedback",
-        questions: [
+        text: "Which approach best demonstrates Empowerment/Collaboration?",
+        options: [
           {
-            text: "Which approach best demonstrates Innovation/Growth?",
-            options: [
-              {
-                text: "Team pilots new patient communication system based on feedback",
-                correct: true,
-                feedback: "Correct! This shows willingness to innovate and grow based on input."
-              },
-              {
-                text: "Staff member resists new procedures because current ones work fine",
-                correct: false,
-                feedback: "Incorrect. This blocks innovation and growth opportunities."
-              }
-            ]
+            text: "Team meeting where all disciplines contribute equally to care planning",
+            correct: true,
+            feedback: "Correct! This empowers each team member and creates true collaboration."
           },
           {
-            text: "How should clinicians respond to patient suggestions?",
-            options: [
-              {
-                text: "Consider the suggestion and explain decision-making process",
-                correct: true,
-                feedback: "Correct! This demonstrates openness to growth and patient partnership."
-              },
-              {
-                text: "Dismiss suggestions since patients aren't trained professionals",
-                correct: false,
-                feedback: "Incorrect. This misses valuable insights and growth opportunities."
-              }
-            ]
+            text: "Senior physician makes treatment decisions and informs team",
+            correct: false,
+            feedback: "Incorrect. This lacks empowerment of team members and true collaboration."
           }
         ]
       },
       {
-        name: "Humility/Respect",
-        headerImage: "https://images.unsplash.com/photo-1559757175-3155d9eadf7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        heroImage: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        yourMatches: '"Doctor asked nurse for input on complex case" → Humility/Respect',
-        correctMatches: [
-          "Psychiatrist acknowledges limits and consults specialist",
-          "Therapist apologizes for interrupting patient",
-          "Team member asks for help instead of struggling alone"
-        ],
-        correctAnswer: {
-          text: "Humility recognizes our limitations and the value of others; respect honors the dignity and worth of every person.",
-          emphasis: "This means listening more than speaking and valuing diverse perspectives and experiences."
-        },
-        characteristics: {
-          looksLike: "Active listening, asking for help, acknowledging others' expertise, cultural sensitivity",
-          soundsLike: '"I need to learn more about this", "You have valuable insight", "I apologize for..."'
-        },
-        staffExamples: "Doctor asks nurse for input on complex case, recognizing their patient interaction expertise",
-        patientExamples: 'Therapist says, "I want to understand your cultural background better to serve you well"',
-        staffNonExamples: "Senior clinician dismisses junior staff suggestions without consideration",
-        patientNonExamples: "Staff member interrupts patient repeatedly during assessment",
-        questions: [
+        text: "How should clinicians involve patients in treatment decisions?",
+        options: [
           {
-            text: "Which behavior best shows Humility/Respect among staff?",
-            options: [
-              {
-                text: "Experienced doctor asks newer nurse about patient observations",
-                correct: true,
-                feedback: "Correct! This shows humility about learning and respect for others' expertise."
-              },
-              {
-                text: "Department head makes decisions without consulting team",
-                correct: false,
-                feedback: "Incorrect. This lacks humility and disrespects team members' contributions."
-              }
-            ]
+            text: "Ask for patient preferences and incorporate them into planning",
+            correct: true,
+            feedback: "Correct! This empowers patients and creates collaborative care."
           },
           {
-            text: "How should staff demonstrate respect for patients?",
-            options: [
-              {
-                text: "Listen fully before responding and ask clarifying questions",
-                correct: true,
-                feedback: "Correct! This shows respect for patient perspectives and experiences."
-              },
-              {
-                text: "Explain quickly what they need to know and move on",
-                correct: false,
-                feedback: "Incorrect. This shows lack of respect for patient input and understanding."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: "Partnership/Security",
-        headerImage: "https://images.unsplash.com/photo-1559757148-8c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        yourMatches: '"Case manager coordinated with family and community resources" → Partnership/Security',
-        correctMatches: [
-          "Team creates comprehensive discharge plan with family involvement",
-          "Social worker connects patient with community support services",
-          "Staff ensures patient has safe, stable housing arrangement"
-        ],
-        correctAnswer: {
-          text: "Partnership creates strong support networks; security ensures safety and stability for healing and growth.",
-          emphasis: "This means building connections with families, communities, and ensuring patients feel safe and supported."
-        },
-        characteristics: {
-          looksLike: "Building alliances, ensuring safety, coordinating resources, family involvement",
-          soundsLike: '"Let\'s work together", "How can we keep you safe?", "What support do you need?"'
-        },
-        staffExamples: "Case manager coordinates with housing, mental health, and medical providers for comprehensive care",
-        patientExamples: 'Social worker says, "Let\'s identify all the people and resources in your support network"',
-        staffNonExamples: "Discharge planner works in isolation without consulting other team members",
-        patientNonExamples: "Staff member ignores patient\'s safety concerns about returning home",
-        questions: [
-          {
-            text: "Which approach best demonstrates Partnership/Security?",
-            options: [
-              {
-                text: "Team collaborates with family and community to create safety plan",
-                correct: true,
-                feedback: "Correct! This builds partnerships and ensures comprehensive security."
-              },
-              {
-                text: "Individual provider handles all aspects of care independently",
-                correct: false,
-                feedback: "Incorrect. This misses partnership opportunities and may compromise security."
-              }
-            ]
-          },
-          {
-            text: "How should staff address patient safety concerns?",
-            options: [
-              {
-                text: "Take all concerns seriously and develop concrete safety strategies",
-                correct: true,
-                feedback: "Correct! This prioritizes security while building trust through partnership."
-              },
-              {
-                text: "Reassure patient that professional judgment is sufficient",
-                correct: false,
-                feedback: "Incorrect. This dismisses patient input and may miss important security issues."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        name: "Excellence/Commitment",
-        headerImage: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        yourMatches: '"Therapist stayed late to complete thorough treatment plan" → Excellence/Commitment',
-        correctMatches: [
-          "Nurse double-checks medication calculations for accuracy",
-          "Doctor follows up personally on patient concerns",
-          "Team member attends training to improve skills"
-        ],
-        correctAnswer: {
-          text: "Excellence drives us to deliver the highest quality care; commitment ensures we persist through challenges for our patients.",
-          emphasis: "This means going above and beyond, continuous improvement, and never giving up on patient outcomes."
-        },
-        characteristics: {
-          looksLike: "Attention to detail, follow-through, skill development, persistence through challenges",
-          soundsLike: '"I want to make sure this is perfect", "I\'ll follow up tomorrow", "Let me research this further"'
-        },
-        staffExamples: "Nurse double-checks complex medication calculations and consults pharmacy for verification",
-        patientExamples: 'Doctor says, "I want to research your condition further to give you the best possible options"',
-        staffNonExamples: "Staff member does minimum required work and leaves promptly at shift end",
-        patientNonExamples: "Clinician gives up easily when first treatment approach doesn\'t work",
-        questions: [
-          {
-            text: "Which behavior best demonstrates Excellence/Commitment?",
-            options: [
-              {
-                text: "Therapist researches new techniques to better serve challenging case",
-                correct: true,
-                feedback: "Correct! This shows commitment to excellence and patient outcomes."
-              },
-              {
-                text: "Staff member completes tasks adequately but doesn\'t go beyond requirements",
-                correct: false,
-                feedback: "Incorrect. This meets minimum standards but doesn\'t demonstrate excellence or commitment."
-              }
-            ]
-          },
-          {
-            text: "How should staff respond when treatment isn\'t working?",
-            options: [
-              {
-                text: "Consult colleagues, research alternatives, and adjust approach",
-                correct: true,
-                feedback: "Correct! This demonstrates commitment to excellence and patient success."
-              },
-              {
-                text: "Continue same approach since it usually works for most patients",
-                correct: false,
-                feedback: "Incorrect. This lacks commitment to individual patient excellence."
-              }
-            ]
+            text: "Make expert decisions and explain them to patients",
+            correct: false,
+            feedback: "Incorrect. This doesn't empower patients or create true collaboration."
           }
         ]
       }
-    ];
+    ]
+  },
+
+  // Index 1: Integrity/Transparency (MISSING - needs to be added)
+  {
+    name: "Integrity/Transparency",
+    headerImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Supervisor disclosed medication error to patient and family" → Integrity/Transparency',
+    correctMatches: [
+      "Staff member admits mistake and explains corrective action",
+      "Team shares honest updates about treatment progress",
+      "Administration provides clear communication about policy changes"
+    ],
+    correctAnswer: {
+      text: "Integrity means doing the right thing even when it's difficult; transparency builds trust through honest communication.",
+      emphasis: "This means being truthful, admitting mistakes, and communicating openly with patients and colleagues."
+    },
+    characteristics: {
+      looksLike: "Honest communication, admitting errors, clear documentation, consistent values-based decisions",
+      soundsLike: '"I made a mistake and here\'s how we\'ll fix it", "Let me explain what\'s happening", "I need to be honest with you"'
+    },
+    staffExamples: "Nurse discovers medication error, immediately reports it, and works with team to prevent future occurrences",
+    patientExamples: 'Doctor says, "The treatment isn\'t working as well as hoped. Let\'s discuss other options"',
+    staffNonExamples: "Staff member covers up a mistake instead of reporting it",
+    patientNonExamples: "Clinician gives overly optimistic prognosis when evidence suggests otherwise",
+    questions: [
+      {
+        text: "Which approach best demonstrates Integrity/Transparency?",
+        options: [
+          {
+            text: "Staff member reports own error and explains prevention steps",
+            correct: true,
+            feedback: "Correct! This shows integrity in owning mistakes and transparency in communication."
+          },
+          {
+            text: "Staff member handles error quietly to avoid upsetting patient",
+            correct: false,
+            feedback: "Incorrect. This lacks transparency and may compromise trust and safety."
+          }
+        ]
+      },
+      {
+        text: "How should teams communicate difficult news to patients?",
+        options: [
+          {
+            text: "Share information honestly with compassion and support",
+            correct: true,
+            feedback: "Correct! This balances transparency with empathetic communication."
+          },
+          {
+            text: "Minimize negative aspects to keep patient hopeful",
+            correct: false,
+            feedback: "Incorrect. This compromises transparency and informed decision-making."
+          }
+        ]
+      }
+    ]
+  },
+
+  // Index 2: Innovation/Growth (MISSING - needs to be added)
+  {
+    name: "Innovation/Growth",
+    headerImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1559757148-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Team implemented new therapy approach after research" → Innovation/Growth',
+    correctMatches: [
+      "Department pilots new patient communication technology",
+      "Clinician attends conference and shares learnings with team",
+      "Team develops new process based on patient feedback"
+    ],
+    correctAnswer: {
+      text: "Innovation drives us to find better ways to serve patients; growth comes from continuous learning and improvement.",
+      emphasis: "This means embracing change, learning from experience, and constantly seeking better outcomes."
+    },
+    characteristics: {
+      looksLike: "Trying new approaches, seeking feedback, continuous learning, process improvements",
+      soundsLike: '"What if we tried...", "How can we improve this?", "I learned something new today"'
+    },
+    staffExamples: "Social worker proposes new group therapy format after researching best practices",
+    patientExamples: 'Therapist says, "Let\'s try a different approach based on what you\'ve told me"',
+    staffNonExamples: "Team member says 'We\'ve always done it this way' when presented with new ideas",
+    patientNonExamples: "Clinician refuses to modify treatment plan despite patient feedback",
+    questions: [
+      {
+        text: "Which approach best demonstrates Innovation/Growth?",
+        options: [
+          {
+            text: "Team pilots new patient communication system based on feedback",
+            correct: true,
+            feedback: "Correct! This shows willingness to innovate and grow based on input."
+          },
+          {
+            text: "Staff member resists new procedures because current ones work fine",
+            correct: false,
+            feedback: "Incorrect. This blocks innovation and growth opportunities."
+          }
+        ]
+      },
+      {
+        text: "How should clinicians respond to patient suggestions?",
+        options: [
+          {
+            text: "Consider the suggestion and explain decision-making process",
+            correct: true,
+            feedback: "Correct! This demonstrates openness to growth and patient partnership."
+          },
+          {
+            text: "Dismiss suggestions since patients aren't trained professionals",
+            correct: false,
+            feedback: "Incorrect. This misses valuable insights and growth opportunities."
+          }
+        ]
+      }
+    ]
+  },
+
+  // Index 3: Humility/Respect (you have this but it's currently at wrong index)
+  {
+    name: "Humility/Respect",
+    headerImage: "https://images.unsplash.com/photo-1559757175-3155d9eadf7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Doctor asked nurse for input on complex case" → Humility/Respect',
+    correctMatches: [
+      "Psychiatrist acknowledges limits and consults specialist",
+      "Therapist apologizes for interrupting patient",
+      "Team member asks for help instead of struggling alone"
+    ],
+    correctAnswer: {
+      text: "Humility recognizes our limitations and the value of others; respect honors the dignity and worth of every person.",
+      emphasis: "This means listening more than speaking and valuing diverse perspectives and experiences."
+    },
+    characteristics: {
+      looksLike: "Active listening, asking for help, acknowledging others' expertise, cultural sensitivity",
+      soundsLike: '"I need to learn more about this", "You have valuable insight", "I apologize for..."'
+    },
+    staffExamples: "Doctor asks nurse for input on complex case, recognizing their patient interaction expertise",
+    patientExamples: 'Therapist says, "I want to understand your cultural background better to serve you well"',
+    staffNonExamples: "Senior clinician dismisses junior staff suggestions without consideration",
+    patientNonExamples: "Staff member interrupts patient repeatedly during assessment",
+    questions: [
+      {
+        text: "Which behavior best shows Humility/Respect among staff?",
+        options: [
+          {
+            text: "Experienced doctor asks newer nurse about patient observations",
+            correct: true,
+            feedback: "Correct! This shows humility about learning and respect for others' expertise."
+          },
+          {
+            text: "Department head makes decisions without consulting team",
+            correct: false,
+            feedback: "Incorrect. This lacks humility and disrespects team members' contributions."
+          }
+        ]
+      },
+      {
+        text: "How should staff demonstrate respect for patients?",
+        options: [
+          {
+            text: "Listen fully before responding and ask clarifying questions",
+            correct: true,
+            feedback: "Correct! This shows respect for patient perspectives and experiences."
+          },
+          {
+            text: "Explain quickly what they need to know and move on",
+            correct: false,
+            feedback: "Incorrect. This shows lack of respect for patient input and understanding."
+          }
+        ]
+      }
+    ]
+  },
+
+  // Index 4: Partnership/Security (you have this but it's currently at wrong index)
+  {
+    name: "Partnership/Security",
+    headerImage: "https://images.unsplash.com/photo-1559757148-8c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Case manager coordinated with family and community resources" → Partnership/Security',
+    correctMatches: [
+      "Team creates comprehensive discharge plan with family involvement",
+      "Social worker connects patient with community support services",
+      "Staff ensures patient has safe, stable housing arrangement"
+    ],
+    correctAnswer: {
+      text: "Partnership creates strong support networks; security ensures safety and stability for healing and growth.",
+      emphasis: "This means building connections with families, communities, and ensuring patients feel safe and supported."
+    },
+    characteristics: {
+      looksLike: "Building alliances, ensuring safety, coordinating resources, family involvement",
+      soundsLike: '"Let\'s work together", "How can we keep you safe?", "What support do you need?"'
+    },
+    staffExamples: "Case manager coordinates with housing, mental health, and medical providers for comprehensive care",
+    patientExamples: 'Social worker says, "Let\'s identify all the people and resources in your support network"',
+    staffNonExamples: "Discharge planner works in isolation without consulting other team members",
+    patientNonExamples: "Staff member ignores patient\'s safety concerns about returning home",
+    questions: [
+      {
+        text: "Which approach best demonstrates Partnership/Security?",
+        options: [
+          {
+            text: "Team collaborates with family and community to create safety plan",
+            correct: true,
+            feedback: "Correct! This builds partnerships and ensures comprehensive security."
+          },
+          {
+            text: "Individual provider handles all aspects of care independently",
+            correct: false,
+            feedback: "Incorrect. This misses partnership opportunities and may compromise security."
+          }
+        ]
+      },
+      {
+        text: "How should staff address patient safety concerns?",
+        options: [
+          {
+            text: "Take all concerns seriously and develop concrete safety strategies",
+            correct: true,
+            feedback: "Correct! This prioritizes security while building trust through partnership."
+          },
+          {
+            text: "Reassure patient that professional judgment is sufficient",
+            correct: false,
+            feedback: "Incorrect. This dismisses patient input and may miss important security issues."
+          }
+        ]
+      }
+    ]
+  },
+
+  // Index 5: Excellence/Commitment (you have this but it's currently at wrong index)
+  {
+    name: "Excellence/Commitment",
+    headerImage: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+    yourMatches: '"Therapist stayed late to complete thorough treatment plan" → Excellence/Commitment',
+    correctMatches: [
+      "Nurse double-checks medication calculations for accuracy",
+      "Doctor follows up personally on patient concerns",
+      "Team member attends training to improve skills"
+    ],
+    correctAnswer: {
+      text: "Excellence drives us to deliver the highest quality care; commitment ensures we persist through challenges for our patients.",
+      emphasis: "This means going above and beyond, continuous improvement, and never giving up on patient outcomes."
+    },
+    characteristics: {
+      looksLike: "Attention to detail, follow-through, skill development, persistence through challenges",
+      soundsLike: '"I want to make sure this is perfect", "I\'ll follow up tomorrow", "Let me research this further"'
+    },
+    staffExamples: "Nurse double-checks complex medication calculations and consults pharmacy for verification",
+    patientExamples: 'Doctor says, "I want to research your condition further to give you the best possible options"',
+    staffNonExamples: "Staff member does minimum required work and leaves promptly at shift end",
+    patientNonExamples: "Clinician gives up easily when first treatment approach doesn\'t work",
+    questions: [
+      {
+        text: "Which behavior best demonstrates Excellence/Commitment?",
+        options: [
+          {
+            text: "Therapist researches new techniques to better serve challenging case",
+            correct: true,
+            feedback: "Correct! This shows commitment to excellence and patient outcomes."
+          },
+          {
+            text: "Staff member completes tasks adequately but doesn\'t go beyond requirements",
+            correct: false,
+            feedback: "Incorrect. This meets minimum standards but doesn\'t demonstrate excellence or commitment."
+          }
+        ]
+      },
+      {
+        text: "How should staff respond when treatment isn\'t working?",
+        options: [
+          {
+            text: "Consult colleagues, research alternatives, and adjust approach",
+            correct: true,
+            feedback: "Correct! This demonstrates commitment to excellence and patient success."
+          },
+          {
+            text: "Continue same approach since it usually works for most patients",
+            correct: false,
+            feedback: "Incorrect. This lacks commitment to individual patient excellence."
+          }
+        ]
+      }
+    ]
+  }
+];
 
     // ==========================================================================
     // APPLICATION STATE
