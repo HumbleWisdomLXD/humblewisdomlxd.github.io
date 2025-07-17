@@ -949,6 +949,7 @@ pointer-events: none;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+   width: 200px;
 }
 
 .nav-btn:hover:not(:disabled) {
