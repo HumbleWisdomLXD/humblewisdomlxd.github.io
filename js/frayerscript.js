@@ -597,21 +597,30 @@ document.querySelector('.characteristics h3').textContent = `Characteristics of 
         window.scrollTo(0, 0);
       }
     }
-
-    function updateNavigationButtons() {
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      
-      prevBtn.disabled = currentValueIndex === 0;
-      // Disable next button until current value is completed
-  nextBtn.disabled = !completedValues.includes(currentValueIndex);
-        
-      if (currentValueIndex === valueData.length - 1) {
-        nextBtn.textContent = completedValues.includes(currentValueIndex) ? 'Course Complete' : 'Complete Final Module';
-      } else {
-        nextBtn.textContent = 'Next Value Pair';
-      }
-    }
+function updateNavigationButtons() {
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  prevBtn.disabled = currentValueIndex === 0;
+  
+  // Check if both questions are answered correctly
+  const bothQuestionsCorrect = valueScores[currentValueIndex] === 2;
+  nextBtn.disabled = !bothQuestionsCorrect;
+  
+  // Add tooltip for disabled button
+  if (!bothQuestionsCorrect) {
+    nextBtn.title = "Our values are important! Answer both questions correctly.";
+  } else {
+    nextBtn.title = "";
+  }
+  
+  if (currentValueIndex === valueData.length - 1) {
+    nextBtn.textContent = bothQuestionsCorrect ? 'Course Complete' : 'Complete Final Module';
+  } else {
+    nextBtn.textContent = 'Next Value Pair';
+  }
+}
+    
 
     // ==========================================================================
     // INITIALIZATION
