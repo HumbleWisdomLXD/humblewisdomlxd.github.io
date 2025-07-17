@@ -742,18 +742,22 @@ pointer-events: none;
 
 .correct-answer {
     border-top: 4px solid #00ff7f;
+   background: linear-gradient(135deg, rgba(0, 255, 127, 0.2), rgba(0, 255, 127, 0.05));
 }
 
 .characteristics {
-    border-top: 4px solid #9c27b0;
+    border-top: 4px solid #e1bee7;
+   background: linear-gradient(135deg, rgba(156, 39, 176, 0.25), rgba(156, 39, 176, 0.08));
 }
 
 .examples {
     border-top: 4px solid #00d4ff;
+   background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 212, 255, 0.05));
 }
 
 .non-examples {
     border-top: 4px solid #ff4757;
+   background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 71, 87, 0.05));
 }
 
 .frayer-square h3 {
