@@ -5,7 +5,7 @@
 const valueData = [
   // Index 0: Empowerment &amp; Collaboration (you have this one - it's correct)
   {
-    name: "Empowerment &amp; Collaboration",
+    name: "Empowerment & Collaboration",
     headerImage: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Therapist asked patient which coping strategies they preferred" → Empowerment/Collaboration',
@@ -62,7 +62,7 @@ const valueData = [
 
   // Index 1: Integrity &amp; Transparency (MISSING - needs to be added)
   {
-    name: "Integrity/Transparency",
+    name: "Integrity & Transparency",
     headerImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Supervisor disclosed medication error to patient and family" → Integrity/Transparency',
@@ -119,7 +119,7 @@ const valueData = [
 
   // Index 2: Innovation &amp; Growth (MISSING - needs to be added)
   {
-    name: "Innovation/Growth",
+    name: "Innovation & Growth",
     headerImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1559757148-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Team implemented new therapy approach after research" → Innovation/Growth',
@@ -176,7 +176,7 @@ const valueData = [
 
   // Index 3: Humility &amp; Respect (you have this but it's currently at wrong index)
   {
-    name: "Humility/Respect",
+    name: "Humility & Respect",
     headerImage: "https://images.unsplash.com/photo-1559757175-3155d9eadf7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Doctor asked nurse for input on complex case" → Humility/Respect',
@@ -233,7 +233,7 @@ const valueData = [
 
   // Index 4: Partnership &amp; Security (you have this but it's currently at wrong index)
   {
-    name: "Partnership/Security",
+    name: "Partnership & Security",
     headerImage: "https://images.unsplash.com/photo-1559757148-8c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Case manager coordinated with family and community resources" → Partnership/Security',
@@ -290,7 +290,7 @@ const valueData = [
 
   // Index 5: Excellence &amp; Commitment (you have this but it's currently at wrong index)
   {
-    name: "Excellence/Commitment",
+    name: "Excellence & Commitment",
     headerImage: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     heroImage: "https://images.unsplash.com/photo-1559757188-5d7d9c2c9b7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
     yourMatches: '"Therapist stayed late to complete thorough treatment plan" → Excellence/Commitment',
@@ -408,8 +408,12 @@ const valueData = [
         correctMatchesList.appendChild(li);
       });
       
-      // Update Frayer model content
-      document.getElementById('correct-answer-content').innerHTML = `
+     
+// Update dynamic headers
+document.querySelector('.correct-answer h3').textContent = `Defining ${value.name}`;
+document.querySelector('.characteristics h3').textContent = `Characteristics of ${value.name}`;
+          // Update Frayer model content
+        document.getElementById('correct-answer-content').innerHTML = `
         <p>${value.correctAnswer.text}</p>
         <p><em>"${value.correctAnswer.emphasis}"</em></p>
       `;
