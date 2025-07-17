@@ -712,9 +712,7 @@
                         <strong>Progress:</strong> <span id="completedCount">0</span> of 6 examples grouped
                     </div>
 
-                    <button type="button" class="modern-btn" id="continueBtn" disabled aria-describedby="continue-help">
-                        Continue to Part 2
-                    </button>
+                  
                     <div id="continue-help" class="sr-only">Complete grouping to enable continue button</div>
 
                     <button type="button" class="modern-btn reset-btn" onclick="resetGroupings()">
@@ -858,31 +856,29 @@
             }, 500);
         }
 
-        function goNext() {
-            const selects = document.querySelectorAll('select[name^="example"]');
-            let completedCount = 0;
-            
-            selects.forEach(select => {
-                if (select.value && select.value !== 'skip') {
-                    completedCount++;
-                }
-            });
-            
-            if (completedCount >= 4) {
-                // Add smooth transition effect
-                document.body.style.transition = 'opacity 0.5s ease';
-                document.body.style.opacity = '0';
-                
-                setTimeout(() => {
-                    console.log('Proceeding to next slide');
-                    // You would implement your slide navigation logic here
-                    document.body.style.opacity = '1';
-                }, 500);
-            } else {
-                // Show modern alert
-                showAlert('Please complete at least 4 groupings before continuing.');
-            }
+       function goNext() {
+    const selects = document.querySelectorAll('select[name^="example"]');
+    let completedCount = 0;
+    
+    selects.forEach(select => {
+        if (select.value && select.value !== 'skip') {
+            completedCount++;
         }
+    });
+    
+    if (completedCount >= 4) {
+        // Add smooth transition effect
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '0';
+        
+        setTimeout(() => {
+            window.location.href = 'https://humblewisdomlxd.github.io/wscorevaluesexplained.html?completed=true';
+        }, 500);
+    } else {
+        // Show modern alert
+        showAlert('Please complete at least 4 groupings before continuing.');
+    }
+}
 
         // Update navigation state based on content completion
         function updateNavigation() {
