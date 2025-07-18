@@ -438,9 +438,9 @@ if (userSelections.length > 0) {
     if (valueIndex === 0) targetGroup = 'group1'; // Empowerment & Collaboration from Part 1
     else if (valueIndex === 1) targetGroup = 'group2'; // Integrity & Transparency from Part 1  
     else if (valueIndex === 2) targetGroup = 'group3'; // Innovation & Growth from Part 1
-    else if (valueIndex === 3) targetGroup = 'group1_part2'; // Humility & Respect from Part 2
-    else if (valueIndex === 4) targetGroup = 'group2_part2'; // Partnership & Security from Part 2
-    else if (valueIndex === 5) targetGroup = 'group3_part2'; // Excellence & Commitment from Part 2
+    else if (valueIndex === 3) targetGroup = 'group1'; // Humility & Respect from Part 2
+    else if (valueIndex === 4) targetGroup = 'group2'; // Partnership & Security from Part 2
+    else if (valueIndex === 5) targetGroup = 'group3'; // Excellence & Commitment from Part 2
     
    // Find examples assigned to this group
 for (let i = 1; i <= 6; i++) {
