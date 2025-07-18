@@ -379,12 +379,16 @@ const valueData = [
     // ==========================================================================
     function updateProgress() {
       const progress = ((currentValueIndex + (currentQuestionIndex / 2)) / 6) * 100;
-      document.getElementById('progress-bar').style.width = `${progress}%`;
-    }
+    const progressBar = document.getElementById('progress-bar');
+if (progressBar) {
+    progressBar.style.width = `${progress}%`;
+}
 
     function updateScore() {
-      document.getElementById('scoreDisplay').textContent = `Score: ${score}/12`;
-    }
+    const scoreDisplay = document.getElementById('scoreDisplay');
+if (scoreDisplay) {
+    scoreDisplay.textContent = `Score: ${score}/12`;
+}
 
     function updateValueMenuStates() {
       const valueLinks = document.querySelectorAll('.value-link');
