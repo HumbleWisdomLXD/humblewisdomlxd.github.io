@@ -872,8 +872,39 @@
         document.body.style.opacity = '0';
         
         setTimeout(() => {
-            window.location.href = 'https://humblewisdomlxd.github.io/wscorevaluesexplained.html?completed=true';
-        }, 500);
+            setTimeout(() => {
+    // Get Part 1 selections from current URL
+    const currentParams = new URLSearchParams(window.location.search);
+    
+    // Collect Part 2 selections
+    const part2Selections = {};
+    const selects = document.querySelectorAll('select[name^="example"]');
+    selects.forEach(select => {
+        if (select.value && select.value !== 'skip') {
+            part2Selections[`${select.name}_part2`] = select.value;
+        }
+    });
+    
+    // Combine Part 1 and Part 2 selections
+    const allParams = new URLSearchParams();
+    
+    // Add Part 1 selections
+    for (const [key, value] of currentParams.entries()) {
+        if (key.startsWith('example')) {
+            allParams.append(key, value);
+        }
+    }
+    
+    // Add Part 2 selections
+    Object.keys(part2Selections).forEach(key => {
+        allParams.append(key, part2Selections[key]);
+    });
+    
+    // Add completed flag
+    allParams.append('completed', 'true');
+    
+    window.location.href = `https://humblewisdomlxd.github.io/wscorevaluesexplained.html?${allParams.toString()}`;
+}, 500);
     } else {
         // Show modern alert
         showAlert('Please complete at least 4 groupings before continuing.');
