@@ -1051,8 +1051,30 @@ function switchToPart2() {
                     groupElement.style.color = 'rgba(255, 255, 255, 0.9)';
                 }
             });
-
-            function updateCompletionStatus() {
+           
+       function resetGroupings() {
+            if (currentPart === 1) {
+                const selects = document.querySelectorAll('select[name^="example"]:not([name*="_part2"])');
+                selects.forEach(select => {
+                    select.value = '';
+                });
+            } else {
+                const selects = document.querySelectorAll('select[name*="_part2"]');
+                selects.forEach(select => {
+                    select.value = '';
+                });
+            }
+            updateGroupings();
+            
+            // Announce to screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.className = 'sr-only';
+            announcement.textContent = 'All groupings have been reset';
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+ function updateCompletionStatus() {
             let selects, button;
             if (currentPart === 1) {
                 selects = document.querySelectorAll('select[name^="example"]:not([name*="_part2"])');
@@ -1091,30 +1113,7 @@ function switchToPart2() {
             // Update footer navigation as well
             updateNavigation();
         }
-
-       function resetGroupings() {
-            if (currentPart === 1) {
-                const selects = document.querySelectorAll('select[name^="example"]:not([name*="_part2"])');
-                selects.forEach(select => {
-                    select.value = '';
-                });
-            } else {
-                const selects = document.querySelectorAll('select[name*="_part2"]');
-                selects.forEach(select => {
-                    select.value = '';
-                });
-            }
-            updateGroupings();
             
-            // Announce to screen readers
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.className = 'sr-only';
-            announcement.textContent = 'All groupings have been reset';
-            document.body.appendChild(announcement);
-            setTimeout(() => document.body.removeChild(announcement), 1000);
-        }
-
         // Navigation functions
       function goBack() {
             if (currentPart === 2) {
@@ -1141,7 +1140,7 @@ function switchToPart2() {
                 // Update current part
                 currentPart = 1;
 
-                / Update progress bar for Part 1
+                // Update progress bar for Part 1
                 document.getElementById('progressBar').style.width = '60%';
 
                 // Update slide counter for Part 1
