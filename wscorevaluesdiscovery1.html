@@ -874,9 +874,24 @@
                 document.body.style.transition = 'opacity 0.5s ease';
                 document.body.style.opacity = '0';
                 
-                setTimeout(() => {
-                   window.location.href = 'https://humblewisdomlxd.github.io/wscorevaluesdiscovery2.html';
-        }, 500);
+               setTimeout(() => {
+    // Collect user selections
+    const selections = {};
+    const selects = document.querySelectorAll('select[name^="example"]');
+    selects.forEach(select => {
+        if (select.value && select.value !== 'skip') {
+            selections[select.name] = select.value;
+        }
+    });
+    
+    // Convert selections to URL parameters
+    const params = new URLSearchParams();
+    Object.keys(selections).forEach(key => {
+        params.append(key, selections[key]);
+    });
+    
+    window.location.href = `https://humblewisdomlxd.github.io/wscorevaluesdiscovery2.html?${params.toString()}`;
+}, 500);
                 } else {
                 // Show modern alert
                 showAlert('Please complete at least 4 groupings before continuing.');
