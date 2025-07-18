@@ -383,7 +383,7 @@ const valueData = [
 if (progressBar) {
     progressBar.style.width = `${progress}%`;
 }
-
+}
     function updateScore() {
     const scoreDisplay = document.getElementById('scoreDisplay');
 if (scoreDisplay) {
@@ -404,7 +404,7 @@ if (scoreDisplay) {
         }
       });
     }
-
+}
     // ==========================================================================
     // CONTENT LOADING FUNCTIONS
     // ==========================================================================
@@ -432,7 +432,10 @@ if (userSelections.length > 0) {
     document.getElementById('your-matches-content').textContent = 'No examples selected for this value';
 }
 
-function getUserSelectionsForValue(valueIndex) {
+    
+    // Rest of your function stays the same...
+        
+       function getUserSelectionsForValue(valueIndex) {
     // Get URL parameters with user selections
     const urlParams = new URLSearchParams(window.location.search);
     
@@ -443,13 +446,6 @@ function getUserSelectionsForValue(valueIndex) {
     }
     console.log('Looking for valueIndex:', valueIndex);
     
-    const selections = [];
-    
-    // Rest of your function stays the same...
-        
-        function getUserSelectionsForValue(valueIndex) {
-    // Get URL parameters with user selections
-    const urlParams = new URLSearchParams(window.location.search);
     const selections = [];
     
     // Map value index to group from Part 1 or Part 2
