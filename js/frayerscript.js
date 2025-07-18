@@ -428,6 +428,21 @@ if (userSelections.length > 0) {
     document.getElementById('your-matches-content').textContent = 'No examples selected for this value';
 }
 
+function getUserSelectionsForValue(valueIndex) {
+    // Get URL parameters with user selections
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // DEBUG: Log all URL parameters
+    console.log('All URL parameters:');
+    for (const [key, value] of urlParams.entries()) {
+        console.log(`${key}: ${value}`);
+    }
+    console.log('Looking for valueIndex:', valueIndex);
+    
+    const selections = [];
+    
+    // Rest of your function stays the same...
+        
         function getUserSelectionsForValue(valueIndex) {
     // Get URL parameters with user selections
     const urlParams = new URLSearchParams(window.location.search);
