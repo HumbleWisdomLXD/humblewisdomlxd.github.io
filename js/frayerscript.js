@@ -2,6 +2,16 @@
     // CONTENT DATA FOR ALL 6 VALUE PAIRS
     // ==========================================================================
     // CORRECTED valueData array - all 6 value pairs in correct order
+
+const part2ExampleTexts = {
+    example1_part2: "Doctor asks nurse for input on patient care strategy, acknowledging their expertise",
+    example2_part2: "Senior therapist apologizes to patient for interrupting during session", 
+    example3_part2: "Case manager coordinates with family and community services for patient discharge plan",
+    example4_part2: "Team works with housing authority to ensure patient has safe living arrangement",
+    example5_part2: "Nurse double-checks medication dosages and consults pharmacy before administration",
+    example6_part2: "Therapist researches new treatment methods to better help challenging patient case"
+};
+
 const valueData = [
   // Index 0: Empowerment &amp; Collaboration (you have this one - it's correct)
   {
@@ -423,13 +433,18 @@ if (userSelections.length > 0) {
     else if (valueIndex === 4) targetGroup = 'group2_part2'; // Partnership & Security from Part 2
     else if (valueIndex === 5) targetGroup = 'group3_part2'; // Excellence & Commitment from Part 2
     
-    // Find examples assigned to this group
-    for (let i = 1; i <= 6; i++) {
-        const selection = urlParams.get(`example${i}`);
-        if (selection === targetGroup) {
-            selections.push(exampleTexts[`example${i}`]);
-        }
+   // Find examples assigned to this group
+for (let i = 1; i <= 6; i++) {
+    const selection = urlParams.get(`example${i}`);
+    const part2Selection = urlParams.get(`example${i}_part2`);
+    
+    if (selection === targetGroup) {
+        selections.push(exampleTexts[`example${i}`]);
     }
+    if (part2Selection === targetGroup) {
+        selections.push(part2ExampleTexts[`example${i}_part2`]);
+    }
+}
     
     return selections;
 }
