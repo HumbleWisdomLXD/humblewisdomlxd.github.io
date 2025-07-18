@@ -402,7 +402,38 @@ const valueData = [
   document.getElementById('value-results-header').textContent = `${value.name} Results`;
       
       // Update top cards
-      document.getElementById('your-matches-content').textContent = value.yourMatches;
+      const userSelections = getUserSelectionsForValue(valueIndex);
+if (userSelections.length > 0) {
+    document.getElementById('your-matches-content').innerHTML = userSelections.map(text => `• ${text}`).join('<br>');
+} else {
+    document.getElementById('your-matches-content').textContent = 'No examples selected for this value';
+}
+
+        function getUserSelectionsForValue(valueIndex) {
+    // Get URL parameters with user selections
+    const urlParams = new URLSearchParams(window.location.search);
+    const selections = [];
+    
+    // Map value index to group from Part 1 or Part 2
+    let targetGroup;
+    if (valueIndex === 0) targetGroup = 'group1'; // Empowerment & Collaboration from Part 1
+    else if (valueIndex === 1) targetGroup = 'group2'; // Integrity & Transparency from Part 1  
+    else if (valueIndex === 2) targetGroup = 'group3'; // Innovation & Growth from Part 1
+    else if (valueIndex === 3) targetGroup = 'group1_part2'; // Humility & Respect from Part 2
+    else if (valueIndex === 4) targetGroup = 'group2_part2'; // Partnership & Security from Part 2
+    else if (valueIndex === 5) targetGroup = 'group3_part2'; // Excellence & Commitment from Part 2
+    
+    // Find examples assigned to this group
+    for (let i = 1; i <= 6; i++) {
+        const selection = urlParams.get(`example${i}`);
+        if (selection === targetGroup) {
+            selections.push(exampleTexts[`example${i}`]);
+        }
+    }
+    
+    return selections;
+}
+        
       const correctMatchesList = document.getElementById('correct-matches-content');
       correctMatchesList.innerHTML = '';
       value.correctMatches.forEach(match => {
