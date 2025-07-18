@@ -3,6 +3,15 @@
     // ==========================================================================
     // CORRECTED valueData array - all 6 value pairs in correct order
 
+const exampleTexts = {
+    example1: "Manager stays late to help team meet deadline despite personal plans",
+    example2: "Leader admits mistake to client and takes responsibility", 
+    example3: "Team chooses thorough research over quick launch",
+    example4: "Manager gives credit to team member for successful project",
+    example5: "Department shares resources with struggling sister team",
+    example6: "Leader provides honest feedback even when difficult"
+};
+
 const part2ExampleTexts = {
     example1_part2: "Doctor asks nurse for input on patient care strategy, acknowledging their expertise",
     example2_part2: "Senior therapist apologizes to patient for interrupting during session", 
