@@ -636,4 +636,14 @@ function updateNavigationButtons() {
       updateScore();
       updateProgress();
     });
-  
+
+// Check for completed parameter and show intro page
+if (new URLSearchParams(window.location.search).get('completed') === 'true') {
+  document.getElementById('intro-page').style.display = 'block';
+  document.querySelector('.scenario-container').style.display = 'none';
+}
+
+document.getElementById('start-training-btn').addEventListener('click', function() {
+  document.getElementById('intro-page').style.display = 'none';
+  document.querySelector('.scenario-container').style.display = 'block';
+});
